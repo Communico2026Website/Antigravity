@@ -305,17 +305,65 @@
     <section id="page-home" class="page-content canvas-grid">
       
       <!-- HERO SECTION -->
-      <div id="hero-container" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-24 pb-16 space-y-12">
+      <div id="hero-container" class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 md:pt-32 pb-24 space-y-12">
         
+        <!-- Left Wing Decorative Sparks (Styled to match screenshot) -->
+        <svg class="absolute -left-16 top-1/2 -translate-y-1/2 w-80 h-[500px] pointer-events-none opacity-80 hidden lg:block select-none overflow-visible" viewBox="0 0 300 500" fill="none">
+          <!-- Top Group (Indigo/Violet) -->
+          <rect x="20" y="80" width="3" height="12" rx="1.5" transform="rotate(25 20 80)" fill="#6366F1" opacity="0.6"/>
+          <rect x="45" y="60" width="3.5" height="14" rx="1.75" transform="rotate(40 45 60)" fill="#8B5CF6" opacity="0.7"/>
+          <rect x="70" y="90" width="3" height="10" rx="1.5" transform="rotate(15 70 90)" fill="#6366F1" opacity="0.5"/>
+          <rect x="95" y="75" width="4" height="15" rx="2" transform="rotate(30 95 75)" fill="#8B5CF6" opacity="0.8"/>
+          <rect x="120" y="110" width="3" height="12" rx="1.5" transform="rotate(45 120 110)" fill="#A78BFA" opacity="0.6"/>
+          <rect x="140" y="90" width="3.5" height="12" rx="1.75" transform="rotate(20 140 90)" fill="#8B5CF6" opacity="0.4"/>
+          
+          <!-- Upper Middle Group (Pink/Purple) -->
+          <rect x="30" y="160" width="3.5" height="14" rx="1.75" transform="rotate(10 30 160)" fill="#EC4899" opacity="0.8"/>
+          <rect x="55" y="140" width="3" height="12" rx="1.5" transform="rotate(-15 55 140)" fill="#D946EF" opacity="0.6"/>
+          <rect x="85" y="170" width="4" height="16" rx="2" transform="rotate(35 85 170)" fill="#EC4899" opacity="0.9"/>
+          <rect x="110" y="150" width="3" height="11" rx="1.5" transform="rotate(5 110 150)" fill="#F43F5E" opacity="0.7"/>
+          <rect x="135" y="190" width="3.5" height="13" rx="1.75" transform="rotate(25 135 190)" fill="#EC4899" opacity="0.5"/>
+          <rect x="165" y="165" width="3" height="10" rx="1.5" transform="rotate(-10 165 165)" fill="#F43F5E" opacity="0.6"/>
+          <rect x="190" y="180" width="4" height="14" rx="2" transform="rotate(15 190 180)" fill="#FB7185" opacity="0.8"/>
+
+          <!-- Middle Group (Rose/Red) -->
+          <rect x="40" y="240" width="4" height="16" rx="2" transform="rotate(-20 40 240)" fill="#F43F5E" opacity="0.9"/>
+          <rect x="65" y="220" width="3" height="12" rx="1.5" transform="rotate(15 65 220)" fill="#EF4444" opacity="0.7"/>
+          <rect x="95" y="250" width="3.5" height="13" rx="1.75" transform="rotate(40 95 250)" fill="#EC4899" opacity="0.6"/>
+          <rect x="125" y="230" width="4" height="15" rx="2" transform="rotate(-5 125 230)" fill="#EF4444" opacity="0.8"/>
+          <rect x="150" y="270" width="3" height="11" rx="1.5" transform="rotate(30 150 270)" fill="#F87171" opacity="0.5"/>
+          <rect x="175" y="245" width="3.5" height="14" rx="1.75" transform="rotate(10 175 245)" fill="#EF4444" opacity="0.7"/>
+          <rect x="205" y="260" width="3" height="12" rx="1.5" transform="rotate(-15 205 260)" fill="#F97316" opacity="0.6"/>
+          <rect x="230" y="280" width="3.5" height="12" rx="1.75" transform="rotate(20 230 280)" fill="#FB923C" opacity="0.5"/>
+
+          <!-- Lower Middle Group (Red/Orange) -->
+          <rect x="25" y="320" width="3" height="13" rx="1.5" transform="rotate(35 25 320)" fill="#EF4444" opacity="0.7"/>
+          <rect x="50" y="300" width="3.5" height="15" rx="1.75" transform="rotate(-10 50 300)" fill="#F97316" opacity="0.8"/>
+          <rect x="80" y="330" width="4" height="16" rx="2" transform="rotate(25 80 330)" fill="#EF4444" opacity="0.9"/>
+          <rect x="105" y="315" width="3" height="11" rx="1.5" transform="rotate(-30 105 315)" fill="#F97316" opacity="0.6"/>
+          <rect x="130" y="350" width="3.5" height="13" rx="1.75" transform="rotate(15 130 350)" fill="#F87171" opacity="0.5"/>
+          <rect x="160" y="330" width="3" height="12" rx="1.5" transform="rotate(5 160 330)" fill="#F97316" opacity="0.7"/>
+          <rect x="185" y="360" width="4" height="14" rx="2" transform="rotate(-20 185 360)" fill="#FB923C" opacity="0.8"/>
+          
+          <!-- Bottom Group (Orange/Amber) -->
+          <rect x="15" y="400" width="3.5" height="12" rx="1.75" transform="rotate(45 15 400)" fill="#F97316" opacity="0.6"/>
+          <rect x="35" y="380" width="3" height="10" rx="1.5" transform="rotate(15 35 380)" fill="#F59E0B" opacity="0.5"/>
+          <rect x="60" y="410" width="4" height="14" rx="2" transform="rotate(-10 60 410)" fill="#F97316" opacity="0.8"/>
+          <rect x="85" y="395" width="3" height="12" rx="1.5" transform="rotate(30 85 395)" fill="#F59E0B" opacity="0.6"/>
+          <rect x="110" y="430" width="3.5" height="13" rx="1.75" transform="rotate(5 110 430)" fill="#F97316" opacity="0.5"/>
+          <rect x="130" y="410" width="3" height="11" rx="1.5" transform="rotate(-25 130 410)" fill="#FCD34D" opacity="0.4"/>
+        </svg>
+
         <!-- Centered Text Copy -->
-        <div class="text-center max-w-4xl mx-auto space-y-6 fade-in-up active">
-          <!-- Premium Pill Badge -->
-          <div class="inline-flex items-center gap-2 px-3 py-1 bg-green-50 border border-[#408043]/15 rounded-full text-xs font-semibold text-[#408043] shadow-sm">
-            <span class="w-1.5 h-1.5 bg-[#408043] rounded-full animate-pulse"></span>
-            <span>Sovereign & Arabic-First Enterprise AI</span>
+        <div class="text-center max-w-4xl mx-auto space-y-6 fade-in-up active relative z-10">
+          
+          <!-- Premium Logo Badge (Styled like Google Antigravity badge) -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 bg-white border border-slateCustom-200 rounded-full shadow-sm hover:border-[#408043]/30 transition-all select-none">
+            <img src="co-logo.png" alt="Communico" class="h-5 object-contain">
+            <span class="text-sm font-semibold text-slateCustom-900 tracking-tight">Communico AI</span>
           </div>
           
-          <h1 data-t="hero.headline" class="text-4xl sm:text-5xl md:text-6xl font-extrabold font-dynamic-heading text-slateCustom-900 tracking-tight leading-[1.15]">
+          <h1 data-t="hero.headline" class="text-5xl sm:text-6xl md:text-7xl font-extrabold font-dynamic-heading text-slateCustom-900 tracking-tight leading-[1.1] max-w-5xl mx-auto">
             Enterprise AI Agents, Controlled by Your Organization.
           </h1>
           
@@ -323,133 +371,14 @@
             Communico is an enterprise agentic AI platform for organizations that need to build, govern, deploy, and scale Arabic-first AI agents across workflows, channels, tools, systems, and knowledge sources — on-premise, in private cloud, hybrid, or air-gapped environments where required.
           </p>
           
-          <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
-            <a href="#" onclick="navigate('workflow-automation'); return false;" data-t="ui.explore" class="bg-[#408043] text-white px-7 py-3 rounded-lg font-bold hover:bg-[#2E5E30] transition-all shadow-premium border border-[#408043]/20">
-              Explore Products
+          <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <a href="#" onclick="navigate('workflow-automation'); return false;" class="bg-slateCustom-900 text-white hover:bg-[#408043] active:scale-95 transition-all duration-200 px-8 py-3.5 rounded-full font-bold shadow-md flex items-center justify-center gap-2 hover:shadow-lg">
+              <span data-t="ui.explore">Explore Products</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </a>
-            <a href="#" onclick="navigate('governance-integrations'); return false;" data-t="nav.governance" class="bg-white text-slateCustom-900 px-7 py-3 rounded-lg font-bold hover:bg-slateCustom-50 transition-all border border-slateCustom-200 shadow-premium">
-              Governance & Integrations
+            <a href="#" onclick="navigate('governance-integrations'); return false;" class="bg-slateCustom-100 hover:bg-slateCustom-200 text-slateCustom-900 active:scale-95 transition-all duration-200 px-8 py-3.5 rounded-full font-bold flex items-center justify-center gap-2">
+              <span data-t="nav.governance">Governance & Integrations</span>
             </a>
-          </div>
-        </div>
-
-        <!-- 3D Parallax Canvas Mockup -->
-        <div class="perspective-container flex justify-center items-center py-6">
-          <div id="hero-card" class="parallax-card w-full max-w-5xl bg-white border border-slateCustom-200 shadow-premium rounded-2xl overflow-hidden grid grid-cols-12 md:h-[480px]">
-            
-            <!-- Sidebar Panel: Steps & Components -->
-            <div class="col-span-3 border-r border-slateCustom-100 bg-slateCustom-50 p-4 space-y-4 hidden md:block select-none">
-              <div class="text-xs font-bold text-gray-500 uppercase tracking-widest">Steps Library</div>
-              
-              <div class="space-y-2 text-xs">
-                <div class="flex items-center gap-2 p-2.5 border border-slateCustom-200 bg-white rounded-lg cursor-grab hover:border-[#408043] transition-colors">
-                  <span class="p-1 rounded bg-green-50 text-[#408043]">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                  </span>
-                  <span class="font-semibold text-slateCustom-900">Trigger Node</span>
-                </div>
-                <div class="flex items-center gap-2 p-2.5 border border-slateCustom-200 bg-white rounded-lg cursor-grab hover:border-[#408043] transition-colors">
-                  <span class="p-1 rounded bg-green-50 text-[#408043]">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
-                  </span>
-                  <span class="font-semibold text-slateCustom-900">Arabic NLU</span>
-                </div>
-                <div class="flex items-center gap-2 p-2.5 border border-slateCustom-200 bg-white rounded-lg cursor-grab hover:border-[#408043] transition-colors">
-                  <span class="p-1 rounded bg-green-50 text-[#408043]">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                  </span>
-                  <span class="font-semibold text-slateCustom-900">Compliance check</span>
-                </div>
-                <div class="flex items-center gap-2 p-2.5 border border-slateCustom-200 bg-white rounded-lg cursor-grab hover:border-[#408043] transition-colors">
-                  <span class="p-1 rounded bg-green-50 text-[#408043]">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                  </span>
-                  <span class="font-semibold text-slateCustom-900">SAP Integration</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Central Canvas area -->
-            <div class="col-span-12 md:col-span-6 canvas-grid bg-white p-6 relative flex flex-col justify-center min-h-[300px] overflow-hidden border-r border-slateCustom-100">
-              
-              <!-- Connection Lines Container -->
-              <svg class="absolute inset-0 w-full h-full pointer-events-none">
-                <path d="M 140,75 C 200,75 120,175 170,175" stroke="#E2E8F0" stroke-width="2" fill="none"></path>
-                <path d="M 140,75 C 200,75 120,175 170,175" stroke="#408043" stroke-width="2" fill="none" class="flow-line"></path>
-                
-                <path d="M 270,210 C 310,210 220,320 280,320" stroke="#E2E8F0" stroke-width="2" fill="none"></path>
-                <path d="M 270,210 C 310,210 220,320 280,320" stroke="#408043" stroke-width="2" fill="none" class="flow-line"></path>
-              </svg>
-
-              <!-- Node Cards floating -->
-              <div class="relative w-full h-full min-h-[260px]">
-                
-                <!-- Node 1: Start Trigger -->
-                <div class="absolute top-4 left-6 bg-white border border-[#408043] shadow-md p-3.5 rounded-xl w-40 select-none z-10 hover-glow">
-                  <div class="flex items-center gap-1.5">
-                    <span class="w-2 h-2 rounded-full bg-[#408043]"></span>
-                    <span class="text-xs uppercase font-bold text-[#408043]">Start Trigger</span>
-                  </div>
-                  <div class="text-xs font-bold text-slateCustom-900 mt-1">Customer Message</div>
-                </div>
-
-                <!-- Node 2: Arabic NLU -->
-                <div class="absolute top-28 right-8 bg-white border border-slateCustom-200 shadow-md p-3.5 rounded-xl w-48 select-none z-10 hover-glow">
-                  <div class="flex items-center justify-between border-b border-slateCustom-100 pb-1.5 mb-1.5">
-                    <span class="text-xs uppercase font-bold text-gray-500">Arabic NLU</span>
-                    <span class="text-xs bg-green-50 text-[#408043] px-2 py-0.5 rounded font-bold">Active</span>
-                  </div>
-                  <div class="text-xs font-bold text-slateCustom-900">Detect Dialect & Context</div>
-                  <div class="text-xs text-gray-500 font-mono mt-1">&gt; confidence: 0.98</div>
-                </div>
-
-                <!-- Node 3: Compliance Sandbox checks -->
-                <div class="absolute bottom-4 left-6 bg-white border border-slateCustom-200 shadow-md p-3.5 rounded-xl w-56 select-none z-10 hover-glow">
-                  <div class="flex items-center gap-2 border-b border-slateCustom-100 pb-1.5 mb-1.5">
-                    <svg class="w-5 h-5 text-[#408043]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                    <span class="text-xs uppercase font-bold text-slateCustom-900">Sovereign Boundary</span>
-                  </div>
-                  <div class="text-xs font-semibold text-[#408043] space-y-1">
-                    <div>✓ NCA Cloud Policy check</div>
-                    <div>✓ SAMA Compliance validation</div>
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-
-            <!-- Right Inspector panel -->
-            <div class="col-span-3 bg-slateCustom-50 p-4 flex flex-col justify-between hidden md:flex select-none">
-              <div class="space-y-4">
-                <div class="text-xs font-bold text-gray-500 uppercase tracking-widest border-b border-slateCustom-200 pb-2">Properties Inspector</div>
-                <div class="space-y-3.5 text-xs">
-                  <div class="space-y-1">
-                    <div class="text-xs uppercase font-bold text-gray-500">Selected Node</div>
-                    <div class="font-bold text-slateCustom-900">Arabic-First LLM Router</div>
-                  </div>
-                  <div class="space-y-1">
-                    <div class="text-xs uppercase font-bold text-gray-500">Hosting Model</div>
-                    <div class="font-bold text-[#408043] flex items-center gap-1.5">
-                      <span class="w-2 h-2 rounded-full bg-[#408043]"></span>
-                      ON-PREMISE (GCC)
-                    </div>
-                  </div>
-                  <div class="space-y-1">
-                    <div class="text-xs uppercase font-bold text-gray-500">Air-Gapped Status</div>
-                    <div class="font-semibold text-slateCustom-800">ENFORCED BOUNDARY</div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Simulator log -->
-              <div class="bg-slateCustom-900 text-[#56db56] p-3.5 rounded-lg font-mono text-xs space-y-1">
-                <div>&gt; NLU_ENGINE: OK</div>
-                <div>&gt; LOCALE: SAUDI_ARABIA</div>
-                <div class="animate-pulse">&gt; COMPLIANCE: 100% OK</div>
-              </div>
-            </div>
-
           </div>
         </div>
 
