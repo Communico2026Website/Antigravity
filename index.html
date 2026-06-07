@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Communico AI - Enterprise Content Library</title>
+  <meta name="description" content="Sovereign, Arabic-first AI agents and workflow automation for GCC enterprises. Run on-premise, hybrid, or air-gapped with regulatory compliance.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS v3.4 via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#408043',
+              hover: '#2E5E30',
+              bg: 'rgba(64, 128, 67, 0.08)',
+            },
+            canvas: '#F5F5F7',
+            heading: '#171717',
+            bodyCopy: '#525252',
+          },
+          borderRadius: {
+            'none': '0px',
+            'sm': '2px',
+            'DEFAULT': '4px',
+            'md': '4px',
+            'lg': '4px',
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Brutalist Custom Styles */
+    body {
+      background-color: #F5F5F7;
+      color: #525252;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    /* Font family overrides for English and Arabic */
+    html[dir="ltr"] .font-dynamic-body {
+      font-family: 'Outfit', sans-serif;
+    }
+    html[dir="rtl"] .font-dynamic-body {
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
+    }
+    
+    html[dir="ltr"] .font-dynamic-heading {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    html[dir="rtl"] .font-dynamic-heading {
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
+      font-weight: 700;
+    }
+
+    /* Scrollbar Style */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F5F5F7;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #408043;
+      border-radius: 0px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #2E5E30;
+    }
+
+    /* Infinite Marquee Animation */
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes marquee-rtl {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(50%); }
+    }
+    
+    .animate-marquee-ltr {
+      display: flex;
+      width: max-content;
+      animation: marquee 30s linear infinite;
+    }
+    .animate-marquee-rtl {
+      display: flex;
+      width: max-content;
+      animation: marquee-rtl 30s linear infinite;
+    }
+
+    /* 3D Perspective Card */
+    .perspective-container {
+      perspective: 1000px;
+    }
+    .parallax-card {
+      transition: transform 0.1s ease-out;
+      transform-style: preserve-3d;
+    }
+
+    /* Fade-in-up animations */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .fade-in-up.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Grid Custom lines */
+    .brutalist-border {
+      border: 1px solid #E5E7EB;
+    }
+    .brutalist-card {
+      background-color: #FFFFFF;
+      border: 1px solid #E5E7EB;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+    .brutalist-card:hover {
+      border-color: #408043;
+      box-shadow: 2px 2px 0px rgba(64, 128, 67, 0.15);
+    }
+
+    /* Typing Dots Animation */
+    @keyframes blink {
+      50% { opacity: 0.2; }
+    }
+    .typing-dot {
+      animation: blink 1.4s infinite both;
+    }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    /* Node connections simulation */
+    @keyframes flow {
+      0% { stroke-dashoffset: 24; }
+      100% { stroke-dashoffset: 0; }
+    }
+    .flow-line {
+      stroke-dasharray: 6, 6;
+      animation: flow 1s linear infinite;
+    }
+  </style>
+</head>
+<body class="h-full flex flex-col font-dynamic-body text-[#525252] overflow-x-hidden">
+
+  <!-- NAVIGATION HEADER -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-[#E5E7EB]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#" onclick="navigate('home'); return false;" class="flex items-center gap-2 text-xl font-bold font-dynamic-heading text-[#171717]">
+        <div class="w-8 h-8 bg-[#408043] flex items-center justify-center text-white rounded-none border border-[#171717] shadow-[1px_1px_0px_#171717]">
+          <span>C</span>
+        </div>
+        <span class="tracking-tight">COMMUNICO <span class="text-[#408043]">AI</span></span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="#" onclick="navigate('home'); return false;" data-t="nav.home" class="text-sm font-medium hover:text-[#408043] transition-colors py-2 px-1 text-[#171717]">Home</a>
+        
+        <!-- Products Dropdown Trigger -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 text-sm font-medium hover:text-[#408043] transition-colors py-2 px-1 text-[#171717]">
+            <span data-t="nav.products">Products</span>
+            <svg class="w-4 h-4 transform group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <!-- Dropdown Menu -->
+          <div class="absolute top-full left-0 w-64 bg-white border border-[#E5E7EB] shadow-lg py-2 mt-1 rounded-none hidden group-hover:block z-50">
+            <a href="#" onclick="navigate('workflow-automation'); return false;" data-t="prod.workflow.title" class="block px-4 py-2 text-xs font-medium hover:bg-brand-bg hover:text-[#408043]">AI Workflow Automation</a>
+            <a href="#" onclick="navigate('ai-agents'); return false;" data-t="prod.agents.title" class="block px-4 py-2 text-xs font-medium hover:bg-brand-bg hover:text-[#408043]">AI Agents</a>
+            <a href="#" onclick="navigate('assistant-agent'); return false;" data-t="prod.assistant.title" class="block px-4 py-2 text-xs font-medium hover:bg-brand-bg hover:text-[#408043]">Assistant Agent (Voice & Chat)</a>
+            <a href="#" onclick="navigate('enterprise-search'); return false;" data-t="prod.search.title" class="block px-4 py-2 text-xs font-medium hover:bg-brand-bg hover:text-[#408043]">AI Enterprise Search</a>
+            <a href="#" onclick="navigate('workroom'); return false;" data-t="prod.workroom.title" class="block px-4 py-2 text-xs font-medium hover:bg-brand-bg hover:text-[#408043]">AI Workroom</a>
+          </div>
+        </div>
+
+        <!-- Sectors Dropdown Trigger -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 text-sm font-medium hover:text-[#408043] transition-colors py-2 px-1 text-[#171717]">
+            <span data-t="nav.sectors">Sectors</span>
+            <svg class="w-4 h-4 transform group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="absolute top-full left-0 w-48 bg-white border border-[#E5E7EB] shadow-lg py-2 mt-1 rounded-none hidden group-hover:block z-50">
+            <a href="#" onclick="navigate('gov'); return false;" data-t="sector.gov.title" class="block px-4 py-2 text-xs font-medium hover:bg-brand-bg hover:text-[#408043]">Government</a>
+            <a href="#" onclick="navigate('bank'); return false;" data-t="sector.bank.title" class="block px-4 py-2 text-xs font-medium hover:bg-brand-bg hover:text-[#408043]">Banking</a>
+            <a href="#" onclick="navigate('ins'); return false;" data-t="sector.ins.title" class="block px-4 py-2 text-xs font-medium hover:bg-brand-bg hover:text-[#408043]">Insurance</a>
+            <a href="#" onclick="navigate('tel'); return false;" data-t="sector.tel.title" class="block px-4 py-2 text-xs font-medium hover:bg-brand-bg hover:text-[#408043]">Telecom</a>
+            <a href="#" onclick="navigate('fin'); return false;" data-t="sector.fin.title" class="block px-4 py-2 text-xs font-medium hover:bg-brand-bg hover:text-[#408043]">Fintech</a>
+          </div>
+        </div>
+
+        <a href="#" onclick="navigate('governance-integrations'); return false;" data-t="nav.governance" class="text-sm font-medium hover:text-[#408043] transition-colors py-2 px-1 text-[#171717]">Governance & Integrations</a>
+      </nav>
+
+      <!-- Right Buttons (Language + Demo CTA + Mobile Toggle) -->
+      <div class="flex items-center gap-3">
+        <!-- Language Switcher Button -->
+        <button id="langToggleBtn" onclick="toggleLanguage()" class="border border-[#E5E7EB] bg-white px-3 py-1.5 text-xs font-semibold hover:bg-brand-bg hover:border-[#408043] hover:text-[#408043] transition-all rounded-[4px] shadow-sm">
+          العربية
+        </button>
+        
+        <!-- CTA -->
+        <a href="#" onclick="alertDemoRequest(); return false;" data-t="nav.demo" class="hidden sm:inline-block bg-[#408043] text-white px-4 py-1.5 text-xs font-semibold rounded-[4px] hover:bg-[#2E5E30] transition-colors shadow-sm">
+          Book Demo
+        </a>
+
+        <!-- Mobile Menu Trigger -->
+        <button onclick="toggleMobileMenu()" class="md:hidden p-1.5 border border-[#E5E7EB] hover:bg-brand-bg hover:text-[#408043] rounded-[4px]">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-[#E5E7EB] bg-white px-4 py-4 space-y-3">
+      <a href="#" onclick="navigate('home'); toggleMobileMenu(); return false;" data-t="nav.home" class="block text-sm font-medium text-[#171717] py-1 border-b border-[#F3F4F6]">Home</a>
+      
+      <div class="space-y-1 py-1">
+        <div class="text-xs font-bold text-[#408043] uppercase tracking-wider px-1 mb-1" data-t="nav.products">Products</div>
+        <a href="#" onclick="navigate('workflow-automation'); toggleMobileMenu(); return false;" data-t="prod.workflow.title" class="block text-xs font-medium text-[#525252] pl-4 py-1">AI Workflow Automation</a>
+        <a href="#" onclick="navigate('ai-agents'); toggleMobileMenu(); return false;" data-t="prod.agents.title" class="block text-xs font-medium text-[#525252] pl-4 py-1">AI Agents</a>
+        <a href="#" onclick="navigate('assistant-agent'); toggleMobileMenu(); return false;" data-t="prod.assistant.title" class="block text-xs font-medium text-[#525252] pl-4 py-1">Assistant Agent (Voice & Chat)</a>
+        <a href="#" onclick="navigate('enterprise-search'); toggleMobileMenu(); return false;" data-t="prod.search.title" class="block text-xs font-medium text-[#525252] pl-4 py-1">AI Enterprise Search</a>
+        <a href="#" onclick="navigate('workroom'); toggleMobileMenu(); return false;" data-t="prod.workroom.title" class="block text-xs font-medium text-[#525252] pl-4 py-1">AI Workroom</a>
+      </div>
+
+      <div class="space-y-1 py-1 border-t border-[#F3F4F6]">
+        <div class="text-xs font-bold text-[#408043] uppercase tracking-wider px-1 mb-1" data-t="nav.sectors">Sectors</div>
+        <a href="#" onclick="navigate('gov'); toggleMobileMenu(); return false;" data-t="sector.gov.title" class="block text-xs font-medium text-[#525252] pl-4 py-1">Government</a>
+        <a href="#" onclick="navigate('bank'); toggleMobileMenu(); return false;" data-t="sector.bank.title" class="block text-xs font-medium text-[#525252] pl-4 py-1">Banking</a>
+        <a href="#" onclick="navigate('ins'); toggleMobileMenu(); return false;" data-t="sector.ins.title" class="block text-xs font-medium text-[#525252] pl-4 py-1">Insurance</a>
+        <a href="#" onclick="navigate('tel'); toggleMobileMenu(); return false;" data-t="sector.tel.title" class="block text-xs font-medium text-[#525252] pl-4 py-1">Telecom</a>
+        <a href="#" onclick="navigate('fin'); toggleMobileMenu(); return false;" data-t="sector.fin.title" class="block text-xs font-medium text-[#525252] pl-4 py-1">Fintech</a>
+      </div>
+
+      <a href="#" onclick="navigate('governance-integrations'); toggleMobileMenu(); return false;" data-t="nav.governance" class="block text-sm font-medium text-[#171717] py-2 border-t border-[#F3F4F6]">Governance & Integrations</a>
+      <a href="#" onclick="alertDemoRequest(); toggleMobileMenu(); return false;" data-t="nav.demo" class="block w-full text-center bg-[#408043] text-white py-2 text-xs font-bold rounded-[4px]">Book Demo</a>
+    </div>
+  </header>
+
+  <!-- MAIN SPA CONTENT WRAPPER -->
+  <main class="flex-grow">
+
+    <!-- PAGE: HOME -->
+    <section id="page-home" class="page-content">
+      
+      <!-- HERO SECTION -->
+      <div id="hero-container" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Text -->
+        <div class="space-y-6 fade-in-up active">
+          <span class="inline-block px-3 py-1 bg-brand-bg text-[#408043] border border-[#408043]/20 text-xs font-bold uppercase tracking-widest rounded-none">
+            Sovereign & Arabic-First
+          </span>
+          <h1 data-t="hero.headline" class="text-4xl sm:text-5xl font-extrabold font-dynamic-heading text-[#171717] leading-tight">
+            Enterprise AI Agents, Controlled by Your Organization.
+          </h1>
+          <p data-t="hero.subheadline" class="text-base sm:text-lg text-[#525252] font-light leading-relaxed">
+            Communico is an enterprise agentic AI platform for organizations that need to build, govern, deploy, and scale Arabic-first AI agents across workflows, channels, tools, systems, and knowledge sources — on-premise, in private cloud, hybrid, or air-gapped environments where required.
+          </p>
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a href="#" onclick="navigate('workflow-automation'); return false;" data-t="ui.explore" class="bg-[#408043] text-white px-6 py-3 text-sm font-semibold hover:bg-[#2E5E30] transition-colors rounded-[4px] shadow-sm border border-[#171717]">
+              Explore Products
+            </a>
+            <a href="#" onclick="navigate('governance-integrations'); return false;" data-t="nav.governance" class="bg-white text-[#171717] px-6 py-3 text-sm font-semibold hover:bg-brand-bg hover:text-[#408043] transition-all border border-[#E5E7EB] rounded-[4px] shadow-sm">
+              Governance & Integrations
+            </a>
+          </div>
+        </div>
+
+        <!-- 3D Parallax Interactive Visualization -->
+        <div class="perspective-container flex justify-center items-center h-full min-h-[350px] lg:min-h-[450px]">
+          <div id="hero-card" class="parallax-card w-full max-w-lg bg-white border-2 border-[#171717] p-6 shadow-[8px_8px_0px_#171717] rounded-[4px] space-y-6 relative overflow-hidden">
+            <!-- Grid Background styling -->
+            <div class="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#171717_1px,transparent_1px)] [background-size:16px_16px]"></div>
+            
+            <!-- Terminal Header -->
+            <div class="flex items-center justify-between border-b border-[#E5E7EB] pb-3">
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded-full bg-red-400"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+                <span class="w-3 h-3 rounded-full bg-[#408043]"></span>
+              </div>
+              <span class="text-[10px] font-mono tracking-widest text-[#525252]">COMMUNICO_CORE_V1.0</span>
+              <span class="px-2 py-0.5 bg-brand-bg text-[#408043] text-[9px] font-bold border border-[#408043]/30 rounded-none uppercase">Secure Node</span>
+            </div>
+
+            <!-- Visual Dashboard elements -->
+            <div class="space-y-4 relative z-10">
+              <!-- Grid Matrix of Agent stats -->
+              <div class="grid grid-cols-2 gap-4">
+                <div class="border border-[#E5E7EB] p-3 bg-canvas">
+                  <div class="text-[10px] uppercase font-bold text-[#525252] tracking-wider mb-1">Active Agents</div>
+                  <div class="text-2xl font-bold font-dynamic-heading text-[#171717] flex items-baseline gap-1.5">
+                    <span>14</span>
+                    <span class="text-xs text-[#408043] font-normal font-sans">▲ 3</span>
+                  </div>
+                </div>
+                <div class="border border-[#E5E7EB] p-3 bg-canvas">
+                  <div class="text-[10px] uppercase font-bold text-[#525252] tracking-wider mb-1">Audit Log Health</div>
+                  <div class="text-xs font-bold text-[#408043] flex items-center gap-1">
+                    <span class="w-2 h-2 bg-[#408043] rounded-full animate-pulse"></span>
+                    <span>100% SECURE</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Visual Flow Graph -->
+              <div class="border border-[#E5E7EB] p-4 bg-white space-y-3 relative">
+                <div class="text-[10px] font-bold uppercase text-[#171717]">Secure Network Perimeter</div>
+                <div class="h-24 flex items-center justify-around relative">
+                  <!-- Nodes -->
+                  <div class="w-12 h-12 border border-[#171717] bg-[#F5F5F7] flex flex-col items-center justify-center text-[8px] font-bold text-[#171717]">
+                    <svg class="w-4 h-4 text-[#408043] mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    DB Server
+                  </div>
+                  
+                  <div class="flex-grow h-[1px] relative flex items-center justify-center">
+                    <svg class="w-full h-8 overflow-visible absolute">
+                      <path d="M 0,16 H 120" stroke="#408043" stroke-width="2" fill="none" class="flow-line"></path>
+                    </svg>
+                  </div>
+
+                  <div class="w-16 h-16 border-2 border-[#408043] bg-brand-bg flex flex-col items-center justify-center text-[8px] font-bold text-[#171717] shadow-sm">
+                    <span class="w-2 h-2 bg-[#408043] rounded-full absolute -top-1 -right-1 animate-ping"></span>
+                    <svg class="w-5 h-5 text-[#408043] mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    Arabic-AI
+                  </div>
+
+                  <div class="flex-grow h-[1px] relative flex items-center justify-center">
+                    <svg class="w-full h-8 overflow-visible absolute">
+                      <path d="M 0,16 H 120" stroke="#408043" stroke-width="2" fill="none" class="flow-line"></path>
+                    </svg>
+                  </div>
+
+                  <div class="w-12 h-12 border border-[#171717] bg-[#F5F5F7] flex flex-col items-center justify-center text-[8px] font-bold text-[#171717]">
+                    <svg class="w-4 h-4 text-[#525252] mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+                    CRM Portal
+                  </div>
+                </div>
+              </div>
+
+              <!-- Terminal Simulated Outputs -->
+              <div class="bg-black text-[#56db56] p-3 font-mono text-[9px] space-y-1 overflow-hidden h-20 rounded-[2px] leading-tight">
+                <div>&gt; INITIALIZING SECURE AGENT NETWORK...</div>
+                <div>&gt; VERIFYING AIR-GAPPED DEPLOYMENT CHECKS: PASSED</div>
+                <div>&gt; LOCALE DETECTED: GCC / SAUDI ARABIA</div>
+                <div>&gt; LANGUAGE PRIORITY: ARABIC-FIRST (GCC DIALECTS LOADED)</div>
+                <div class="animate-pulse">&gt; MONITORING COMPLIANCE TRAIL... ACTIVE [OK]</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRUST BAR SECTION -->
+      <div class="border-y border-[#E5E7EB] bg-white py-8 overflow-hidden select-none">
+        <div class="max-w-7xl mx-auto px-4 mb-4 text-center">
+          <span data-t="ui.trust_headline" class="text-xs font-bold uppercase tracking-widest text-[#525252]">
+            Trusted by GCC Organizations
+          </span>
+        </div>
+        <!-- Infinite Horizontal Marquee Container -->
+        <div class="relative w-full overflow-hidden flex items-center h-14">
+          <div id="marqueeTrack" class="animate-marquee-ltr flex gap-16 items-center">
+            <!-- Slide 1 -->
+            <img src="logo1.png" alt="Aramco" class="h-9 object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+            <img src="logo2.png" alt="Princess Nourah" class="h-10 object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+            <div class="text-[#171717] font-semibold text-sm font-dynamic-heading flex items-center gap-2 border border-[#E5E7EB] px-3 py-1">
+              <span class="w-2 h-2 bg-[#408043]"></span> NEOM
+            </div>
+            <div class="text-[#171717] font-semibold text-sm font-dynamic-heading flex items-center gap-2 border border-[#E5E7EB] px-3 py-1">
+              <span class="w-2 h-2 bg-[#408043]"></span> Saudi Electricity Company
+            </div>
+            <div class="text-[#171717] font-semibold text-xs border border-[#E5E7EB] px-3 py-1 bg-brand-bg text-[#408043] font-mono">
+              SAMA REGULATED BANK
+            </div>
+            
+            <!-- Slide 2 (Duplicated for infinite looping) -->
+            <img src="logo1.png" alt="Aramco" class="h-9 object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+            <img src="logo2.png" alt="Princess Nourah" class="h-10 object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all">
+            <div class="text-[#171717] font-semibold text-sm font-dynamic-heading flex items-center gap-2 border border-[#E5E7EB] px-3 py-1">
+              <span class="w-2 h-2 bg-[#408043]"></span> NEOM
+            </div>
+            <div class="text-[#171717] font-semibold text-sm font-dynamic-heading flex items-center gap-2 border border-[#E5E7EB] px-3 py-1">
+              <span class="w-2 h-2 bg-[#408043]"></span> Saudi Electricity Company
+            </div>
+            <div class="text-[#171717] font-semibold text-xs border border-[#E5E7EB] px-3 py-1 bg-brand-bg text-[#408043] font-mono">
+              SAMA REGULATED BANK
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- THE PROBLEM SECTION -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 border-b border-[#E5E7EB]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start fade-in-up">
+          <div class="lg:col-span-5 space-y-4">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#408043]" data-t="prod.workflow.problem_label">The Problem</span>
+            <h2 data-t="problem.headline" class="text-3xl font-extrabold font-dynamic-heading text-[#171717] leading-tight">
+              Most AI platforms were not designed for controlled enterprise environments.
+            </h2>
+          </div>
+          <div class="lg:col-span-7 space-y-6">
+            <p data-t="problem.body" class="text-[#525252] leading-relaxed font-light text-base sm:text-lg">
+              Enterprises across the GCC need AI, but they cannot treat it as a generic cloud tool. Sensitive data, regulated workflows, internal systems, and Arabic customer interactions require a different operating model. AI must run where the organization can control it. Agents must operate within defined boundaries. Tool access must be permissioned. Sensitive outputs must be reviewable. And Arabic cannot be treated as a secondary language. The challenge is not only how to build AI agents. The real challenge is how to build, govern, connect, review, and scale them safely.
+            </p>
+            <!-- Highlight Box -->
+            <div class="border border-[#408043]/30 bg-brand-bg p-6 rounded-none">
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center sm:text-left">
+                <div class="space-y-1">
+                  <div class="text-2xl font-bold font-dynamic-heading text-[#171717]">100%</div>
+                  <div class="text-[10px] uppercase font-bold text-[#525252]">Data Sovereignty</div>
+                </div>
+                <div class="space-y-1 border-t sm:border-t-0 sm:border-x border-[#E5E7EB] pt-4 sm:pt-0 sm:px-6">
+                  <div class="text-2xl font-bold font-dynamic-heading text-[#171717]">Arabic-First</div>
+                  <div class="text-[10px] uppercase font-bold text-[#525252]">Local Dialect Models</div>
+                </div>
+                <div class="space-y-1 pt-4 sm:pt-0 sm:pl-6">
+                  <div class="text-2xl font-bold font-dynamic-heading text-[#171717]">Fully Audited</div>
+                  <div class="text-[10px] uppercase font-bold text-[#525252]">Compliance Logs</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- THE PLATFORM (BENTO BOX GRID) -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        
+        <!-- Header -->
+        <div class="space-y-4 mb-16 text-center max-w-3xl mx-auto fade-in-up">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#408043]">The Platform</span>
+          <h2 data-t="platform.headline" class="text-3xl font-extrabold font-dynamic-heading text-[#171717]">
+            One enterprise foundation for governed AI agent operations.
+          </h2>
+          <p data-t="platform.body" class="text-sm sm:text-base text-[#525252] leading-relaxed">
+            Communico brings agent building, workflow automation, enterprise search, human review, tool connections, and controlled deployment into one enterprise platform.
+          </p>
+        </div>
+
+        <!-- Bento Box Grid (Mobile-first collapses, desktop layout 3-columns) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch fade-in-up">
+          
+          <!-- Card 1: Workflow Automation (Spans 2 columns on desktop) -->
+          <div onclick="navigate('workflow-automation')" class="brutalist-card md:col-span-2 flex flex-col justify-between overflow-hidden cursor-pointer group p-6">
+            <div class="space-y-3 mb-8">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-mono text-[#408043] uppercase tracking-widest font-bold">Visual Studio</span>
+                <span class="text-xs border border-[#408043]/30 px-2 py-0.5 bg-brand-bg text-[#408043] font-bold">Bento-01</span>
+              </div>
+              <h3 data-t="prod.workflow.title" class="text-xl font-bold font-dynamic-heading text-[#171717]">AI Workflow Automation</h3>
+              <p data-t="prod.workflow.advantage" class="text-xs text-[#525252] leading-relaxed max-w-xl">
+                A visual automation studio that runs inside your walls. Communico's drag-and-drop builder lets you connect systems, route work, and embed AI logic into any process.
+              </p>
+            </div>
+            
+            <!-- Micro Mockup 1: Flowchart Simulator -->
+            <div class="border border-[#E5E7EB] bg-canvas p-4 h-48 flex items-center justify-center relative rounded-[2px] overflow-hidden">
+              <div class="flex items-center gap-4 relative z-10 w-full max-w-md">
+                <div class="flex-grow flex flex-col items-center justify-center p-2.5 border border-[#171717] bg-white text-[10px] font-bold text-[#171717]">
+                  <span data-t="demo.wf.start">Inquiry Received</span>
+                </div>
+                
+                <div class="w-12 h-6 relative flex items-center justify-center">
+                  <svg class="w-full h-4 overflow-visible">
+                    <line x1="0" y1="8" x2="48" y2="8" stroke="#171717" stroke-width="1.5" stroke-dasharray="4,4" class="flow-line"></line>
+                  </svg>
+                </div>
+
+                <div class="flex-grow flex flex-col items-center justify-center p-2.5 border-2 border-[#408043] bg-brand-bg text-[10px] font-bold text-[#171717]">
+                  <span data-t="demo.wf.step2">Arabic AI Agent Check</span>
+                </div>
+
+                <div class="w-12 h-6 relative flex items-center justify-center">
+                  <svg class="w-full h-4 overflow-visible">
+                    <line x1="0" y1="8" x2="48" y2="8" stroke="#408043" stroke-width="1.5" stroke-dasharray="4,4" class="flow-line"></line>
+                  </svg>
+                </div>
+
+                <div class="flex-grow flex flex-col items-center justify-center p-2.5 border border-[#171717] bg-white text-[10px] font-bold text-[#171717]">
+                  <span data-t="demo.wf.end">Update CRM</span>
+                </div>
+              </div>
+              <!-- Floating decorative circles -->
+              <div class="absolute w-2 h-2 bg-[#408043] rounded-full animate-ping top-10 left-12"></div>
+              <div class="absolute w-2 h-2 bg-[#408043] rounded-full animate-ping bottom-10 right-16"></div>
+            </div>
+          </div>
+
+          <!-- Card 2: AI Agents (Spans 1 column) -->
+          <div onclick="navigate('ai-agents')" class="brutalist-card flex flex-col justify-between overflow-hidden cursor-pointer group p-6">
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-mono text-[#408043] uppercase tracking-widest font-bold">Autonomy</span>
+                <span class="text-xs border border-[#408043]/30 px-2 py-0.5 bg-brand-bg text-[#408043] font-bold">Bento-02</span>
+              </div>
+              <h3 data-t="prod.agents.title" class="text-xl font-bold font-dynamic-heading text-[#171717]">AI Agents</h3>
+              <p data-t="prod.agents.advantage" class="text-xs text-[#525252] leading-relaxed">
+                Agents that plan their own path to the goal. Orchestrators delegate to Workers to handle specific tasks, all operating within defined boundaries.
+              </p>
+            </div>
+
+            <!-- Micro Mockup 2: Orchestration Tree -->
+            <div class="border border-[#E5E7EB] bg-canvas p-4 h-48 flex flex-col items-center justify-center relative rounded-[2px]">
+              <div class="space-y-4 w-full">
+                <!-- Top Node -->
+                <div class="mx-auto w-32 py-1.5 border border-[#171717] bg-white text-[8px] font-bold text-center tracking-wider">
+                  ORCHESTRATOR
+                </div>
+                <!-- Connection SVG -->
+                <div class="h-6 w-full flex justify-center">
+                  <svg class="h-6 w-32 overflow-visible">
+                    <line x1="64" y1="0" x2="64" y2="24" stroke="#408043" stroke-width="1.5"></line>
+                    <line x1="16" y1="12" x2="112" y2="12" stroke="#408043" stroke-width="1.5"></line>
+                    <line x1="16" y1="12" x2="16" y2="24" stroke="#408043" stroke-width="1.5"></line>
+                    <line x1="112" y1="12" x2="112" y2="24" stroke="#408043" stroke-width="1.5"></line>
+                  </svg>
+                </div>
+                <!-- Bottom Nodes -->
+                <div class="flex justify-between gap-4">
+                  <div class="flex-1 py-1.5 border-2 border-[#408043] bg-brand-bg text-[7px] font-bold text-center uppercase tracking-tight">
+                    Arabic Writer
+                  </div>
+                  <div class="flex-1 py-1.5 border border-[#E5E7EB] bg-white text-[7px] font-bold text-center uppercase tracking-tight">
+                    SAMA Checker
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Assistant Agent (Spans 1 column) -->
+          <div onclick="navigate('assistant-agent')" class="brutalist-card flex flex-col justify-between overflow-hidden cursor-pointer group p-6">
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-mono text-[#408043] uppercase tracking-widest font-bold">Bilingual Dialects</span>
+                <span class="text-xs border border-[#408043]/30 px-2 py-0.5 bg-brand-bg text-[#408043] font-bold">Bento-03</span>
+              </div>
+              <h3 data-t="prod.assistant.title" class="text-xl font-bold font-dynamic-heading text-[#171717]">Assistant Agent (Voice & Chat)</h3>
+              <p data-t="prod.assistant.advantage" class="text-xs text-[#525252] leading-relaxed">
+                An agent that handles calls and chats autonomously—fluent in Arabic dialects, 24/7, and fully integrated with your CRM.
+              </p>
+            </div>
+
+            <!-- Micro Mockup 3: Chat Widget -->
+            <div class="border border-[#E5E7EB] bg-canvas p-3 h-48 flex flex-col justify-end gap-2 relative rounded-[2px] overflow-hidden">
+              <div class="bg-white border border-[#E5E7EB] p-2 text-[8px] max-w-[85%] self-end">
+                How can we process SAMA compliance rules in Arabic?
+              </div>
+              <div class="bg-brand-bg border border-[#408043]/30 p-2 text-[8px] max-w-[85%] self-start text-right" dir="rtl">
+                يمكنني صياغة الردود وضمان امتثالها لضوابط البنك المركزي السعودي تلقائياً.
+              </div>
+              <div class="flex items-center gap-1 self-start pl-2">
+                <span class="w-1.5 h-1.5 bg-[#408043] rounded-full typing-dot"></span>
+                <span class="w-1.5 h-1.5 bg-[#408043] rounded-full typing-dot"></span>
+                <span class="w-1.5 h-1.5 bg-[#408043] rounded-full typing-dot"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: AI Enterprise Search (Spans 1 column) -->
+          <div onclick="navigate('enterprise-search')" class="brutalist-card flex flex-col justify-between overflow-hidden cursor-pointer group p-6">
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-mono text-[#408043] uppercase tracking-widest font-bold">Semantic Search</span>
+                <span class="text-xs border border-[#408043]/30 px-2 py-0.5 bg-brand-bg text-[#408043] font-bold">Bento-04</span>
+              </div>
+              <h3 data-t="prod.search.title" class="text-xl font-bold font-dynamic-heading text-[#171717]">AI Enterprise Search</h3>
+              <p data-t="prod.search.advantage" class="text-xs text-[#525252] leading-relaxed">
+                Ask a question, get an answer with its source. Semantic search that turns scattered enterprise knowledge into grounded, permission-aware answers.
+              </p>
+            </div>
+
+            <!-- Micro Mockup 4: Search Dashboard -->
+            <div class="border border-[#E5E7EB] bg-canvas p-3 h-48 flex flex-col gap-2 relative rounded-[2px] overflow-hidden text-[8px] font-mono">
+              <div class="bg-white border border-[#171717] p-2 flex items-center justify-between">
+                <span>Search internal audit portal...</span>
+                <svg class="w-3 h-3 text-[#408043]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+              </div>
+              <div class="bg-white border border-[#E5E7EB] p-2 space-y-1.5">
+                <div class="text-[#408043] font-bold">1 Answer Found [Grounded]</div>
+                <p class="text-[7px] leading-tight">Data retention is limited to 7 years in SA. [Source: PDPL-Sec4.pdf]</p>
+                <div class="text-[6px] text-gray-400">Clearance: Security Cleared ✓</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: AI Workroom (Spans 1 column or collapses) -->
+          <div onclick="navigate('workroom')" class="brutalist-card flex flex-col justify-between overflow-hidden cursor-pointer group p-6">
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-mono text-[#408043] uppercase tracking-widest font-bold">Human-in-the-Loop</span>
+                <span class="text-xs border border-[#408043]/30 px-2 py-0.5 bg-brand-bg text-[#408043] font-bold">Bento-05</span>
+              </div>
+              <h3 data-t="prod.workroom.title" class="text-xl font-bold font-dynamic-heading text-[#171717]">AI Workroom</h3>
+              <p data-t="prod.workroom.advantage" class="text-xs text-[#525252] leading-relaxed">
+                A governed workspace where specialized AI agents collaborate under human oversight to complete complex processes, start to finish, with a full audit trail.
+              </p>
+            </div>
+
+            <!-- Micro Mockup 5: Audit Log/Compliance Verification -->
+            <div class="border border-[#E5E7EB] bg-canvas p-3 h-48 flex flex-col gap-2 relative rounded-[2px] overflow-hidden text-[7px] font-mono">
+              <div class="flex items-center justify-between border-b border-[#E5E7EB] pb-1.5">
+                <span class="font-bold text-[#171717]">Q2 AUDIT WORKSPACE</span>
+                <span class="px-1.5 py-0.5 bg-yellow-100 text-yellow-800 font-bold">PENDING APPROVAL</span>
+              </div>
+              <div class="space-y-1 bg-white p-2 border border-[#E5E7EB]">
+                <div>• AI_ANALYSIS_AGENT: SCANNING SUCCESSFUL</div>
+                <div>• COMPLIANCE_RULE_CHECK: NO ALERTS</div>
+                <div class="text-[#408043] font-bold">• HUMAN_ACTION: Awaiting approval click...</div>
+              </div>
+              <div class="w-full bg-[#408043] text-white text-center py-1 font-bold rounded-[2px] hover:bg-[#2E5E30] transition-colors cursor-pointer text-[8px]">
+                APPROVE WORKFLOW
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- PAGE: PRODUCT - WORKFLOW AUTOMATION -->
+    <section id="page-workflow-automation" class="page-content hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+        
+        <!-- Header & Intro -->
+        <div class="border-b border-[#E5E7EB] pb-8 space-y-4">
+          <a href="#" onclick="navigate('home'); return false;" class="text-xs font-bold text-[#408043] flex items-center gap-1 hover:underline">
+            ← <span data-t="ui.back_home">Back to Home</span>
+          </a>
+          <h1 data-t="prod.workflow.title" class="text-3xl sm:text-4xl font-extrabold font-dynamic-heading text-[#171717]">AI Workflow Automation</h1>
+          <p data-t="prod.workflow.headline" class="text-lg sm:text-xl text-[#408043] font-medium">Automate Your Operations — On Your Own Infrastructure.</p>
+        </div>
+
+        <!-- Problem vs Advantage -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="brutalist-card p-6 space-y-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-red-600" data-t="prod.workflow.problem_label">The Problem</span>
+            <p data-t="prod.workflow.problem" class="text-sm text-[#525252] leading-relaxed">
+              Your operations rely on manual tasks spanning disconnected legacy systems. Every day, your teams waste hours moving data by hand between silos.
+            </p>
+          </div>
+          <div class="brutalist-card p-6 border-l-4 border-l-[#408043] space-y-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#408043]" data-t="prod.workflow.advantage_label">The Communico Advantage</span>
+            <p data-t="prod.workflow.advantage" class="text-sm text-[#525252] leading-relaxed">
+              A visual automation studio that runs inside your walls. Communico's drag-and-drop builder lets you connect systems, route work, and embed AI logic into any process.
+            </p>
+          </div>
+        </div>
+
+        <!-- Interactive Demo sandbox -->
+        <div class="brutalist-card p-6 space-y-6">
+          <div class="flex flex-wrap items-center justify-between border-b border-[#E5E7EB] pb-3 gap-2">
+            <h3 data-t="ui.interactive_demo" class="text-sm font-bold uppercase tracking-wider text-[#171717]">Interactive Sandbox Demo</h3>
+            <button onclick="runWorkflowDemo()" id="runWfBtn" class="bg-[#408043] text-white px-4 py-1.5 text-xs font-bold rounded-[4px] hover:bg-[#2E5E30] transition-colors">
+              <span data-t="demo.wf.run">Run Simulation</span>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Node Canvas Simulator -->
+            <div class="lg:col-span-2 border border-[#E5E7EB] bg-canvas p-6 relative rounded-[4px] min-h-[300px] flex flex-col justify-around">
+              <div class="flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
+                <!-- Node 1 -->
+                <div id="wfNode1" class="w-full sm:w-36 p-3 border border-[#171717] bg-white text-center rounded-[2px] transition-all">
+                  <div class="text-[9px] uppercase font-bold text-gray-400">Step 1</div>
+                  <div class="text-xs font-bold text-[#171717]" data-t="demo.wf.start">Inquiry Received</div>
+                  <div class="text-[9px] text-[#408043] mt-1 font-mono hidden" id="wfNode1Status">Active</div>
+                </div>
+                
+                <svg class="hidden sm:block w-12 h-6 overflow-visible">
+                  <line x1="0" y1="12" x2="48" y2="12" stroke="#171717" stroke-width="1.5" stroke-dasharray="4,4" id="wfLine1"></line>
+                </svg>
+
+                <!-- Node 2 -->
+                <div id="wfNode2" class="w-full sm:w-36 p-3 border border-[#E5E7EB] bg-white text-center rounded-[2px] transition-all">
+                  <div class="text-[9px] uppercase font-bold text-gray-400">Step 2</div>
+                  <div class="text-xs font-bold text-[#171717]" data-t="demo.wf.step2">Arabic AI Agent Check</div>
+                  <div class="text-[9px] text-[#408043] mt-1 font-mono hidden" id="wfNode2Status">Active</div>
+                </div>
+
+                <svg class="hidden sm:block w-12 h-6 overflow-visible">
+                  <line x1="0" y1="12" x2="48" y2="12" stroke="#E5E7EB" stroke-width="1.5" stroke-dasharray="4,4" id="wfLine2"></line>
+                </svg>
+
+                <!-- Node 3 -->
+                <div id="wfNode3" class="w-full sm:w-36 p-3 border border-[#E5E7EB] bg-white text-center rounded-[2px] transition-all">
+                  <div class="text-[9px] uppercase font-bold text-gray-400">Step 3</div>
+                  <div class="text-xs font-bold text-[#171717]" data-t="demo.wf.end">Update CRM</div>
+                  <div class="text-[9px] text-[#408043] mt-1 font-mono hidden" id="wfNode3Status">Active</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Terminal Outputs -->
+            <div class="border border-[#E5E7EB] bg-black text-[#56db56] p-4 rounded-[4px] font-mono text-xs h-[300px] overflow-y-auto space-y-2" id="wfConsole">
+              <div>&gt; System Ready. Click Run Simulation.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PAGE: PRODUCT - AI AGENTS -->
+    <section id="page-ai-agents" class="page-content hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+        
+        <!-- Header -->
+        <div class="border-b border-[#E5E7EB] pb-8 space-y-4">
+          <a href="#" onclick="navigate('home'); return false;" class="text-xs font-bold text-[#408043] flex items-center gap-1 hover:underline">
+            ← <span data-t="ui.back_home">Back to Home</span>
+          </a>
+          <h1 data-t="prod.agents.title" class="text-3xl sm:text-4xl font-extrabold font-dynamic-heading text-[#171717]">AI Agents</h1>
+          <p data-t="prod.agents.headline" class="text-lg sm:text-xl text-[#408043] font-medium">Agents That Plan, Act, and Coordinate.</p>
+        </div>
+
+        <!-- Problem vs Advantage -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="brutalist-card p-6 space-y-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-red-600" data-t="prod.workflow.problem_label">The Problem</span>
+            <p data-t="prod.agents.problem" class="text-sm text-[#525252] leading-relaxed">
+              Real enterprise work doesn't follow a fixed script. Analysis and multi-step decisions require more than rigid automation—they require intelligence.
+            </p>
+          </div>
+          <div class="brutalist-card p-6 border-l-4 border-l-[#408043] space-y-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#408043]" data-t="prod.workflow.advantage_label">The Communico Advantage</span>
+            <p data-t="prod.agents.advantage" class="text-sm text-[#525252] leading-relaxed">
+              Agents that plan their own path to the goal. Orchestrators delegate to Workers to handle specific tasks, all operating within defined boundaries.
+            </p>
+          </div>
+        </div>
+
+        <!-- Interactive Planner Demo -->
+        <div class="brutalist-card p-6 space-y-6">
+          <div class="flex flex-wrap items-center justify-between border-b border-[#E5E7EB] pb-3 gap-2">
+            <h3 data-t="ui.interactive_demo" class="text-sm font-bold uppercase tracking-wider text-[#171717]">Interactive Sandbox Demo</h3>
+            <button onclick="runAgentDemo()" id="runAgentBtn" class="bg-[#408043] text-white px-4 py-1.5 text-xs font-bold rounded-[4px] hover:bg-[#2E5E30] transition-colors">
+              <span data-t="demo.ag.btn">Trigger AI Planner</span>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Visual Node Tree -->
+            <div class="lg:col-span-2 border border-[#E5E7EB] bg-canvas p-6 relative rounded-[4px] min-h-[300px] flex flex-col justify-center">
+              <div class="space-y-6 w-full max-w-md mx-auto">
+                <div class="bg-white border border-[#171717] p-2.5 text-center text-xs font-bold" data-t="demo.ag.task">
+                  Goal: Generate Sovereign Cloud Report
+                </div>
+                
+                <!-- Orchestrator node -->
+                <div id="agNodeOrch" class="w-40 mx-auto p-3 border border-[#E5E7EB] bg-white text-center rounded-[2px] transition-all">
+                  <div class="text-[9px] uppercase font-bold text-gray-400" data-t="demo.ag.orchestrate">Orchestrator Agent</div>
+                  <div class="text-[10px] text-[#408043] font-mono hidden mt-1" id="agOrchStatus">Planning...</div>
+                </div>
+
+                <div class="h-6 w-full flex justify-center">
+                  <svg class="h-6 w-48 overflow-visible">
+                    <line x1="96" y1="0" x2="96" y2="24" stroke="#E5E7EB" stroke-width="1.5" id="agLineC"></line>
+                    <line x1="24" y1="12" x2="168" y2="12" stroke="#E5E7EB" stroke-width="1.5" id="agLineH"></line>
+                    <line x1="24" y1="12" x2="24" y2="24" stroke="#E5E7EB" stroke-width="1.5" id="agLineL"></line>
+                    <line x1="168" y1="12" x2="168" y2="24" stroke="#E5E7EB" stroke-width="1.5" id="agLineR"></line>
+                  </svg>
+                </div>
+
+                <!-- Worker Nodes -->
+                <div class="flex justify-between gap-6">
+                  <div id="agNodeW1" class="flex-1 p-2 border border-[#E5E7EB] bg-white text-center text-[10px] rounded-[2px] transition-all">
+                    <div class="font-bold text-[#171717]" data-t="demo.ag.w1">Worker Agent 1: Compliance Analyzer</div>
+                  </div>
+                  <div id="agNodeW2" class="flex-1 p-2 border border-[#E5E7EB] bg-white text-center text-[10px] rounded-[2px] transition-all">
+                    <div class="font-bold text-[#171717]" data-t="demo.ag.w2">Worker Agent 2: Arabic Content Drafter</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Console -->
+            <div class="border border-[#E5E7EB] bg-black text-[#56db56] p-4 rounded-[4px] font-mono text-xs h-[300px] overflow-y-auto space-y-2" id="agConsole">
+              <div>&gt; Planner ready. Click Trigger AI Planner.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PAGE: PRODUCT - ASSISTANT AGENT -->
+    <section id="page-assistant-agent" class="page-content hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+        
+        <!-- Header -->
+        <div class="border-b border-[#E5E7EB] pb-8 space-y-4">
+          <a href="#" onclick="navigate('home'); return false;" class="text-xs font-bold text-[#408043] flex items-center gap-1 hover:underline">
+            ← <span data-t="ui.back_home">Back to Home</span>
+          </a>
+          <h1 data-t="prod.assistant.title" class="text-3xl sm:text-4xl font-extrabold font-dynamic-heading text-[#171717]">Assistant Agent (Voice & Chat)</h1>
+          <p data-t="prod.assistant.headline" class="text-lg sm:text-xl text-[#408043] font-medium">A Call Center That Speaks Your Customers' Language.</p>
+        </div>
+
+        <!-- Problem vs Advantage -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="brutalist-card p-6 space-y-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-red-600" data-t="prod.workflow.problem_label">The Problem</span>
+            <p data-t="prod.assistant.problem" class="text-sm text-[#525252] leading-relaxed">
+              Your contact center is squeezed. Rising call volumes and automated voice solutions that stumble exactly where it matters most: on Arabic.
+            </p>
+          </div>
+          <div class="brutalist-card p-6 border-l-4 border-l-[#408043] space-y-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#408043]" data-t="prod.workflow.advantage_label">The Communico Advantage</span>
+            <p data-t="prod.assistant.advantage" class="text-sm text-[#525252] leading-relaxed">
+              An agent that handles calls and chats autonomously—fluent in Arabic dialects, 24/7, and fully integrated with your CRM.
+            </p>
+          </div>
+        </div>
+
+        <!-- Chat Sandbox Demo -->
+        <div class="brutalist-card p-6 space-y-6">
+          <h3 data-t="ui.interactive_demo" class="text-sm font-bold uppercase tracking-wider text-[#171717] border-b border-[#E5E7EB] pb-3">Interactive Sandbox Demo</h3>
+          
+          <div class="max-w-xl mx-auto border border-[#E5E7EB] rounded-[4px] overflow-hidden flex flex-col bg-canvas h-[380px] shadow-sm">
+            <!-- Top bar -->
+            <div class="bg-white border-b border-[#E5E7EB] p-3 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 bg-[#408043] rounded-full animate-pulse"></span>
+                <span class="text-xs font-bold text-[#171717] font-dynamic-heading" data-t="prod.assistant.title">Assistant Agent (Voice & Chat)</span>
+              </div>
+              <span class="text-[10px] text-gray-400 font-mono">CRM Connected</span>
+            </div>
+
+            <!-- Dialogue container -->
+            <div id="chatMessages" class="flex-grow p-4 overflow-y-auto space-y-4 text-xs">
+              <!-- Preset user msg -->
+              <div class="flex flex-col items-end space-y-1">
+                <span class="text-[9px] text-gray-400">Customer (English)</span>
+                <div class="bg-white border border-[#E5E7EB] p-2.5 max-w-[85%] rounded-[4px]" data-t="demo.chat.user_msg">
+                  I want to open a commercial account under corporate regulations.
+                </div>
+              </div>
+            </div>
+
+            <!-- Input area simulator -->
+            <div class="bg-white border-t border-[#E5E7EB] p-3 flex gap-2">
+              <input type="text" disabled placeholder="Dialect simulation loaded..." data-t-placeholder="demo.chat.agent_typing" class="flex-grow bg-[#F5F5F7] px-3 py-1.5 text-xs border border-[#E5E7EB] rounded-[2px]">
+              <button onclick="triggerChatReply()" id="chatBtn" class="bg-[#408043] text-white px-4 py-1.5 text-xs font-bold rounded-[2px] hover:bg-[#2E5E30]">
+                <span data-t="demo.chat.btn">Send Message</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PAGE: PRODUCT - ENTERPRISE SEARCH -->
+    <section id="page-enterprise-search" class="page-content hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+        
+        <!-- Header -->
+        <div class="border-b border-[#E5E7EB] pb-8 space-y-4">
+          <a href="#" onclick="navigate('home'); return false;" class="text-xs font-bold text-[#408043] flex items-center gap-1 hover:underline">
+            ← <span data-t="ui.back_home">Back to Home</span>
+          </a>
+          <h1 data-t="prod.search.title" class="text-3xl sm:text-4xl font-extrabold font-dynamic-heading text-[#171717]">AI Enterprise Search</h1>
+          <p data-t="prod.search.headline" class="text-lg sm:text-xl text-[#408043] font-medium">Every Answer, Straight From Your Sources.</p>
+        </div>
+
+        <!-- Problem vs Advantage -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="brutalist-card p-6 space-y-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-red-600" data-t="prod.workflow.problem_label">The Problem</span>
+            <p data-t="prod.search.problem" class="text-sm text-[#525252] leading-relaxed">
+              Your organization's knowledge is trapped. The answer exists, but it is buried in documents, portals, and databases.
+            </p>
+          </div>
+          <div class="brutalist-card p-6 border-l-4 border-l-[#408043] space-y-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#408043]" data-t="prod.workflow.advantage_label">The Communico Advantage</span>
+            <p data-t="prod.search.advantage" class="text-sm text-[#525252] leading-relaxed">
+              Ask a question, get an answer with its source. Semantic search that turns scattered enterprise knowledge into grounded, permission-aware answers.
+            </p>
+          </div>
+        </div>
+
+        <!-- Search interactive Sandbox -->
+        <div class="brutalist-card p-6 space-y-6">
+          <h3 data-t="ui.interactive_demo" class="text-sm font-bold uppercase tracking-wider text-[#171717] border-b border-[#E5E7EB] pb-3">Interactive Sandbox Demo</h3>
+          
+          <div class="max-w-2xl mx-auto border border-[#E5E7EB] rounded-[4px] p-6 bg-canvas space-y-4">
+            <div class="flex gap-2">
+              <input type="text" id="searchInput" placeholder="Type query..." data-t-placeholder="demo.srch.placeholder" class="flex-grow bg-white px-4 py-2 border-2 border-[#171717] text-xs rounded-[2px]" readonly>
+              <button onclick="triggerSearchQuery()" id="searchBtn" class="bg-[#408043] text-white px-4 py-2 text-xs font-bold rounded-[2px] hover:bg-[#2E5E30] transition-colors border border-[#171717]">
+                <span data-t="demo.srch.btn">Submit Semantic Query</span>
+              </button>
+            </div>
+
+            <!-- Query Output Area -->
+            <div id="searchOutput" class="hidden bg-white border border-[#E5E7EB] p-4 rounded-[4px] space-y-3 text-xs">
+              <div class="flex items-center justify-between border-b border-[#F3F4F6] pb-2">
+                <span class="text-[#408043] font-bold">✓ Grounded Semantic Response</span>
+                <span class="text-[10px] px-2 py-0.5 bg-[#408043]/10 text-[#408043] border border-[#408043]/20">Permission: SECURE CLOUD</span>
+              </div>
+              <p id="searchAnswerText" class="text-gray-700 leading-relaxed"></p>
+              <div class="text-[9px] text-gray-400 font-mono">
+                Sources cited: NCA_Cloud_v2.pdf (Page 12), PDPL_2023.pdf (Sec 3.1)
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PAGE: PRODUCT - AI WORKROOM -->
+    <section id="page-workroom" class="page-content hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+        
+        <!-- Header -->
+        <div class="border-b border-[#E5E7EB] pb-8 space-y-4">
+          <a href="#" onclick="navigate('home'); return false;" class="text-xs font-bold text-[#408043] flex items-center gap-1 hover:underline">
+            ← <span data-t="ui.back_home">Back to Home</span>
+          </a>
+          <h1 data-t="prod.workroom.title" class="text-3xl sm:text-4xl font-extrabold font-dynamic-heading text-[#171717]">AI Workroom</h1>
+          <p data-t="prod.workroom.headline" class="text-lg sm:text-xl text-[#408043] font-medium">Where Teams of Agents Get Real Work Done.</p>
+        </div>
+
+        <!-- Problem vs Advantage -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="brutalist-card p-6 space-y-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-red-600" data-t="prod.workflow.problem_label">The Problem</span>
+            <p data-t="prod.workroom.problem" class="text-sm text-[#525252] leading-relaxed">
+              Some processes are too important for a single automation: Audit, compliance, and financial review require human accountability.
+            </p>
+          </div>
+          <div class="brutalist-card p-6 border-l-4 border-l-[#408043] space-y-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#408043]" data-t="prod.workflow.advantage_label">The Communico Advantage</span>
+            <p data-t="prod.workroom.advantage" class="text-sm text-[#525252] leading-relaxed">
+              A governed workspace where specialized AI agents collaborate under human oversight to complete complex processes, start to finish, with a full audit trail.
+            </p>
+          </div>
+        </div>
+
+        <!-- Interactive Workroom Demo -->
+        <div class="brutalist-card p-6 space-y-6">
+          <h3 data-t="ui.interactive_demo" class="text-sm font-bold uppercase tracking-wider text-[#171717] border-b border-[#E5E7EB] pb-3">Interactive Sandbox Demo</h3>
+          
+          <div class="max-w-2xl mx-auto border border-[#E5E7EB] bg-canvas p-6 rounded-[4px] space-y-4">
+            <div class="flex items-center justify-between border-b border-[#E5E7EB] pb-3">
+              <span class="text-xs font-bold text-[#171717] uppercase tracking-wider" data-t="demo.wr.title">Compliance Audit Workroom</span>
+              <span id="wrStatusBadge" class="px-2 py-0.5 bg-yellow-100 text-yellow-800 text-[10px] font-bold rounded-[2px]" data-t="demo.wr.badge_active">Under Review</span>
+            </div>
+
+            <!-- Workroom task detail card -->
+            <div class="bg-white border border-[#E5E7EB] p-4 space-y-3 text-xs">
+              <div class="font-bold text-[#171717]" data-t="demo.wr.card_title">Q2 Financial Compliance Verification</div>
+              
+              <!-- Audit Logs -->
+              <div class="space-y-1.5 font-mono text-[10px] border-t border-[#F3F4F6] pt-3 text-gray-500">
+                <div class="text-[#408043] font-semibold" data-t="demo.wr.step1">✓ AI Agent scanned 142 ledger transactions for compliance.</div>
+                <div class="text-[#408043] font-semibold" data-t="demo.wr.step2">✓ Flagged 2 outliers for currency conversion review.</div>
+                <div id="wrStep3" class="hidden text-gray-400" data-t="demo.wr.step3">• Human Compliance Officer verified flags and clicked approve.</div>
+                <div id="wrStep4" class="hidden text-gray-400" data-t="demo.wr.step4">• Final audit cryptographically signed & logged.</div>
+              </div>
+            </div>
+
+            <!-- Approve btn -->
+            <button onclick="approveWorkroomTask()" id="wrBtn" class="w-full bg-[#408043] text-white text-center py-2 text-xs font-bold rounded-[4px] hover:bg-[#2E5E30] transition-colors border border-[#171717]">
+              <span data-t="demo.wr.btn">Simulate Workroom Action</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTOR DETAIL PAGE CONTAINER (Dynamic display based on sector selected) -->
+    <section id="page-sector-template" class="page-content hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+        
+        <!-- Header -->
+        <div class="border-b border-[#E5E7EB] pb-8 space-y-4">
+          <a href="#" onclick="navigate('home'); return false;" class="text-xs font-bold text-[#408043] flex items-center gap-1 hover:underline">
+            ← <span data-t="ui.back_home">Back to Home</span>
+          </a>
+          <h1 id="sectorTitle" class="text-3xl sm:text-4xl font-extrabold font-dynamic-heading text-[#171717]">Sector</h1>
+          <p id="sectorHeadline" class="text-lg sm:text-xl text-[#408043] font-medium"></p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <!-- Main Content Focus -->
+          <div class="lg:col-span-7 brutalist-card p-8 space-y-6">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#408043]" data-t="ui.sectors_title">Sector Solutions</span>
+            <p id="sectorFocus" class="text-sm sm:text-base text-[#525252] leading-relaxed font-light"></p>
+            
+            <div class="border-t border-[#E5E7EB] pt-6 space-y-4">
+              <h4 class="text-xs font-bold uppercase tracking-widest text-[#171717]">Key Capabilities</h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                <div class="flex items-center gap-2 border border-[#E5E7EB] p-2.5 bg-canvas rounded-[2px]">
+                  <span class="w-1.5 h-1.5 bg-[#408043] rounded-full"></span>
+                  <span>100% On-Premise Audit Trail</span>
+                </div>
+                <div class="flex items-center gap-2 border border-[#E5E7EB] p-2.5 bg-canvas rounded-[2px]">
+                  <span class="w-1.5 h-1.5 bg-[#408043] rounded-full"></span>
+                  <span>GCC Localization Controls</span>
+                </div>
+                <div class="flex items-center gap-2 border border-[#E5E7EB] p-2.5 bg-canvas rounded-[2px]">
+                  <span class="w-1.5 h-1.5 bg-[#408043] rounded-full"></span>
+                  <span>Air-Gapped Cloud Support</span>
+                </div>
+                <div class="flex items-center gap-2 border border-[#E5E7EB] p-2.5 bg-canvas rounded-[2px]">
+                  <span class="w-1.5 h-1.5 bg-[#408043] rounded-full"></span>
+                  <span>Arabic CRM Data Routing</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sandbox Dashboard -->
+          <div class="lg:col-span-5 brutalist-card p-6 bg-white space-y-4">
+            <div class="flex items-center justify-between border-b border-[#E5E7EB] pb-3">
+              <span class="text-xs font-bold text-[#171717] font-mono">REGULATORY MATRIX</span>
+              <span class="px-2 py-0.5 bg-brand-bg text-[#408043] border border-[#408043]/30 text-[9px] font-bold">COMPLIANT</span>
+            </div>
+            
+            <div class="space-y-3 text-xs">
+              <div class="flex items-center justify-between p-2 bg-[#F9FAFB] border border-[#E5E7EB]">
+                <span class="font-bold">National Cyber Security (NCA)</span>
+                <span class="text-[#408043] font-bold">✓ ALIGNED</span>
+              </div>
+              <div class="flex items-center justify-between p-2 bg-[#F9FAFB] border border-[#E5E7EB]">
+                <span class="font-bold">Personal Data Protection (PDPL)</span>
+                <span class="text-[#408043] font-bold">✓ CERTIFIED</span>
+              </div>
+              <div class="flex items-center justify-between p-2 bg-[#F9FAFB] border border-[#E5E7EB]">
+                <span class="font-bold">Saudi Arabian Monetary (SAMA)</span>
+                <span id="samaCheck" class="text-gray-400 font-bold">N/A</span>
+              </div>
+              <div class="flex items-center justify-between p-2 bg-[#F9FAFB] border border-[#E5E7EB]">
+                <span class="font-bold">CST Scale Regulations</span>
+                <span id="cstCheck" class="text-gray-400 font-bold">N/A</span>
+              </div>
+            </div>
+
+            <div class="bg-black text-[#56db56] p-3 font-mono text-[9px] h-24 overflow-y-auto space-y-1 rounded-[2px]">
+              <div>&gt; Loading sector policy guidelines...</div>
+              <div>&gt; Verification agent status: ACTIVE</div>
+              <div>&gt; Checking sandbox parameters...</div>
+              <div class="animate-pulse">&gt; Compliance reports generated successfully.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PAGE: GOVERNANCE & INTEGRATIONS -->
+    <section id="page-governance-integrations" class="page-content hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+        
+        <!-- Header -->
+        <div class="border-b border-[#E5E7EB] pb-8 space-y-4">
+          <a href="#" onclick="navigate('home'); return false;" class="text-xs font-bold text-[#408043] flex items-center gap-1 hover:underline">
+            ← <span data-t="ui.back_home">Back to Home</span>
+          </a>
+          <h1 data-t="nav.governance" class="text-3xl sm:text-4xl font-extrabold font-dynamic-heading text-[#171717]">Governance & Integrations</h1>
+        </div>
+
+        <!-- Governance Principles -->
+        <div class="space-y-6">
+          <h2 data-t="gov.title" class="text-xl font-bold font-dynamic-heading text-[#171717] border-b border-[#E5E7EB] pb-2">Governance Principles</h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+            <!-- Principle 1 -->
+            <div class="brutalist-card p-5 space-y-2">
+              <div class="w-8 h-8 bg-brand-bg text-[#408043] border border-[#408043]/30 flex items-center justify-center font-bold text-xs">1</div>
+              <h3 data-t="gov.principle1.name" class="font-bold text-xs text-[#171717]">Control by Design</h3>
+              <p data-t="gov.principle1.desc" class="text-[11px] text-[#525252] leading-relaxed">You dictate the boundaries.</p>
+            </div>
+            <!-- Principle 2 -->
+            <div class="brutalist-card p-5 space-y-2">
+              <div class="w-8 h-8 bg-brand-bg text-[#408043] border border-[#408043]/30 flex items-center justify-center font-bold text-xs">2</div>
+              <h3 data-t="gov.principle2.name" class="font-bold text-xs text-[#171717]">Human Oversight</h3>
+              <p data-t="gov.principle2.desc" class="text-[11px] text-[#525252] leading-relaxed">Review workflows for high-stakes decisions.</p>
+            </div>
+            <!-- Principle 3 -->
+            <div class="brutalist-card p-5 space-y-2">
+              <div class="w-8 h-8 bg-brand-bg text-[#408043] border border-[#408043]/30 flex items-center justify-center font-bold text-xs">3</div>
+              <h3 data-t="gov.principle3.name" class="font-bold text-xs text-[#171717]">Permissioned Access</h3>
+              <p data-t="gov.principle3.desc" class="text-[11px] text-[#525252] leading-relaxed">Agents only touch what they are authorized to touch.</p>
+            </div>
+            <!-- Principle 4 -->
+            <div class="brutalist-card p-5 space-y-2">
+              <div class="w-8 h-8 bg-brand-bg text-[#408043] border border-[#408043]/30 flex items-center justify-center font-bold text-xs">4</div>
+              <h3 data-t="gov.principle4.name" class="font-bold text-xs text-[#171717]">Reviewable Outputs</h3>
+              <p data-t="gov.principle4.desc" class="text-[11px] text-[#525252] leading-relaxed">AI suggestions can be edited, rejected, or approved.</p>
+            </div>
+            <!-- Principle 5 -->
+            <div class="brutalist-card p-5 space-y-2">
+              <div class="w-8 h-8 bg-brand-bg text-[#408043] border border-[#408043]/30 flex items-center justify-center font-bold text-xs">5</div>
+              <h3 data-t="gov.principle5.name" class="font-bold text-xs text-[#171717]">Operational Auditability</h3>
+              <p data-t="gov.principle5.desc" class="text-[11px] text-[#525252] leading-relaxed">Know exactly who (or what) did what, and when.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Integration Philosophy -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="space-y-6">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#408043]">Perimeter Control</span>
+            <h2 data-t="integ.headline" class="text-2xl sm:text-3xl font-extrabold font-dynamic-heading text-[#171717] leading-tight">
+              Connect to the Systems You Already Run.
+            </h2>
+            <p data-t="integ.body" class="text-sm sm:text-base text-[#525252] leading-relaxed font-light">
+              We don’t ask you to replace your stack. We connect to it. From SAP and Oracle to proprietary internal databases, Communico agents integrate securely within your network perimeter.
+            </p>
+          </div>
+
+          <!-- Interactive DB mapping visualizer -->
+          <div class="brutalist-card p-6 bg-white space-y-4">
+            <div class="text-xs font-bold uppercase text-[#171717] border-b border-[#E5E7EB] pb-2">Secure API Link mapper</div>
+            
+            <div class="space-y-3">
+              <!-- SAP -->
+              <div class="flex items-center justify-between p-2 border border-[#E5E7EB] bg-canvas text-xs">
+                <div class="flex items-center gap-2 font-bold text-[#171717]">
+                  <span class="w-2 h-2 bg-[#408043] rounded-full"></span>
+                  SAP Database
+                </div>
+                <span class="font-mono text-[9px] text-[#408043]">CONNECTED (SSL/IPSEC)</span>
+              </div>
+              <!-- Oracle -->
+              <div class="flex items-center justify-between p-2 border border-[#E5E7EB] bg-canvas text-xs">
+                <div class="flex items-center gap-2 font-bold text-[#171717]">
+                  <span class="w-2 h-2 bg-[#408043] rounded-full"></span>
+                  Oracle CRM
+                </div>
+                <span class="font-mono text-[9px] text-[#408043]">CONNECTED (LOCAL LAN)</span>
+              </div>
+              <!-- Internal Vault -->
+              <div class="flex items-center justify-between p-2 border border-[#E5E7EB] bg-canvas text-xs">
+                <div class="flex items-center gap-2 font-bold text-[#171717]">
+                  <span class="w-2 h-2 bg-[#408043] rounded-full"></span>
+                  Proprietary Document Directory
+                </div>
+                <span class="font-mono text-[9px] text-[#408043]">CONNECTED (AIR-GAPPED STORAGE)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-[#E5E7EB] py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+      
+      <!-- App Info -->
+      <div class="space-y-4">
+        <div class="text-base font-bold font-dynamic-heading text-[#171717]">COMMUNICO AI</div>
+        <p class="text-xs text-[#525252] leading-relaxed">
+          Sovereign, Arabic-first AI agents and workflows for modern GCC enterprises.
+        </p>
+        <p class="text-[10px] text-gray-400">Riyadh, Kingdom of Saudi Arabia</p>
+      </div>
+
+      <!-- Products links -->
+      <div class="space-y-3">
+        <h4 data-t="nav.products" class="text-xs font-bold text-[#171717] uppercase tracking-wider">Products</h4>
+        <ul class="space-y-1.5 text-xs">
+          <li><a href="#" onclick="navigate('workflow-automation'); return false;" data-t="prod.workflow.title" class="hover:text-[#408043]">AI Workflow Automation</a></li>
+          <li><a href="#" onclick="navigate('ai-agents'); return false;" data-t="prod.agents.title" class="hover:text-[#408043]">AI Agents</a></li>
+          <li><a href="#" onclick="navigate('assistant-agent'); return false;" data-t="prod.assistant.title" class="hover:text-[#408043]">Assistant Agent (Voice & Chat)</a></li>
+          <li><a href="#" onclick="navigate('enterprise-search'); return false;" data-t="prod.search.title" class="hover:text-[#408043]">AI Enterprise Search</a></li>
+          <li><a href="#" onclick="navigate('workroom'); return false;" data-t="prod.workroom.title" class="hover:text-[#408043]">AI Workroom</a></li>
+        </ul>
+      </div>
+
+      <!-- Sectors Links -->
+      <div class="space-y-3">
+        <h4 data-t="nav.sectors" class="text-xs font-bold text-[#171717] uppercase tracking-wider">Sectors</h4>
+        <ul class="space-y-1.5 text-xs">
+          <li><a href="#" onclick="navigate('gov'); return false;" data-t="sector.gov.title" class="hover:text-[#408043]">Government</a></li>
+          <li><a href="#" onclick="navigate('bank'); return false;" data-t="sector.bank.title" class="hover:text-[#408043]">Banking</a></li>
+          <li><a href="#" onclick="navigate('ins'); return false;" data-t="sector.ins.title" class="hover:text-[#408043]">Insurance</a></li>
+          <li><a href="#" onclick="navigate('tel'); return false;" data-t="sector.tel.title" class="hover:text-[#408043]">Telecom</a></li>
+          <li><a href="#" onclick="navigate('fin'); return false;" data-t="sector.fin.title" class="hover:text-[#408043]">Fintech</a></li>
+        </ul>
+      </div>
+
+      <!-- Regulatory Compliances notes -->
+      <div class="space-y-3 border-t md:border-t-0 pt-6 md:pt-0">
+        <h4 class="text-xs font-bold text-[#171717] uppercase tracking-wider">Regulatory Compliance</h4>
+        <div class="flex flex-wrap gap-2 pt-1">
+          <span class="px-2 py-0.5 border border-[#E5E7EB] bg-canvas text-[8px] font-bold text-[#525252]">NCA Cloud ALIGNED</span>
+          <span class="px-2 py-0.5 border border-[#E5E7EB] bg-canvas text-[8px] font-bold text-[#525252]">PDPL COMPLIANT</span>
+          <span class="px-2 py-0.5 border border-[#E5E7EB] bg-canvas text-[8px] font-bold text-[#525252]">SAMA READY</span>
+          <span class="px-2 py-0.5 border border-[#E5E7EB] bg-canvas text-[8px] font-bold text-[#525252]">Vision 2030 Aligned</span>
+        </div>
+        <p class="text-[9px] text-gray-400 pt-2">&copy; 2026 Communico AI. All rights reserved.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- CORE SCRIPTS & STATE MACHINE -->
+  <script>
+    // TRANSLATIONS DICTIONARY
+    const translations = {
+      en: {
+        "nav.home": "Home",
+        "nav.products": "Products",
+        "nav.sectors": "Sectors",
+        "nav.governance": "Governance & Integrations",
+        "nav.demo": "Book Demo",
+        "hero.headline": "Enterprise AI Agents, Controlled by Your Organization.",
+        "hero.subheadline": "Communico is an enterprise agentic AI platform for organizations that need to build, govern, deploy, and scale Arabic-first AI agents across workflows, channels, tools, systems, and knowledge sources — on-premise, in private cloud, hybrid, or air-gapped environments where required.",
+        "problem.headline": "Most AI platforms were not designed for controlled enterprise environments.",
+        "problem.body": "Enterprises across the GCC need AI, but they cannot treat it as a generic cloud tool. Sensitive data, regulated workflows, internal systems, and Arabic customer interactions require a different operating model. AI must run where the organization can control it. Agents must operate within defined boundaries. Tool access must be permissioned. Sensitive outputs must be reviewable. And Arabic cannot be treated as a secondary language. The challenge is not only how to build AI agents. The real challenge is how to build, govern, connect, review, and scale them safely.",
+        "platform.headline": "One enterprise foundation for governed AI agent operations.",
+        "platform.body": "Communico brings agent building, workflow automation, enterprise search, human review, tool connections, and controlled deployment into one enterprise platform.",
+        
+        "prod.workflow.title": "AI Workflow Automation",
+        "prod.workflow.headline": "Automate Your Operations — On Your Own Infrastructure.",
+        "prod.workflow.problem_label": "The Problem",
+        "prod.workflow.problem": "Your operations rely on manual tasks spanning disconnected legacy systems. Every day, your teams waste hours moving data by hand between silos.",
+        "prod.workflow.advantage_label": "The Communico Advantage",
+        "prod.workflow.advantage": "A visual automation studio that runs inside your walls. Communico's drag-and-drop builder lets you connect systems, route work, and embed AI logic into any process.",
+        
+        "prod.agents.title": "AI Agents",
+        "prod.agents.headline": "Agents That Plan, Act, and Coordinate.",
+        "prod.agents.problem_label": "The Problem",
+        "prod.agents.problem": "Real enterprise work doesn't follow a fixed script. Analysis and multi-step decisions require more than rigid automation—they require intelligence.",
+        "prod.agents.advantage_label": "The Communico Advantage",
+        "prod.agents.advantage": "Agents that plan their own path to the goal. Orchestrators delegate to Workers to handle specific tasks, all operating within defined boundaries.",
+
+        "prod.assistant.title": "Assistant Agent (Voice & Chat)",
+        "prod.assistant.headline": "A Call Center That Speaks Your Customers' Language.",
+        "prod.assistant.problem_label": "The Problem",
+        "prod.assistant.problem": "Your contact center is squeezed. Rising call volumes and automated voice solutions that stumble exactly where it matters most: on Arabic.",
+        "prod.assistant.advantage_label": "The Communico Advantage",
+        "prod.assistant.advantage": "An agent that handles calls and chats autonomously—fluent in Arabic dialects, 24/7, and fully integrated with your CRM.",
+
+        "prod.search.title": "AI Enterprise Search",
+        "prod.search.headline": "Every Answer, Straight From Your Sources.",
+        "prod.search.problem_label": "The Problem",
+        "prod.search.problem": "Your organization's knowledge is trapped. The answer exists, but it is buried in documents, portals, and databases.",
+        "prod.search.advantage_label": "The Communico Advantage",
+        "prod.search.advantage": "Ask a question, get an answer with its source. Semantic search that turns scattered enterprise knowledge into grounded, permission-aware answers.",
+
+        "prod.workroom.title": "AI Workroom",
+        "prod.workroom.headline": "Where Teams of Agents Get Real Work Done.",
+        "prod.workroom.problem_label": "The Problem",
+        "prod.workroom.problem": "Some processes are too important for a single automation: Audit, compliance, and financial review require human accountability.",
+        "prod.workroom.advantage_label": "The Communico Advantage",
+        "prod.workroom.advantage": "A governed workspace where specialized AI agents collaborate under human oversight to complete complex processes, start to finish, with a full audit trail.",
+
+        "sector.gov.title": "Government",
+        "sector.gov.headline": "Sovereign AI for the Public Sector.",
+        "sector.gov.focus": "Modernize citizen services and internal operations with AI that runs entirely inside government infrastructure. Aligned with NCA controls, PDPL, and Vision 2030.",
+        
+        "sector.bank.title": "Banking",
+        "sector.bank.headline": "Enterprise AI Your Regulator Can Trust.",
+        "sector.bank.focus": "Automate operations, serve customers in Arabic, and unlock institutional knowledge—all inside your own perimeter, under SAMA oversight.",
+        
+        "sector.ins.title": "Insurance",
+        "sector.ins.headline": "AI for Insurers, Inside Your Own Walls.",
+        "sector.ins.focus": "Speed up claims, service policyholders in Arabic, and automate document-heavy workflows on infrastructure you fully control.",
+
+        "sector.tel.title": "Telecom",
+        "sector.tel.headline": "AI at Telecom Scale — Sovereign by Design.",
+        "sector.tel.focus": "Handle massive customer volumes in Arabic and automate backend operations on infrastructure you control. Fully aligned with CST regulations.",
+
+        "sector.fin.title": "Fintech",
+        "sector.fin.headline": "Move Fast — Without Moving Your Data.",
+        "sector.fin.focus": "Sovereign, Arabic-first AI that lets fintechs automate and scale while staying inside regulatory bounds (SAMA sandbox, CMA).",
+
+        "gov.title": "Governance Principles",
+        "gov.principle1.name": "Control by Design",
+        "gov.principle1.desc": "You dictate the boundaries.",
+        "gov.principle2.name": "Human Oversight",
+        "gov.principle2.desc": "Review workflows for high-stakes decisions.",
+        "gov.principle3.name": "Permissioned Access",
+        "gov.principle3.desc": "Agents only touch what they are authorized to touch.",
+        "gov.principle4.name": "Reviewable Outputs",
+        "gov.principle4.desc": "AI suggestions can be edited, rejected, or approved.",
+        "gov.principle5.name": "Operational Auditability",
+        "gov.principle5.desc": "Know exactly who (or what) did what, and when.",
+
+        "integ.title": "Integration Philosophy",
+        "integ.headline": "Connect to the Systems You Already Run.",
+        "integ.body": "We don’t ask you to replace your stack. We connect to it. From SAP and Oracle to proprietary internal databases, Communico agents integrate securely within your network perimeter.",
+        
+        "ui.explore": "Explore Product",
+        "ui.read_more": "Learn More",
+        "ui.sectors_title": "Sector Solutions",
+        "ui.products_title": "Core Products",
+        "ui.trust_headline": "Trusted by GCC Organizations",
+        "ui.back_home": "Back to Home",
+        "ui.interactive_demo": "Interactive Sandbox Demo",
+        "ui.sim_label": "Simulate Interaction",
+
+        // Demo strings
+        "demo.wf.start": "Inquiry Received",
+        "demo.wf.step2": "Arabic AI Agent Check",
+        "demo.wf.end": "Update CRM",
+        "demo.wf.run": "Run Simulation",
+        "demo.wf.running": "Processing...",
+        
+        "demo.ag.task": "Goal: Generate Sovereign Cloud Report",
+        "demo.ag.orchestrate": "Orchestrator Agent",
+        "demo.ag.w1": "Worker Agent 1: Compliance Analyzer",
+        "demo.ag.w2": "Worker Agent 2: Arabic Content Drafter",
+        "demo.ag.btn": "Trigger AI Planner",
+        
+        "demo.srch.placeholder": "Type a query (e.g. NCA cloud policies)...",
+        "demo.srch.btn": "Submit Semantic Query",
+        "demo.srch.q": "What is the policy for hosting sensitive citizen data?",
+        "demo.srch.answer": "According to NCA Cloud Security Rule 4.2: All sensitive national data must be hosted on-premise or in an approved sovereign cloud perimeter. [Verified Sources: NCA_Cloud_v2.pdf, PDPL_2023.pdf]",
+        
+        "demo.chat.btn": "Send Message",
+        "demo.chat.agent_typing": "Agent is typing in Arabic...",
+        "demo.chat.user_msg": "I want to open a commercial account under corporate regulations.",
+        "demo.chat.agent_msg": "مرحباً بك. يسعدني مساعدتك في فتح حسابك التجاري. هل الشركة مسجلة في المملكة العربية السعودية؟",
+        "demo.chat.agent_msg_trans": "(Translation: Welcome. I am pleased to help you open your commercial account. Is the company registered in Saudi Arabia?)",
+        
+        "demo.wr.title": "Compliance Audit Workroom",
+        "demo.wr.card_title": "Q2 Financial Compliance Verification",
+        "demo.wr.badge_active": "Under Review",
+        "demo.wr.badge_approved": "Approved & Audited",
+        "demo.wr.step1": "✓ AI Agent scanned 142 ledger transactions for compliance.",
+        "demo.wr.step2": "✓ Flagged 2 outliers for currency conversion review.",
+        "demo.wr.step3": "• Human Compliance Officer verified flags and clicked approve.",
+        "demo.wr.step4": "• Final audit cryptographically signed & logged.",
+        "demo.wr.btn": "Simulate Workroom Action"
+      },
+      ar: {
+        "nav.home": "الرئيسية",
+        "nav.products": "المنتجات",
+        "nav.sectors": "القطاعات",
+        "nav.governance": "الحوكمة والربط",
+        "nav.demo": "احجز عرضاً",
+        "hero.headline": "عملاء الذكاء الاصطناعي للمنشآت، تحت سيطرة منظمتك بالكامل.",
+        "hero.subheadline": "كوميونيكو هي منصة للعملاء الذكاء الاصطناعي للمنشآت التي تحتاج إلى بناء، حوكمة، نشر، وتوسيع نطاق عملاء الذكاء الاصطناعي الداعمين للغة العربية أولاً عبر سير العمل والقنوات والأدوات والأنظمة ومصادر المعرفة — محلياً، في السحابة الخاصة، الهجينة، أو البيئات المعزولة تماماً عند الحاجة.",
+        "problem.headline": "لم تُصمم معظم منصات الذكاء الاصطناعي لبيئات العمل الخاضعة للرقابة والتحكم.",
+        "problem.body": "تحتاج المنشآت في دول مجلس التعاون الخليجي إلى الذكاء الاصطناعي، ولكن لا يمكنها معاملته كأداة سحابية عامة. تتطلب البيانات الحساسة، وسير العمل الخاضع للأنظمة واللوائح، والأنظمة الداخلية، وتفاعلات العملاء باللغة العربية نموذج تشغيل مختلف. يجب أن يعمل الذكاء الاصطناعي حيث يمكن للمنظمة التحكم فيه. ويجب أن يعمل العملاء ضمن حدود محددة. ويجب تفويض الوصول إلى الأدوات وتصريحه. كما يجب أن تكون المخرجات الحساسة قابلة للمراجعة والتدقيق. ولا يمكن معاملة اللغة العربية كلغة ثانوية. التحدي ليس فقط في كيفية بناء عملاء الذكاء الاصطناعي، بل التحدي الحقيقي يكمن في كيفية بنائها وحوكمتها وربطها ومراجعتها وتوسيع نطاقها بأمان.",
+        "platform.headline": "أساس موحد للمنشآت لعمليات عملاء الذكاء الاصطناعي المحوكمة.",
+        "platform.body": "تجمع كوميونيكو بين بناء العملاء، وأتمتة سير العمل، والبحث في المؤسسات، والمراجعة البشرية، والاتصال بالأدوات، والنشر المراقب والمنظم في منصة موحدة واحدة للمنشآت.",
+        
+        "prod.workflow.title": "أتمتة سير العمل",
+        "prod.workflow.headline": "أتمت سير عملياتك — على بنيتك التحتية الخاصة.",
+        "prod.workflow.problem_label": "المشكلة",
+        "prod.workflow.problem": "تعتمد عملياتك على المهام اليدوية التي تغطي أنظمة قديمة ومنفصلة. يضيع فريقك يومياً ساعات في نقل البيانات يدوياً بين هذه الصوامع والأنظمة المعزولة.",
+        "prod.workflow.advantage_label": "ميزة كوميونيكو",
+        "prod.workflow.advantage": "استوديو أتمتة مرئي يعمل داخل جدران منظمتك. تتيح لك أداة السحب والإفلات من كوميونيكو ربط الأنظمة، وتوجيه العمل، وتضمين منطق الذكاء الاصطناعي في أي عملية.",
+        
+        "prod.agents.title": "عملاء الذكاء الاصطناعي",
+        "prod.agents.headline": "عملاء يخططون، ينفذون، وينسقون.",
+        "prod.agents.problem_label": "المشكلة",
+        "prod.agents.problem": "العمل الحقيقي في المنشآت لا يتبع سيناريو ثابت. يتطلب التحليل والقرارات متعددة الخطوات أكثر من مجرد أتمتة جامدة — إنها تتطلب ذكاءً.",
+        "prod.agents.advantage_label": "ميزة كوميونيكو",
+        "prod.agents.advantage": "عملاء يخططون لمسارهم الخاص للوصول إلى الهدف. يقوم المنسقون (Orchestrators) بتفويض المهام إلى العاملين (Workers) لمعالجة مهام محددة، وكل ذلك يعمل ضمن حدود محددة.",
+
+        "prod.assistant.title": "عميل مساعد (صوت ومحادثة)",
+        "prod.assistant.headline": "مركز اتصال يتحدث لغة عملائك.",
+        "prod.assistant.problem_label": "المشكلة",
+        "prod.assistant.problem": "مركز الاتصال لديك تحت ضغط مستمر. حجم المكالمات المتزايد وحلول الصوت المؤتمتة تتعثر وتفشل تحديداً في النقطة الأكثر أهمية: تفهم اللغة العربية ولهجاتها.",
+        "prod.assistant.advantage_label": "ميزة كوميونيكو",
+        "prod.assistant.advantage": "عميل ذكاء اصطناعي يتعامل مع المكالمات والمحادثات بشكل مستقل — يجيد اللهجات العربية بطلاقة، على مدار الساعة طوال أيام الأسبوع، ومتكامل تماماً مع نظام إدارة علاقات العملاء (CRM).",
+
+        "prod.search.title": "البحث للمؤسسات بالذكاء الاصطناعي",
+        "prod.search.headline": "كل إجابة، مباشرة من مصادرك الأصلية.",
+        "prod.search.problem_label": "المشكلة",
+        "prod.search.problem": "المعرفة والمعلومات الخاصة بمنظمتك محاصرة. الإجابة موجودة، لكنها مدفونة في الوثائق والبوابات وقواعد البيانات.",
+        "prod.search.advantage_label": "ميزة كوميونيكو",
+        "prod.search.advantage": "اطرح سؤالاً، واحصل على الإجابة مع مصدرها. بحث دلالي يحول المعرفة المؤسسية المشتتة إلى إجابات موثوقة ومبنية على مصادر مع مراعاة صلاحيات الوصول.",
+
+        "prod.workroom.title": "غرفة عمل الذكاء الاصطناعي",
+        "prod.workroom.headline": "حيث تنجز فرق من عملاء الذكاء الاصطناعي العمل الحقيقي.",
+        "prod.workroom.problem_label": "المشكلة",
+        "prod.workroom.problem": "بعض العمليات تفوق في أهميتها الأتمتة الفردية: تتطلب أعمال التدقيق والامتثال والمراجعة المالية إشرافاً ومسؤولية بشرية.",
+        "prod.workroom.advantage_label": "ميزة كوميونيكو",
+        "prod.workroom.advantage": "مساحة عمل محوكمة حيث يتعاون عملاء ذكاء اصطناعي متخصصون تحت إشراف بشري لإكمال العمليات المعقدة، من البداية إلى النهاية، مع سجل تدقيق كامل.",
+
+        "sector.gov.title": "القطاع الحكومي",
+        "sector.gov.headline": "ذكاء اصطناعي سيادي للقطاع الحكومي.",
+        "sector.gov.focus": "تحديث الخدمات المقدمة للمواطنين والعمليات الداخلية باستخدام ذكاء اصطناعي يعمل بالكامل داخل البنية التحتية الحكومية. متوافق مع ضوابط الهيئة الوطنية للأمن السيبراني (NCA)، ونظام حماية البيانات الشخصية (PDPL)، ورؤية المملكة 2030.",
+        
+        "sector.bank.title": "القطاع المصرفي",
+        "sector.bank.headline": "ذكاء اصطناعي للمؤسسات يثق به الجهات التنظيمية.",
+        "sector.bank.focus": "أتمتة العمليات، وخدمة العملاء باللغة العربية، وفتح آفاق المعرفة المؤسسية — كل ذلك داخل محيطك الأمني الخاص، وتحت إشراف البنك المركزي السعودي (SAMA).",
+        
+        "sector.ins.title": "قطاع التأمين",
+        "sector.ins.headline": "ذكاء اصطناعي لشركات التأمين، داخل جدرانك الخاصة.",
+        "sector.ins.focus": "تسريع تسوية المطالبات، وخدمة حاملي وثائق التأمين باللغة العربية، وأتمتة العمليات الكثيفة للمستندات على بنية تحتية تتحكم فيها بالكامل.",
+
+        "sector.tel.title": "قطاع الاتصالات",
+        "sector.tel.headline": "ذكاء اصطناعي على نطاق قطاع الاتصالات — سيادي بالتصميم.",
+        "sector.tel.focus": "التعامل مع كميات هائلة من تفاعلات العملاء باللغة العربية وأتمتة العمليات الخلفية على بنية تحتية تتحكم بها. متوافق تماماً مع لوائح هيئة الاتصالات والفضاء والتقنية (CST).",
+
+        "sector.fin.title": "التقنية المالية",
+        "sector.fin.headline": "تحرك بسرعة — دون نقل بياناتك.",
+        "sector.fin.focus": "ذكاء اصطناعي سيادي داعم للغة العربية أولاً يتيح لشركات التقنية المالية الأتمتة والتوسع مع البقاء داخل الحدود التنظيمية (البيئة التجريبية التشريعية لـ SAMA، هيئة السوق المالية CMA).",
+
+        "gov.title": "مبادئ الحوكمة",
+        "gov.principle1.name": "التحكم بالتصميم",
+        "gov.principle1.desc": "أنت تحدد الحدود والقيود.",
+        "gov.principle2.name": "الإشراف البشري",
+        "gov.principle2.desc": "مراجعة سير العمل للقرارات ذات الأهمية العالية.",
+        "gov.principle3.name": "الوصول المصرح",
+        "gov.principle3.desc": "يلمس العملاء فقط ما تم التصريح لهم بالوصول إليه.",
+        "gov.principle4.name": "مخرجات قابلة للمراجعة",
+        "gov.principle4.desc": "يمكن تعديل مقترحات الذكاء الاصطناعي أو رفضها أو الموافقة عليها.",
+        "gov.principle5.name": "قابلية التدقيق العملياتي",
+        "gov.principle5.desc": "اعرف بالضبط من (أو ماذا) فعل ماذا، ومتى.",
+
+        "integ.title": "فلسفة الربط والتكامل",
+        "integ.headline": "الاتصال بالأنظمة التي تشغلها بالفعل.",
+        "integ.body": "لا نطلب منك استبدال بنيتك التقنية الحالية، بل نتصل بها. من أنظمة SAP وOracle إلى قواعد البيانات الداخلية الخاصة، يتكامل عملاء كوميونيكو بأمان داخل المحيط الأمني لشبكتك.",
+        
+        "ui.explore": "استكشف المنتج",
+        "ui.read_more": "اقرأ المزيد",
+        "ui.sectors_title": "حلول القطاعات",
+        "ui.products_title": "المنتجات الأساسية",
+        "ui.trust_headline": "موثوق من قبل المنظمات الكبرى في دول الخليج",
+        "ui.back_home": "العودة للرئيسية",
+        "ui.interactive_demo": "تجربة تفاعلية تجريبية",
+        "ui.sim_label": "محاكاة التفاعل",
+
+        // Demo strings
+        "demo.wf.start": "تم استلام الطلب",
+        "demo.wf.step2": "فحص عميل العربية",
+        "demo.wf.end": "تحديث نظام CRM",
+        "demo.wf.run": "تشغيل المحاكاة",
+        "demo.wf.running": "جاري المعالجة...",
+        
+        "demo.ag.task": "الهدف: إنشاء تقرير السحابة السيادية",
+        "demo.ag.orchestrate": "العميل المنسق",
+        "demo.ag.w1": "العميل العامل 1: محلل الامتثال",
+        "demo.ag.w2": "العميل العامل 2: صائغ المحتوى العربي",
+        "demo.ag.btn": "تفعيل مخطط الذكاء الاصطناعي",
+        
+        "demo.srch.placeholder": "اكتب استفساراً (مثال: سياسات الأمن السيبراني)...",
+        "demo.srch.btn": "إرسال الاستعلام الدلالي",
+        "demo.srch.q": "ما هي سياسة استضافة بيانات المواطنين الحساسة؟",
+        "demo.srch.answer": "وفقاً للمعيار 4.2 لأمن الحوسبة السحابية من NCA: يجب استضافة جميع البيانات الوطنية الحساسة محلياً أو ضمن محيط سحابي سيادي معتمد. [المصادر المؤكدة: NCA_Cloud_v2.pdf, PDPL_2023.pdf]",
+        
+        "demo.chat.btn": "إرسال الرسالة",
+        "demo.chat.agent_typing": "العميل يكتب بالعربية...",
+        "demo.chat.user_msg": "أرغب في فتح حساب تجاري بموجب أنظمة الشركات.",
+        "demo.chat.agent_msg": "مرحباً بك. يسعدني مساعدتك في فتح حسابك التجاري. هل الشركة مسجلة في المملكة العربية السعودية؟",
+        "demo.chat.agent_msg_trans": "(الترجمة: مرحباً بك. يسعدني مساعدتك في فتح حسابك التجاري. هل الشركة مسجلة في المملكة العربية السعودية؟)",
+        
+        "demo.wr.title": "غرفة عمل تدقيق الامتثال",
+        "demo.wr.card_title": "التحقق من الامتثال المالي للربع الثاني",
+        "demo.wr.badge_active": "قيد المراجعة",
+        "demo.wr.badge_approved": "معتمد ومدقق",
+        "demo.wr.step1": "✓ قام عميل الذكاء الاصطناعي بمسح 142 معاملة للامتثال.",
+        "demo.wr.step2": "✓ تم تحديد معاملتين خارجيتين لمراجعة تحويل العملات.",
+        "demo.wr.step3": "• تحقق مسؤول الامتثال البشري من التنبيهات وضغط على موافقة.",
+        "demo.wr.step4": "• تم توقيع وتدوين التدقيق النهائي بشكل مشفر.",
+        "demo.wr.btn": "محاكاة إجراء غرفة العمل"
+      }
+    };
+
+    // State Variables
+    let currentLang = 'en';
+    let activePage = 'home';
+
+    // INITIALIZATION
+    window.addEventListener('DOMContentLoaded', () => {
+      // Setup state navigation
+      navigate('home');
+      // Set default language
+      setLanguage('en');
+
+      // Setup 3D Hero Parallax Mouse movement
+      const heroContainer = document.getElementById('hero-container');
+      const heroCard = document.getElementById('hero-card');
+      if (heroContainer && heroCard) {
+        heroContainer.addEventListener('mousemove', (e) => {
+          const rect = heroContainer.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const xc = rect.width / 2;
+          const yc = rect.height / 2;
+          const dx = x - xc;
+          const dy = y - yc;
+          const tiltX = (dy / yc) * 12; // tilt degrees max 12
+          const tiltY = -(dx / xc) * 12;
+          heroCard.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+        });
+        
+        heroContainer.addEventListener('mouseleave', () => {
+          heroCard.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+          heroCard.style.transition = 'transform 0.4s ease-out';
+        });
+        
+        heroContainer.addEventListener('mouseenter', () => {
+          heroCard.style.transition = 'none';
+        });
+      }
+
+      // Initialize Scroll Triggered animations (Intersection Observer)
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+    });
+
+    // SPA ROUTER
+    function navigate(pageId) {
+      // Special routing for sectors since they share a dynamic layout template
+      const isSector = ['gov', 'bank', 'ins', 'tel', 'fin'].includes(pageId);
+      
+      // Hide all page containers
+      document.querySelectorAll('.page-content').forEach(el => el.classList.add('hidden'));
+
+      if (isSector) {
+        // Load template elements and update texts
+        const template = document.getElementById('page-sector-template');
+        template.classList.remove('hidden');
+        
+        // Populate sector data dynamically
+        document.getElementById('sectorTitle').innerText = translations[currentLang][`sector.${pageId}.title`];
+        document.getElementById('sectorHeadline').innerText = translations[currentLang][`sector.${pageId}.headline`];
+        document.getElementById('sectorFocus').innerText = translations[currentLang][`sector.${pageId}.focus`];
+
+        // Regulatory checkmarks adjustments
+        const samaSpan = document.getElementById('samaCheck');
+        const cstSpan = document.getElementById('cstCheck');
+        
+        if (pageId === 'bank' || pageId === 'fin') {
+          samaSpan.innerText = '✓ SAMA APPROVED';
+          samaSpan.className = 'text-[#408043] font-bold';
+        } else {
+          samaSpan.innerText = 'N/A';
+          samaSpan.className = 'text-gray-400 font-bold';
+        }
+
+        if (pageId === 'tel') {
+          cstSpan.innerText = '✓ CST COMPLIANT';
+          cstSpan.className = 'text-[#408043] font-bold';
+        } else {
+          cstSpan.innerText = 'N/A';
+          cstSpan.className = 'text-gray-400 font-bold';
+        }
+
+      } else {
+        // Show normal page
+        const page = document.getElementById(`page-${pageId}`);
+        if (page) {
+          page.classList.remove('hidden');
+        }
+      }
+
+      // Track active state
+      activePage = pageId;
+
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // LANGUAGE SWITCHER
+    function toggleLanguage() {
+      const newLang = currentLang === 'en' ? 'ar' : 'en';
+      setLanguage(newLang);
+    }
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      const htmlEl = document.documentElement;
+      
+      if (lang === 'ar') {
+        htmlEl.dir = 'rtl';
+        htmlEl.lang = 'ar';
+        document.getElementById('langToggleBtn').innerText = 'English';
+        
+        // Update marquee track styling direction
+        const marqueeTrack = document.getElementById('marqueeTrack');
+        if (marqueeTrack) {
+          marqueeTrack.className = 'animate-marquee-rtl flex gap-16 items-center';
+        }
+      } else {
+        htmlEl.dir = 'ltr';
+        htmlEl.lang = 'en';
+        document.getElementById('langToggleBtn').innerText = 'العربية';
+        
+        const marqueeTrack = document.getElementById('marqueeTrack');
+        if (marqueeTrack) {
+          marqueeTrack.className = 'animate-marquee-ltr flex gap-16 items-center';
+        }
+      }
+
+      // Translate all data-t items
+      document.querySelectorAll('[data-t]').forEach(el => {
+        const key = el.getAttribute('data-t');
+        if (translations[lang][key]) {
+          el.innerText = translations[lang][key];
+        }
+      });
+
+      // Translate all placeholders
+      document.querySelectorAll('[data-t-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-t-placeholder');
+        if (translations[lang][key]) {
+          el.placeholder = translations[lang][key];
+        }
+      });
+
+      // Update dynamic content fields if currently viewing a sector page
+      if (['gov', 'bank', 'ins', 'tel', 'fin'].includes(activePage)) {
+        navigate(activePage);
+      }
+    }
+
+    // MOBILE DRAWER MENU
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+
+    // CTAs
+    function alertDemoRequest() {
+      const msg = currentLang === 'en' 
+        ? "Demo Request initiated. Our enterprise compliance agent will contact you inside your local GCC network perimeter." 
+        : "تم تقديم طلب العرض التجريبي. سيتواصل معك مسؤولو الحوكمة لدينا قريباً داخل محيط شبكتك المحلية.";
+      alert(msg);
+    }
+
+    // INTERACTIVE SANDBOX DEMO 1: WORKFLOW AUTOMATION
+    function runWorkflowDemo() {
+      const runBtn = document.getElementById('runWfBtn');
+      const consoleEl = document.getElementById('wfConsole');
+      
+      const node1 = document.getElementById('wfNode1');
+      const node2 = document.getElementById('wfNode2');
+      const node3 = document.getElementById('wfNode3');
+      
+      const n1Status = document.getElementById('wfNode1Status');
+      const n2Status = document.getElementById('wfNode2Status');
+      const n3Status = document.getElementById('wfNode3Status');
+      
+      const l1 = document.getElementById('wfLine1');
+      const l2 = document.getElementById('wfLine2');
+
+      // Reset
+      node1.className = "w-full sm:w-36 p-3 border border-[#171717] bg-white text-center rounded-[2px]";
+      node2.className = "w-full sm:w-36 p-3 border border-[#E5E7EB] bg-white text-center rounded-[2px]";
+      node3.className = "w-full sm:w-36 p-3 border border-[#E5E7EB] bg-white text-center rounded-[2px]";
+      n1Status.classList.add('hidden');
+      n2Status.classList.add('hidden');
+      n3Status.classList.add('hidden');
+      if (l1) l1.setAttribute('stroke', '#E5E7EB');
+      if (l2) l2.setAttribute('stroke', '#E5E7EB');
+      
+      runBtn.disabled = true;
+      runBtn.innerText = translations[currentLang]['demo.wf.running'];
+      consoleEl.innerHTML = `<div>&gt; Starting workflow simulation...</div>`;
+
+      // Step 1
+      setTimeout(() => {
+        node1.className = "w-full sm:w-36 p-3 border-2 border-[#408043] bg-brand-bg text-center rounded-[2px]";
+        n1Status.classList.remove('hidden');
+        consoleEl.innerHTML += `<div class="text-[#408043]">&gt; [OK] ${translations[currentLang]['demo.wf.start']}</div>`;
+        if (l1) l1.setAttribute('stroke', '#408043');
+      }, 1000);
+
+      // Step 2
+      setTimeout(() => {
+        node2.className = "w-full sm:w-36 p-3 border-2 border-[#408043] bg-brand-bg text-center rounded-[2px]";
+        n2Status.classList.remove('hidden');
+        consoleEl.innerHTML += `<div class="text-[#408043]">&gt; [OK] Running Arabic LLM check... Dialect verified successfully.</div>`;
+        if (l2) l2.setAttribute('stroke', '#408043');
+      }, 2500);
+
+      // Step 3
+      setTimeout(() => {
+        node3.className = "w-full sm:w-36 p-3 border-2 border-[#408043] bg-brand-bg text-center rounded-[2px]";
+        n3Status.classList.remove('hidden');
+        consoleEl.innerHTML += `<div class="text-[#408043]">&gt; [OK] ${translations[currentLang]['demo.wf.end']} API response: 200 OK.</div>`;
+        consoleEl.innerHTML += `<div class="font-bold text-white">&gt; SIMULATION COMPLETE. ALL SYSTEMS ALIGNED.</div>`;
+        
+        runBtn.disabled = false;
+        runBtn.innerText = translations[currentLang]['demo.wf.run'];
+      }, 4000);
+    }
+
+    // INTERACTIVE SANDBOX DEMO 2: AI AGENTS
+    function runAgentDemo() {
+      const runBtn = document.getElementById('runAgentBtn');
+      const consoleEl = document.getElementById('agConsole');
+      
+      const nOrch = document.getElementById('agNodeOrch');
+      const nW1 = document.getElementById('agNodeW1');
+      const nW2 = document.getElementById('agNodeW2');
+      
+      const lC = document.getElementById('agLineC');
+      const lH = document.getElementById('agLineH');
+      const lL = document.getElementById('agLineL');
+      const lR = document.getElementById('agLineR');
+
+      // Reset
+      nOrch.className = "w-40 mx-auto p-3 border border-[#E5E7EB] bg-white text-center rounded-[2px]";
+      nW1.className = "flex-1 p-2 border border-[#E5E7EB] bg-white text-center text-[10px] rounded-[2px]";
+      nW2.className = "flex-1 p-2 border border-[#E5E7EB] bg-white text-center text-[10px] rounded-[2px]";
+      document.getElementById('agOrchStatus').classList.add('hidden');
+      
+      const resetLine = (el) => { if (el) el.setAttribute('stroke', '#E5E7EB'); };
+      resetLine(lC); resetLine(lH); resetLine(lL); resetLine(lR);
+
+      runBtn.disabled = true;
+      consoleEl.innerHTML = `<div>&gt; Initializing Orchestrator Agent...</div>`;
+
+      // Orchestrator starts planning
+      setTimeout(() => {
+        nOrch.className = "w-40 mx-auto p-3 border-2 border-[#408043] bg-brand-bg text-center rounded-[2px]";
+        document.getElementById('agOrchStatus').classList.remove('hidden');
+        consoleEl.innerHTML += `<div>&gt; [Orchestrator] Task received. Generating subtasks plan.</div>`;
+        consoleEl.innerHTML += `<div class="text-yellow-400">&gt; PLAN: Step 1 (Analyze compliance) -&gt; Step 2 (Draft Arabic report).</div>`;
+      }, 1000);
+
+      // Delegate to Worker 1
+      setTimeout(() => {
+        nW1.className = "flex-1 p-2 border-2 border-[#408043] bg-brand-bg text-center text-[10px] rounded-[2px]";
+        if (lC) lC.setAttribute('stroke', '#408043');
+        if (lH) lH.setAttribute('stroke', '#408043');
+        if (lL) lL.setAttribute('stroke', '#408043');
+        consoleEl.innerHTML += `<div class="text-[#408043]">&gt; [Worker 1] Scanning database. Verifying SAMA sandbox security controls... Verified.</div>`;
+      }, 2500);
+
+      // Delegate to Worker 2
+      setTimeout(() => {
+        nW2.className = "flex-1 p-2 border-2 border-[#408043] bg-brand-bg text-center text-[10px] rounded-[2px]";
+        if (lR) lR.setAttribute('stroke', '#408043');
+        consoleEl.innerHTML += `<div class="text-[#408043]">&gt; [Worker 2] Compiling report using Arabic NLP engine. Dialect aligned.</div>`;
+      }, 4000);
+
+      // Success
+      setTimeout(() => {
+        consoleEl.innerHTML += `<div class="font-bold text-white">&gt; Goal Achieved. Cryptographic execution audit log saved inside perimeter.</div>`;
+        runBtn.disabled = false;
+      }, 5500);
+    }
+
+    // INTERACTIVE SANDBOX DEMO 3: ASSISTANT CHAT
+    function triggerChatReply() {
+      const btn = document.getElementById('chatBtn');
+      const messagesContainer = document.getElementById('chatMessages');
+
+      btn.disabled = true;
+
+      // Add typing indicator
+      const typingEl = document.createElement('div');
+      typingEl.id = 'typingIndicator';
+      typingEl.className = 'flex items-center gap-1 self-start pl-2';
+      typingEl.innerHTML = `
+        <span class="w-1.5 h-1.5 bg-[#408043] rounded-full typing-dot"></span>
+        <span class="w-1.5 h-1.5 bg-[#408043] rounded-full typing-dot"></span>
+        <span class="w-1.5 h-1.5 bg-[#408043] rounded-full typing-dot"></span>
+      `;
+      messagesContainer.appendChild(typingEl);
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+      setTimeout(() => {
+        // Remove typing indicator
+        document.getElementById('typingIndicator').remove();
+
+        // Add response
+        const respEl = document.createElement('div');
+        respEl.className = 'flex flex-col items-start space-y-1';
+        respEl.innerHTML = `
+          <span class="text-[9px] text-gray-400">Assistant (Arabic Core)</span>
+          <div class="bg-brand-bg border border-[#408043]/30 p-2.5 max-w-[85%] rounded-[4px] text-right" dir="rtl">
+            ${translations[currentLang]['demo.chat.agent_msg']}
+          </div>
+          <span class="text-[8px] text-gray-400 italic">${translations[currentLang]['demo.chat.agent_msg_trans']}</span>
+        `;
+        messagesContainer.appendChild(respEl);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        
+        btn.disabled = false;
+      }, 2000);
+    }
+
+    // INTERACTIVE SANDBOX DEMO 4: ENTERPRISE SEARCH
+    function triggerSearchQuery() {
+      const btn = document.getElementById('searchBtn');
+      const input = document.getElementById('searchInput');
+      const output = document.getElementById('searchOutput');
+      const textEl = document.getElementById('searchAnswerText');
+
+      btn.disabled = true;
+      input.value = translations[currentLang]['demo.srch.q'];
+      textEl.innerText = "";
+      output.classList.add('hidden');
+
+      setTimeout(() => {
+        output.classList.remove('hidden');
+        // Simulate printing speed
+        const txt = translations[currentLang]['demo.srch.answer'];
+        let idx = 0;
+        const interval = setInterval(() => {
+          textEl.innerText += txt[idx];
+          idx++;
+          if (idx >= txt.length) {
+            clearInterval(interval);
+            btn.disabled = false;
+          }
+        }, 15);
+      }, 1000);
+    }
+
+    // INTERACTIVE SANDBOX DEMO 5: WORKROOM APPROVAL
+    function approveWorkroomTask() {
+      const btn = document.getElementById('wrBtn');
+      const badge = document.getElementById('wrStatusBadge');
+      
+      const step3 = document.getElementById('wrStep3');
+      const step4 = document.getElementById('wrStep4');
+
+      btn.disabled = true;
+
+      setTimeout(() => {
+        step3.className = 'text-[#408043] font-semibold';
+      }, 1000);
+
+      setTimeout(() => {
+        step4.className = 'text-[#408043] font-semibold';
+        badge.innerText = translations[currentLang]['demo.wr.badge_approved'];
+        badge.className = 'px-2 py-0.5 bg-[#408043]/10 text-[#408043] border border-[#408043]/20 text-[10px] font-bold rounded-[2px]';
+        btn.disabled = false;
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
