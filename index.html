@@ -51,8 +51,51 @@
     /* Modern SaaS Custom Styles */
     body {
       background-color: #FCFCFD;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
       color: #495057;
       transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Infinite Slow drifting animations for Sparks/Dots */
+    @keyframes drift-slow-1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(8px, -12px) scale(1.04); }
+    }
+    @keyframes drift-slow-2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-10px, 8px) scale(0.96); }
+    }
+    @keyframes drift-slow-3 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(7px, 10px) scale(1.02); }
+    }
+    @keyframes drift-slow-4 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-6px, -8px) scale(0.98); }
+    }
+    @keyframes drift-slow-5 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(9px, -6px) scale(1.03); }
+    }
+    .float-dot-1 { animation: drift-slow-1 8s ease-in-out infinite; }
+    .float-dot-2 { animation: drift-slow-2 10s ease-in-out infinite; }
+    .float-dot-3 { animation: drift-slow-3 12s ease-in-out infinite; }
+    .float-dot-4 { animation: drift-slow-4 9s ease-in-out infinite; }
+    .float-dot-5 { animation: drift-slow-5 11s ease-in-out infinite; }
+
+    /* Blinking typing cursor */
+    .typing-cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1.05em;
+      vertical-align: middle;
+      background-color: #408043;
+      margin-left: 4px;
+      animation: blink-cursor 0.8s step-end infinite;
+    }
+    @keyframes blink-cursor {
+      from, to { background-color: transparent }
+      50% { background-color: #408043; }
     }
     
     /* Font family overrides for English and Arabic */
@@ -302,82 +345,92 @@
   <main class="flex-grow">
 
     <!-- PAGE: HOME -->
-    <section id="page-home" class="page-content canvas-grid">
+    <section id="page-home" class="page-content">
       
       <!-- HERO SECTION -->
       <div id="hero-container" class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 md:pt-32 pb-24 space-y-12">
         
-        <!-- Left Wing Decorative Sparks (Styled to match screenshot) -->
+        <!-- Left Wing Decorative Sparks (Styled to match screenshot with smooth floating group animations) -->
         <svg class="absolute -left-16 top-1/2 -translate-y-1/2 w-80 h-[500px] pointer-events-none opacity-80 hidden lg:block select-none overflow-visible" viewBox="0 0 300 500" fill="none">
           <!-- Top Group (Indigo/Violet) -->
-          <rect x="20" y="80" width="3" height="12" rx="1.5" transform="rotate(25 20 80)" fill="#6366F1" opacity="0.6"/>
-          <rect x="45" y="60" width="3.5" height="14" rx="1.75" transform="rotate(40 45 60)" fill="#8B5CF6" opacity="0.7"/>
-          <rect x="70" y="90" width="3" height="10" rx="1.5" transform="rotate(15 70 90)" fill="#6366F1" opacity="0.5"/>
-          <rect x="95" y="75" width="4" height="15" rx="2" transform="rotate(30 95 75)" fill="#8B5CF6" opacity="0.8"/>
-          <rect x="120" y="110" width="3" height="12" rx="1.5" transform="rotate(45 120 110)" fill="#A78BFA" opacity="0.6"/>
-          <rect x="140" y="90" width="3.5" height="12" rx="1.75" transform="rotate(20 140 90)" fill="#8B5CF6" opacity="0.4"/>
+          <g class="float-dot-1">
+            <rect x="20" y="80" width="3" height="12" rx="1.5" transform="rotate(25 20 80)" fill="#6366F1" opacity="0.6"/>
+            <rect x="45" y="60" width="3.5" height="14" rx="1.75" transform="rotate(40 45 60)" fill="#8B5CF6" opacity="0.7"/>
+            <rect x="70" y="90" width="3" height="10" rx="1.5" transform="rotate(15 70 90)" fill="#6366F1" opacity="0.5"/>
+            <rect x="95" y="75" width="4" height="15" rx="2" transform="rotate(30 95 75)" fill="#8B5CF6" opacity="0.8"/>
+            <rect x="120" y="110" width="3" height="12" rx="1.5" transform="rotate(45 120 110)" fill="#A78BFA" opacity="0.6"/>
+            <rect x="140" y="90" width="3.5" height="12" rx="1.75" transform="rotate(20 140 90)" fill="#8B5CF6" opacity="0.4"/>
+          </g>
           
           <!-- Upper Middle Group (Pink/Purple) -->
-          <rect x="30" y="160" width="3.5" height="14" rx="1.75" transform="rotate(10 30 160)" fill="#EC4899" opacity="0.8"/>
-          <rect x="55" y="140" width="3" height="12" rx="1.5" transform="rotate(-15 55 140)" fill="#D946EF" opacity="0.6"/>
-          <rect x="85" y="170" width="4" height="16" rx="2" transform="rotate(35 85 170)" fill="#EC4899" opacity="0.9"/>
-          <rect x="110" y="150" width="3" height="11" rx="1.5" transform="rotate(5 110 150)" fill="#F43F5E" opacity="0.7"/>
-          <rect x="135" y="190" width="3.5" height="13" rx="1.75" transform="rotate(25 135 190)" fill="#EC4899" opacity="0.5"/>
-          <rect x="165" y="165" width="3" height="10" rx="1.5" transform="rotate(-10 165 165)" fill="#F43F5E" opacity="0.6"/>
-          <rect x="190" y="180" width="4" height="14" rx="2" transform="rotate(15 190 180)" fill="#FB7185" opacity="0.8"/>
+          <g class="float-dot-2">
+            <rect x="30" y="160" width="3.5" height="14" rx="1.75" transform="rotate(10 30 160)" fill="#EC4899" opacity="0.8"/>
+            <rect x="55" y="140" width="3" height="12" rx="1.5" transform="rotate(-15 55 140)" fill="#D946EF" opacity="0.6"/>
+            <rect x="85" y="170" width="4" height="16" rx="2" transform="rotate(35 85 170)" fill="#EC4899" opacity="0.9"/>
+            <rect x="110" y="150" width="3" height="11" rx="1.5" transform="rotate(5 110 150)" fill="#F43F5E" opacity="0.7"/>
+            <rect x="135" y="190" width="3.5" height="13" rx="1.75" transform="rotate(25 135 190)" fill="#EC4899" opacity="0.5"/>
+            <rect x="165" y="165" width="3" height="10" rx="1.5" transform="rotate(-10 165 165)" fill="#F43F5E" opacity="0.6"/>
+            <rect x="190" y="180" width="4" height="14" rx="2" transform="rotate(15 190 180)" fill="#FB7185" opacity="0.8"/>
+          </g>
 
           <!-- Middle Group (Rose/Red) -->
-          <rect x="40" y="240" width="4" height="16" rx="2" transform="rotate(-20 40 240)" fill="#F43F5E" opacity="0.9"/>
-          <rect x="65" y="220" width="3" height="12" rx="1.5" transform="rotate(15 65 220)" fill="#EF4444" opacity="0.7"/>
-          <rect x="95" y="250" width="3.5" height="13" rx="1.75" transform="rotate(40 95 250)" fill="#EC4899" opacity="0.6"/>
-          <rect x="125" y="230" width="4" height="15" rx="2" transform="rotate(-5 125 230)" fill="#EF4444" opacity="0.8"/>
-          <rect x="150" y="270" width="3" height="11" rx="1.5" transform="rotate(30 150 270)" fill="#F87171" opacity="0.5"/>
-          <rect x="175" y="245" width="3.5" height="14" rx="1.75" transform="rotate(10 175 245)" fill="#EF4444" opacity="0.7"/>
-          <rect x="205" y="260" width="3" height="12" rx="1.5" transform="rotate(-15 205 260)" fill="#F97316" opacity="0.6"/>
-          <rect x="230" y="280" width="3.5" height="12" rx="1.75" transform="rotate(20 230 280)" fill="#FB923C" opacity="0.5"/>
+          <g class="float-dot-3">
+            <rect x="40" y="240" width="4" height="16" rx="2" transform="rotate(-20 40 240)" fill="#F43F5E" opacity="0.9"/>
+            <rect x="65" y="220" width="3" height="12" rx="1.5" transform="rotate(15 65 220)" fill="#EF4444" opacity="0.7"/>
+            <rect x="95" y="250" width="3.5" height="13" rx="1.75" transform="rotate(40 95 250)" fill="#EC4899" opacity="0.6"/>
+            <rect x="125" y="230" width="4" height="15" rx="2" transform="rotate(-5 125 230)" fill="#EF4444" opacity="0.8"/>
+            <rect x="150" y="270" width="3" height="11" rx="1.5" transform="rotate(30 150 270)" fill="#F87171" opacity="0.5"/>
+            <rect x="175" y="245" width="3.5" height="14" rx="1.75" transform="rotate(10 175 245)" fill="#EF4444" opacity="0.7"/>
+            <rect x="205" y="260" width="3" height="12" rx="1.5" transform="rotate(-15 205 260)" fill="#F97316" opacity="0.6"/>
+            <rect x="230" y="280" width="3.5" height="12" rx="1.75" transform="rotate(20 230 280)" fill="#FB923C" opacity="0.5"/>
+          </g>
 
           <!-- Lower Middle Group (Red/Orange) -->
-          <rect x="25" y="320" width="3" height="13" rx="1.5" transform="rotate(35 25 320)" fill="#EF4444" opacity="0.7"/>
-          <rect x="50" y="300" width="3.5" height="15" rx="1.75" transform="rotate(-10 50 300)" fill="#F97316" opacity="0.8"/>
-          <rect x="80" y="330" width="4" height="16" rx="2" transform="rotate(25 80 330)" fill="#EF4444" opacity="0.9"/>
-          <rect x="105" y="315" width="3" height="11" rx="1.5" transform="rotate(-30 105 315)" fill="#F97316" opacity="0.6"/>
-          <rect x="130" y="350" width="3.5" height="13" rx="1.75" transform="rotate(15 130 350)" fill="#F87171" opacity="0.5"/>
-          <rect x="160" y="330" width="3" height="12" rx="1.5" transform="rotate(5 160 330)" fill="#F97316" opacity="0.7"/>
-          <rect x="185" y="360" width="4" height="14" rx="2" transform="rotate(-20 185 360)" fill="#FB923C" opacity="0.8"/>
+          <g class="float-dot-4">
+            <rect x="25" y="320" width="3" height="13" rx="1.5" transform="rotate(35 25 320)" fill="#EF4444" opacity="0.7"/>
+            <rect x="50" y="300" width="3.5" height="15" rx="1.75" transform="rotate(-10 50 300)" fill="#F97316" opacity="0.8"/>
+            <rect x="80" y="330" width="4" height="16" rx="2" transform="rotate(25 80 330)" fill="#EF4444" opacity="0.9"/>
+            <rect x="105" y="315" width="3" height="11" rx="1.5" transform="rotate(-30 105 315)" fill="#F97316" opacity="0.6"/>
+            <rect x="130" y="350" width="3.5" height="13" rx="1.75" transform="rotate(15 130 350)" fill="#F87171" opacity="0.5"/>
+            <rect x="160" y="330" width="3" height="12" rx="1.5" transform="rotate(5 160 330)" fill="#F97316" opacity="0.7"/>
+            <rect x="185" y="360" width="4" height="14" rx="2" transform="rotate(-20 185 360)" fill="#FB923C" opacity="0.8"/>
+          </g>
           
           <!-- Bottom Group (Orange/Amber) -->
-          <rect x="15" y="400" width="3.5" height="12" rx="1.75" transform="rotate(45 15 400)" fill="#F97316" opacity="0.6"/>
-          <rect x="35" y="380" width="3" height="10" rx="1.5" transform="rotate(15 35 380)" fill="#F59E0B" opacity="0.5"/>
-          <rect x="60" y="410" width="4" height="14" rx="2" transform="rotate(-10 60 410)" fill="#F97316" opacity="0.8"/>
-          <rect x="85" y="395" width="3" height="12" rx="1.5" transform="rotate(30 85 395)" fill="#F59E0B" opacity="0.6"/>
-          <rect x="110" y="430" width="3.5" height="13" rx="1.75" transform="rotate(5 110 430)" fill="#F97316" opacity="0.5"/>
-          <rect x="130" y="410" width="3" height="11" rx="1.5" transform="rotate(-25 130 410)" fill="#FCD34D" opacity="0.4"/>
+          <g class="float-dot-5">
+            <rect x="15" y="400" width="3.5" height="12" rx="1.75" transform="rotate(45 15 400)" fill="#F97316" opacity="0.6"/>
+            <rect x="35" y="380" width="3" height="10" rx="1.5" transform="rotate(15 35 380)" fill="#F59E0B" opacity="0.5"/>
+            <rect x="60" y="410" width="4" height="14" rx="2" transform="rotate(-10 60 410)" fill="#F97316" opacity="0.8"/>
+            <rect x="85" y="395" width="3" height="12" rx="1.5" transform="rotate(30 85 395)" fill="#F59E0B" opacity="0.6"/>
+            <rect x="110" y="430" width="3.5" height="13" rx="1.75" transform="rotate(5 110 430)" fill="#F97316" opacity="0.5"/>
+            <rect x="130" y="410" width="3" height="11" rx="1.5" transform="rotate(-25 130 410)" fill="#FCD34D" opacity="0.4"/>
+          </g>
         </svg>
 
         <!-- Centered Text Copy -->
         <div class="text-center max-w-4xl mx-auto space-y-6 fade-in-up active relative z-10">
           
           <!-- Premium Logo Badge (Styled like Google Antigravity badge) -->
-          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 bg-white border border-slateCustom-200 rounded-full shadow-sm hover:border-[#408043]/30 transition-all select-none">
+          <div id="hero-badge" class="inline-flex items-center gap-2.5 px-4 py-1.5 bg-white border border-slateCustom-200 rounded-full shadow-sm hover:border-[#408043]/30 transition-all select-none opacity-0 translate-y-4 duration-700 ease-out">
             <img src="co-logo.png" alt="Communico" class="h-5 object-contain">
             <span class="text-sm font-semibold text-slateCustom-900 tracking-tight">Communico AI</span>
           </div>
           
-          <h1 data-t="hero.headline" class="text-5xl sm:text-6xl md:text-7xl font-extrabold font-dynamic-heading text-slateCustom-900 tracking-tight leading-[1.1] max-w-5xl mx-auto">
-            Enterprise AI Agents, Controlled by Your Organization.
+          <h1 id="hero-title" class="text-5xl sm:text-6xl md:text-7xl font-semibold font-dynamic-heading text-slateCustom-900 tracking-tight leading-[1.1] max-w-5xl mx-auto min-h-[120px] sm:min-h-[140px] md:min-h-[160px]">
+            <!-- Text typed dynamically via Javascript -->
           </h1>
           
-          <p data-t="hero.subheadline" class="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto font-normal leading-relaxed">
-            Communico is an enterprise agentic AI platform for organizations that need to build, govern, deploy, and scale Arabic-first AI agents across workflows, channels, tools, systems, and knowledge sources — on-premise, in private cloud, hybrid, or air-gapped environments where required.
-          </p>
-          
-          <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
-            <a href="#" onclick="navigate('workflow-automation'); return false;" class="bg-slateCustom-900 text-white hover:bg-[#408043] active:scale-95 transition-all duration-200 px-8 py-3.5 rounded-full font-bold shadow-md flex items-center justify-center gap-2 hover:shadow-lg">
-              <span data-t="ui.explore">Explore Products</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </a>
-            <a href="#" onclick="navigate('governance-integrations'); return false;" class="bg-slateCustom-100 hover:bg-slateCustom-200 text-slateCustom-900 active:scale-95 transition-all duration-200 px-8 py-3.5 rounded-full font-bold flex items-center justify-center gap-2">
-              <span data-t="nav.governance">Governance & Integrations</span>
+          <div id="hero-buttons" class="flex flex-wrap items-center justify-center gap-4 pt-4 opacity-0 translate-y-4 transition-all duration-700 ease-out">
+            <!-- Download for MacOS -->
+            <button onclick="openDownloadModal(); return false;" class="bg-black text-white hover:bg-slateCustom-800 active:scale-95 transition-all duration-200 px-8 py-3.5 rounded-full font-bold shadow-md flex items-center justify-center gap-2 hover:shadow-lg">
+              <svg class="w-5 h-5 fill-current text-white" viewBox="0 0 170 170">
+                <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.34.13-9.13-1.92-14.36-6.13-3.69-3.04-7.79-7.77-12.33-14.21-12.98-18.42-19.47-40.42-19.47-66.03 0-16.71 4.02-30.77 12.06-42.21 8.04-11.44 18.06-17.22 30.08-17.34 5.06 0 10.42 1.48 16.08 4.42 5.66 2.94 9.49 4.42 11.5 4.42 1.9 0 5.59-1.48 11.07-4.42 5.49-2.94 10.5-4.36 15.04-4.24 14.11.24 24.93 5.27 32.48 15.09-12.98 7.89-19.34 18.91-19.1 33.06.24 10.51 4.1 19.14 11.6 25.9 7.49 6.77 16.26 10.47 26.29 11.11-2.12 6.24-4.8 12.18-8.04 17.82zM120.3 35.25c0-8.62 3.04-16.08 9.13-22.38 6.09-6.3 13.36-9.67 21.82-10.12.12 8.74-2.88 16.27-9 22.58-6.13 6.32-13.48 9.7-22.05 10.15.12-.23.1-.23.1-.23z" />
+              </svg>
+              <span data-t="hero.cta.download">Download for MacOS</span>
+            </button>
+            <!-- Explore use cases -->
+            <a href="#" onclick="scrollToSectors(); return false;" class="bg-slateCustom-100 hover:bg-slateCustom-200 text-slateCustom-900 active:scale-95 transition-all duration-200 px-8 py-3.5 rounded-full font-bold flex items-center justify-center gap-2">
+              <span data-t="hero.cta.explore">Explore use cases</span>
             </a>
           </div>
         </div>
@@ -454,7 +507,7 @@
       </div>
 
       <!-- THE PLATFORM (BENTO BOX GRID) -->
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 border-b border-slateCustom-100">
+      <div id="platforms-bento" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 border-b border-slateCustom-100">
         
         <!-- Header -->
         <div class="space-y-4 mb-20 text-center max-w-3xl mx-auto fade-in-up">
@@ -1273,6 +1326,111 @@
     </div>
   </footer>
 
+  <!-- macOS Download Simulator Modal -->
+  <div id="downloadModal" class="fixed inset-0 z-[100] flex items-center justify-center bg-slateCustom-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+    <div class="bg-white border border-slateCustom-100 shadow-2xl rounded-2xl max-w-md w-full p-6 mx-4 relative transform scale-95 transition-transform duration-300" id="downloadModalCard">
+      
+      <!-- Close Button -->
+      <button onclick="closeDownloadModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+      </button>
+
+      <!-- Step 1: Chip Selection -->
+      <div id="dlStepSelection" class="space-y-6">
+        <div class="text-center space-y-2">
+          <div class="w-12 h-12 bg-slateCustom-100 rounded-full flex items-center justify-center mx-auto text-slateCustom-900">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 170 170">
+              <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.34.13-9.13-1.92-14.36-6.13-3.69-3.04-7.79-7.77-12.33-14.21-12.98-18.42-19.47-40.42-19.47-66.03 0-16.71 4.02-30.77 12.06-42.21 8.04-11.44 18.06-17.22 30.08-17.34 5.06 0 10.42 1.48 16.08 4.42 5.66 2.94 9.49 4.42 11.5 4.42 1.9 0 5.59-1.48 11.07-4.42 5.49-2.94 10.5-4.36 15.04-4.24 14.11.24 24.93 5.27 32.48 15.09-12.98 7.89-19.34 18.91-19.1 33.06.24 10.51 4.1 19.14 11.6 25.9 7.49 6.77 16.26 10.47 26.29 11.11-2.12 6.24-4.8 12.18-8.04 17.82zM120.3 35.25c0-8.62 3.04-16.08 9.13-22.38 6.09-6.3 13.36-9.67 21.82-10.12.12 8.74-2.88 16.27-9 22.58-6.13 6.32-13.48 9.7-22.05 10.15.12-.23.1-.23.1-.23z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold font-dynamic-heading text-slateCustom-900">Download Communico Studio</h3>
+          <p class="text-sm text-gray-500 font-normal">Select your Mac architecture to begin download.</p>
+        </div>
+
+        <div class="space-y-3">
+          <button onclick="startDownloadSimulation('Apple')" class="w-full flex items-center justify-between p-4 border border-slateCustom-200 bg-white hover:border-[#408043] hover:bg-brand-bg transition-all rounded-xl text-left group">
+            <div>
+              <div class="font-bold text-slateCustom-900 text-sm">Mac with Apple Chip</div>
+              <div class="text-xs text-gray-500 font-normal mt-0.5">M1, M2, M3, M4, or newer (Apple Silicon)</div>
+            </div>
+            <span class="text-xs font-bold text-[#408043] border border-[#408043]/30 px-2 py-1 rounded bg-green-50 uppercase tracking-tight group-hover:bg-[#408043] group-hover:text-white transition-all">Recommended</span>
+          </button>
+
+          <button onclick="startDownloadSimulation('Intel')" class="w-full flex items-center justify-between p-4 border border-slateCustom-200 bg-white hover:border-[#408043] hover:bg-brand-bg transition-all rounded-xl text-left group">
+            <div>
+              <div class="font-bold text-slateCustom-900 text-sm">Mac with Intel Chip</div>
+              <div class="text-xs text-gray-500 font-normal mt-0.5">Legacy Intel Core processors</div>
+            </div>
+            <span class="text-xs font-bold text-gray-400 border border-slateCustom-200 px-2 py-1 rounded bg-slateCustom-50 uppercase tracking-tight group-hover:border-[#408043] group-hover:text-[#408043] group-hover:bg-green-50 transition-all">Select</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2: Simulation Progress -->
+      <div id="dlStepProgress" class="space-y-6 hidden">
+        <div class="text-center space-y-2">
+          <div class="w-12 h-12 bg-green-50 text-[#408043] rounded-full flex items-center justify-center mx-auto">
+            <svg class="w-6 h-6 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold font-dynamic-heading text-slateCustom-900">Preparing Secure Installation</h3>
+          <p class="text-sm text-gray-500 font-normal">Resolving packages & validating GCC security perimeter...</p>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Progress Bar -->
+          <div class="space-y-1.5">
+            <div class="flex justify-between text-xs font-mono text-gray-500">
+              <span id="dlStatusText">Downloading package...</span>
+              <span id="dlPercentText">0%</span>
+            </div>
+            <div class="w-full bg-slateCustom-100 h-2.5 rounded-full overflow-hidden">
+              <div id="dlProgressBar" class="bg-[#408043] h-full w-0 transition-all duration-200"></div>
+            </div>
+          </div>
+
+          <!-- Checklist -->
+          <div class="border border-slateCustom-100 bg-slateCustom-50 p-4 rounded-xl text-xs font-mono space-y-2 max-h-40 overflow-y-auto" id="dlChecklist">
+            <div id="chkSign" class="text-gray-400">□ Verifying developer signature...</div>
+            <div id="chkCompliance" class="text-gray-400">□ Verifying SAMA/NCA enterprise compliance...</div>
+            <div id="chkWeights" class="text-gray-400">□ Caching Arabic language weights...</div>
+            <div id="chkDmg" class="text-gray-400">□ Downloading communico-studio.dmg...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Success -->
+      <div id="dlStepSuccess" class="space-y-6 hidden">
+        <div class="text-center space-y-2">
+          <div class="w-12 h-12 bg-green-100 text-[#408043] rounded-full flex items-center justify-center mx-auto shadow-sm">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold font-dynamic-heading text-slateCustom-900">Download Complete!</h3>
+          <p class="text-sm text-gray-500 font-normal">Communico Studio for macOS has been successfully verified.</p>
+        </div>
+
+        <div class="p-4 border border-green-100 bg-green-50/50 rounded-xl space-y-2.5 text-xs text-slateCustom-800 leading-relaxed font-normal">
+          <div class="flex items-start gap-2">
+            <span class="text-[#408043] font-bold">1.</span>
+            <span>Open the downloaded file <code>communico-studio.dmg</code> in your Downloads folder.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-[#408043] font-bold">2.</span>
+            <span>Drag <b>Communico Studio</b> into your <code>Applications</code> folder.</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <span class="text-[#408043] font-bold">3.</span>
+            <span>Double click to launch and authenticate with your secure GCC corporate credentials.</span>
+          </div>
+        </div>
+
+        <button onclick="closeDownloadModal()" class="w-full bg-slateCustom-900 text-white hover:bg-black py-3 rounded-full font-bold text-sm transition-all shadow-sm">
+          Close & Install
+        </button>
+      </div>
+
+    </div>
+  </div>
+
   <!-- CORE SCRIPTS & STATE MACHINE -->
   <script>
     // TRANSLATIONS DICTIONARY
@@ -1283,7 +1441,9 @@
         "nav.sectors": "Sectors",
         "nav.governance": "Governance & Integrations",
         "nav.demo": "Book Demo",
-        "hero.headline": "Enterprise AI Agents, Controlled by Your Organization.",
+        "hero.headline": "Experience liftoff with the next-gen agent platform",
+        "hero.cta.download": "Download for MacOS",
+        "hero.cta.explore": "Explore use cases",
         "hero.subheadline": "Communico is an enterprise agentic AI platform for organizations that need to build, govern, deploy, and scale Arabic-first AI agents across workflows, channels, tools, systems, and knowledge sources — on-premise, in private cloud, hybrid, or air-gapped environments where required.",
         "problem.headline": "Most AI platforms were not designed for controlled enterprise environments.",
         "problem.body": "Enterprises across the GCC need AI, but they cannot treat it as a generic cloud tool. Sensitive data, regulated workflows, internal systems, and Arabic customer interactions require a different operating model. AI must run where the organization can control it. Agents must operate within defined boundaries. Tool access must be permissioned. Sensitive outputs must be reviewable. And Arabic cannot be treated as a secondary language. The challenge is not only how to build AI agents. The real challenge is how to build, govern, connect, review, and scale them safely.",
@@ -1414,7 +1574,9 @@
         "nav.sectors": "القطاعات",
         "nav.governance": "الحوكمة والربط",
         "nav.demo": "احجز عرضاً",
-        "hero.headline": "عملاء الذكاء الاصطناعي للمنشآت، تحت سيطرة منظمتك بالكامل.",
+        "hero.headline": "عش تجربة الانطلاق مع منصة عملاء الذكاء الاصطناعي من الجيل الجديد",
+        "hero.cta.download": "تنزيل لنظام macOS",
+        "hero.cta.explore": "استكشاف حالات الاستخدام",
         "hero.subheadline": "كوميونيكو هي منصة للعملاء الذكاء الاصطناعي للمنشآت التي تحتاج إلى بناء، حوكمة، نشر، وتوسيع نطاق عملاء الذكاء الاصطناعي الداعمين للغة العربية أولاً عبر سير العمل والقنوات والأدوات والأنظمة ومصادر المعرفة — محلياً، في السحابة الخاصة، الهجينة، أو البيئات المعزولة تماماً عند الحاجة.",
         "problem.headline": "لم تُصمم معظم منصات الذكاء الاصطناعي لبيئات العمل الخاضعة للرقابة والتحكم.",
         "problem.body": "تحتاج المنشآت في دول مجلس التعاون الخليجي إلى الذكاء الاصطناعي، ولكن لا يمكنها معاملته كأداة سحابية عامة. تتطلب البيانات الحساسة، وسير العمل الخاضع للأنظمة واللوائح، والأنظمة الداخلية، وتفاعلات العملاء باللغة العربية نموذج تشغيل مختلف. يجب أن يعمل الذكاء الاصطناعي حيث يمكن للمنظمة التحكم فيه. ويجب أن يعمل العملاء ضمن حدود محددة. ويجب تفويض الوصول إلى الأدوات وتصريحه. كما يجب أن تكون المخرجات الحساسة قابلة للمراجعة والتدقيق. ولا يمكن معاملة اللغة العربية كلغة ثانوية. التحدي ليس فقط في كيفية بناء عملاء الذكاء الاصطناعي، بل التحدي الحقيقي يكمن في كيفية بنائها وحوكمتها وربطها ومراجعتها وتوسيع نطاقها بأمان.",
@@ -1538,8 +1700,190 @@
         "demo.wr.step3": "• تحقق مسؤول الامتثال البشري من التنبيهات وضغط على موافقة.",
         "demo.wr.step4": "• تم توقيع وتدوين التدقيق النهائي بشكل مشفر.",
         "demo.wr.btn": "محاكاة إجراء غرفة العمل"
+      };
+
+    // Typewriter Animation Variables & Functions
+    let typingInterval = null;
+    let currentTypingText = '';
+
+    function typeHeadline() {
+      const fullText = translations[currentLang]['hero.headline'] || '';
+      
+      // If we are already typing this exact text, do not restart
+      if (currentTypingText === fullText && typingInterval) {
+        return;
       }
-    };
+      
+      if (typingInterval) {
+        clearInterval(typingInterval);
+      }
+      currentTypingText = fullText;
+      
+      const titleEl = document.getElementById('hero-title');
+      const badgeEl = document.getElementById('hero-badge');
+      const buttonsEl = document.getElementById('hero-buttons');
+      
+      if (!titleEl) return;
+
+      // Reset badge and buttons to invisible/slide-down states
+      if (badgeEl) {
+        badgeEl.classList.add('opacity-0', 'translate-y-4');
+        badgeEl.classList.remove('opacity-100', 'translate-y-0');
+      }
+      if (buttonsEl) {
+        buttonsEl.classList.add('opacity-0', 'translate-y-4');
+        buttonsEl.classList.remove('opacity-100', 'translate-y-0');
+      }
+
+      // Clear current content and add blinking cursor
+      titleEl.innerHTML = '<span id="typing-text"></span><span class="typing-cursor"></span>';
+      const textEl = document.getElementById('typing-text');
+
+      let index = 0;
+      // Typing speed: ~35ms per character
+      typingInterval = setInterval(() => {
+        if (index < fullText.length) {
+          textEl.textContent += fullText.charAt(index);
+          index++;
+        } else {
+          // Finished typing!
+          clearInterval(typingInterval);
+          typingInterval = null;
+          
+          // Remove cursor
+          const cursor = titleEl.querySelector('.typing-cursor');
+          if (cursor) {
+            cursor.remove();
+          }
+
+          // Trigger sequential display with small delays
+          setTimeout(() => {
+            if (badgeEl) {
+              badgeEl.classList.remove('opacity-0', 'translate-y-4');
+              badgeEl.classList.add('opacity-100', 'translate-y-0');
+            }
+            
+            setTimeout(() => {
+              if (buttonsEl) {
+                buttonsEl.classList.remove('opacity-0', 'translate-y-4');
+                buttonsEl.classList.add('opacity-100', 'translate-y-0');
+              }
+            }, 300); // 300ms delay between badge and buttons
+          }, 200); // 200ms delay after typing finishes
+        }
+      }, 35);
+    }
+
+    // Scroll to Bento Grid
+    function scrollToSectors() {
+      const el = document.getElementById('platforms-bento');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // macOS Download Modal simulator logic
+    function openDownloadModal() {
+      const modal = document.getElementById('downloadModal');
+      const card = document.getElementById('downloadModalCard');
+      
+      // Show Selection step, hide others
+      document.getElementById('dlStepSelection').classList.remove('hidden');
+      document.getElementById('dlStepProgress').classList.add('hidden');
+      document.getElementById('dlStepSuccess').classList.add('hidden');
+
+      // Reset progress bar & checklist
+      document.getElementById('dlProgressBar').style.width = '0%';
+      document.getElementById('dlPercentText').innerText = '0%';
+      document.getElementById('dlStatusText').innerText = 'Initializing...';
+      
+      document.getElementById('chkSign').className = 'text-gray-400';
+      document.getElementById('chkSign').innerText = '□ Verifying developer signature...';
+      document.getElementById('chkCompliance').className = 'text-gray-400';
+      document.getElementById('chkCompliance').innerText = '□ Verifying SAMA/NCA compliance...';
+      document.getElementById('chkWeights').className = 'text-gray-400';
+      document.getElementById('chkWeights').innerText = '□ Caching Arabic language weights...';
+      document.getElementById('chkDmg').className = 'text-gray-400';
+      document.getElementById('chkDmg').innerText = '□ Downloading communico-studio.dmg...';
+
+      // Open transition
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        modal.classList.remove('opacity-0');
+        card.classList.remove('scale-95');
+      }, 50);
+    }
+
+    function closeDownloadModal() {
+      const modal = document.getElementById('downloadModal');
+      const card = document.getElementById('downloadModalCard');
+      
+      modal.classList.add('opacity-0');
+      card.classList.add('scale-95');
+      
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 300);
+    }
+
+    function startDownloadSimulation(chip) {
+      document.getElementById('dlStepSelection').classList.add('hidden');
+      document.getElementById('dlStepProgress').classList.remove('hidden');
+
+      let progress = 0;
+      const bar = document.getElementById('dlProgressBar');
+      const percentText = document.getElementById('dlPercentText');
+      const statusText = document.getElementById('dlStatusText');
+
+      const chkSign = document.getElementById('chkSign');
+      const chkComp = document.getElementById('chkCompliance');
+      const chkWeight = document.getElementById('chkWeights');
+      const chkDmg = document.getElementById('chkDmg');
+
+      const simInterval = setInterval(() => {
+        progress += 2;
+        bar.style.width = progress + '%';
+        percentText.innerText = progress + '%';
+
+        if (progress < 25) {
+          statusText.innerText = 'Verifying signature keys...';
+          chkSign.className = 'text-amber-600 font-bold';
+          chkSign.innerText = '⏳ Verifying developer signature...';
+        } else if (progress >= 25 && progress < 50) {
+          chkSign.className = 'text-green-600 font-bold';
+          chkSign.innerText = '✓ Developer signature verified';
+          
+          statusText.innerText = 'Checking local GCC compliance rules...';
+          chkComp.className = 'text-amber-600 font-bold';
+          chkComp.innerText = '⏳ Checking SAMA/NCA cloud policy guidelines...';
+        } else if (progress >= 50 && progress < 75) {
+          chkComp.className = 'text-green-600 font-bold';
+          chkComp.innerText = '✓ SAMA & NCA compliance validated';
+          
+          statusText.innerText = 'Caching Arabic language engine...';
+          chkWeight.className = 'text-amber-600 font-bold';
+          chkWeight.innerText = '⏳ Caching Arabic local dialect weights...';
+        } else if (progress >= 75 && progress < 100) {
+          chkWeight.className = 'text-green-600 font-bold';
+          chkWeight.innerText = '✓ Arabic local weights cached';
+          
+          statusText.innerText = `Downloading package for Mac (${chip} Chip)...`;
+          chkDmg.className = 'text-amber-600 font-bold';
+          chkDmg.innerText = '⏳ Downloading communico-studio.dmg (84MB)...';
+        } else if (progress >= 100) {
+          clearInterval(simInterval);
+          chkDmg.className = 'text-green-600 font-bold';
+          chkDmg.innerText = '✓ Download completed';
+          
+          statusText.innerText = 'Ready!';
+          
+          setTimeout(() => {
+            document.getElementById('dlStepProgress').classList.add('hidden');
+            document.getElementById('dlStepSuccess').classList.remove('hidden');
+          }, 300);
+        }
+      }, 50);
+    }
 
     // State Variables
     let currentLang = 'en';
@@ -1551,32 +1895,7 @@
       navigate('home');
       setLanguage('en');
 
-      // Setup 3D Hero Parallax Mouse movement
-      const heroContainer = document.getElementById('hero-container');
-      const heroCard = document.getElementById('hero-card');
-      if (heroContainer && heroCard) {
-        heroContainer.addEventListener('mousemove', (e) => {
-          const rect = heroContainer.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const xc = rect.width / 2;
-          const yc = rect.height / 2;
-          const dx = x - xc;
-          const dy = y - yc;
-          const tiltX = (dy / yc) * 6; // soft tilt degrees max 6
-          const tiltY = -(dx / xc) * 6;
-          heroCard.style.transform = `perspective(1200px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
-        });
-        
-        heroContainer.addEventListener('mouseleave', () => {
-          heroCard.style.transform = `perspective(1200px) rotateX(0deg) rotateY(0deg)`;
-          heroCard.style.transition = 'transform 0.4s ease-out';
-        });
-        
-        heroContainer.addEventListener('mouseenter', () => {
-          heroCard.style.transition = 'none';
-        });
-      }
+      // Setup 3D Hero Parallax Mouse movement (mockup card removed)
 
       // Initialize Scroll Triggered animations (Intersection Observer)
       const observer = new IntersectionObserver((entries) => {
@@ -1630,6 +1949,9 @@
         if (page) {
           page.classList.remove('hidden');
         }
+        if (pageId === 'home') {
+          typeHeadline();
+        }
       }
 
       activePage = pageId;
@@ -1670,6 +1992,10 @@
       document.querySelectorAll('[data-t]').forEach(el => {
         const key = el.getAttribute('data-t');
         if (translations[lang][key]) {
+          // Skip auto-setting hero headline, we handle it via typewriter
+          if (key === 'hero.headline') {
+            return;
+          }
           el.innerText = translations[lang][key];
         }
       });
@@ -1684,6 +2010,10 @@
 
       if (['gov', 'bank', 'ins', 'tel', 'fin'].includes(activePage)) {
         navigate(activePage);
+      }
+      
+      if (activePage === 'home') {
+        typeHeadline();
       }
     }
 
