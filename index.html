@@ -90,7 +90,7 @@
       height: 1.05em;
       vertical-align: middle;
       background-color: #408043;
-      margin-left: 4px;
+      margin-inline-start: 4px;
       animation: blink-cursor 0.8s step-end infinite;
     }
     @keyframes blink-cursor {
@@ -407,7 +407,65 @@
           </g>
         </svg>
 
+        <!-- Right Wing Decorative Sparks (Mirrored for balance around the text with smooth out-of-phase floating animations) -->
+        <svg class="absolute -right-16 top-1/2 -translate-y-1/2 w-80 h-[500px] pointer-events-none opacity-80 hidden lg:block select-none overflow-visible scale-x-[-1]" viewBox="0 0 300 500" fill="none">
+          <!-- Top Group (Indigo/Violet) -->
+          <g class="float-dot-3">
+            <rect x="20" y="80" width="3" height="12" rx="1.5" transform="rotate(25 20 80)" fill="#6366F1" opacity="0.6"/>
+            <rect x="45" y="60" width="3.5" height="14" rx="1.75" transform="rotate(40 45 60)" fill="#8B5CF6" opacity="0.7"/>
+            <rect x="70" y="90" width="3" height="10" rx="1.5" transform="rotate(15 70 90)" fill="#6366F1" opacity="0.5"/>
+            <rect x="95" y="75" width="4" height="15" rx="2" transform="rotate(30 95 75)" fill="#8B5CF6" opacity="0.8"/>
+            <rect x="120" y="110" width="3" height="12" rx="1.5" transform="rotate(45 120 110)" fill="#A78BFA" opacity="0.6"/>
+            <rect x="140" y="90" width="3.5" height="12" rx="1.75" transform="rotate(20 140 90)" fill="#8B5CF6" opacity="0.4"/>
+          </g>
+          
+          <!-- Upper Middle Group (Pink/Purple) -->
+          <g class="float-dot-4">
+            <rect x="30" y="160" width="3.5" height="14" rx="1.75" transform="rotate(10 30 160)" fill="#EC4899" opacity="0.8"/>
+            <rect x="55" y="140" width="3" height="12" rx="1.5" transform="rotate(-15 55 140)" fill="#D946EF" opacity="0.6"/>
+            <rect x="85" y="170" width="4" height="16" rx="2" transform="rotate(35 85 170)" fill="#EC4899" opacity="0.9"/>
+            <rect x="110" y="150" width="3" height="11" rx="1.5" transform="rotate(5 110 150)" fill="#F43F5E" opacity="0.7"/>
+            <rect x="135" y="190" width="3.5" height="13" rx="1.75" transform="rotate(25 135 190)" fill="#EC4899" opacity="0.5"/>
+            <rect x="165" y="165" width="3" height="10" rx="1.5" transform="rotate(-10 165 165)" fill="#F43F5E" opacity="0.6"/>
+            <rect x="190" y="180" width="4" height="14" rx="2" transform="rotate(15 190 180)" fill="#FB7185" opacity="0.8"/>
+          </g>
+
+          <!-- Middle Group (Rose/Red) -->
+          <g class="float-dot-5">
+            <rect x="40" y="240" width="4" height="16" rx="2" transform="rotate(-20 40 240)" fill="#F43F5E" opacity="0.9"/>
+            <rect x="65" y="220" width="3" height="12" rx="1.5" transform="rotate(15 65 220)" fill="#EF4444" opacity="0.7"/>
+            <rect x="95" y="250" width="3.5" height="13" rx="1.75" transform="rotate(40 95 250)" fill="#EC4899" opacity="0.6"/>
+            <rect x="125" y="230" width="4" height="15" rx="2" transform="rotate(-5 125 230)" fill="#EF4444" opacity="0.8"/>
+            <rect x="150" y="270" width="3" height="11" rx="1.5" transform="rotate(30 150 270)" fill="#F87171" opacity="0.5"/>
+            <rect x="175" y="245" width="3.5" height="14" rx="1.75" transform="rotate(10 175 245)" fill="#EF4444" opacity="0.7"/>
+            <rect x="205" y="260" width="3" height="12" rx="1.5" transform="rotate(-15 205 260)" fill="#F97316" opacity="0.6"/>
+            <rect x="230" y="280" width="3.5" height="12" rx="1.75" transform="rotate(20 230 280)" fill="#FB923C" opacity="0.5"/>
+          </g>
+
+          <!-- Lower Middle Group (Red/Orange) -->
+          <g class="float-dot-1">
+            <rect x="25" y="320" width="3" height="13" rx="1.5" transform="rotate(35 25 320)" fill="#EF4444" opacity="0.7"/>
+            <rect x="50" y="300" width="3.5" height="15" rx="1.75" transform="rotate(-10 50 300)" fill="#F97316" opacity="0.8"/>
+            <rect x="80" y="330" width="4" height="16" rx="2" transform="rotate(25 80 330)" fill="#EF4444" opacity="0.9"/>
+            <rect x="105" y="315" width="3" height="11" rx="1.5" transform="rotate(-30 105 315)" fill="#F97316" opacity="0.6"/>
+            <rect x="130" y="350" width="3.5" height="13" rx="1.75" transform="rotate(15 130 350)" fill="#F87171" opacity="0.5"/>
+            <rect x="160" y="330" width="3" height="12" rx="1.5" transform="rotate(5 160 330)" fill="#F97316" opacity="0.7"/>
+            <rect x="185" y="360" width="4" height="14" rx="2" transform="rotate(-20 185 360)" fill="#FB923C" opacity="0.8"/>
+          </g>
+          
+          <!-- Bottom Group (Orange/Amber) -->
+          <g class="float-dot-2">
+            <rect x="15" y="400" width="3.5" height="12" rx="1.75" transform="rotate(45 15 400)" fill="#F97316" opacity="0.6"/>
+            <rect x="35" y="380" width="3" height="10" rx="1.5" transform="rotate(15 35 380)" fill="#F59E0B" opacity="0.5"/>
+            <rect x="60" y="410" width="4" height="14" rx="2" transform="rotate(-10 60 410)" fill="#F97316" opacity="0.8"/>
+            <rect x="85" y="395" width="3" height="12" rx="1.5" transform="rotate(30 85 395)" fill="#F59E0B" opacity="0.6"/>
+            <rect x="110" y="430" width="3.5" height="13" rx="1.75" transform="rotate(5 110 430)" fill="#F97316" opacity="0.5"/>
+            <rect x="130" y="410" width="3" height="11" rx="1.5" transform="rotate(-25 130 410)" fill="#FCD34D" opacity="0.4"/>
+          </g>
+        </svg>
+
         <!-- Centered Text Copy -->
+
         <div class="text-center max-w-4xl mx-auto space-y-6 fade-in-up active relative z-10">
           
           <!-- Premium Logo Badge (Styled like Google Antigravity badge) -->
@@ -710,16 +768,15 @@
               
               <!-- IBM -->
               <div class="flex flex-col items-center justify-center p-6 bg-slateCustom-50 border border-slateCustom-100 rounded-2xl w-40 h-24 shadow-premium hover:shadow-md hover:border-[#408043]/30 hover:scale-105 transition-all duration-300 group relative cursor-pointer">
-                <img src="integration-logo2.png" alt="IBM" class="h-9 object-contain">
+                <svg class="h-6 text-[#0f62fe] fill-current" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+                  <text x="50%" y="30" font-family="'Inter', sans-serif" font-weight="900" font-size="30" fill="#0f62fe" text-anchor="middle" letter-spacing="-1">IBM</text>
+                </svg>
                 <span class="absolute bottom-2 text-xs font-mono text-[#408043] opacity-0 group-hover:opacity-100 transition-opacity font-bold">API ACTIVE</span>
               </div>
               
               <!-- SAP -->
               <div class="flex flex-col items-center justify-center p-6 bg-slateCustom-50 border border-slateCustom-100 rounded-2xl w-40 h-24 shadow-premium hover:shadow-md hover:border-[#408043]/30 hover:scale-105 transition-all duration-300 group relative cursor-pointer">
-                <svg class="h-9 text-[#008FD3] object-contain" viewBox="0 0 100 50" fill="currentColor">
-                  <path d="M10,10 H90 V40 H10 Z" fill="#008FD3"></path>
-                  <text x="50" y="32" font-family="'Inter', sans-serif" font-weight="900" font-size="20" fill="white" text-anchor="middle">SAP</text>
-                </svg>
+                <img src="integration-logo2.png" alt="SAP" class="h-9 object-contain">
                 <span class="absolute bottom-2 text-xs font-mono text-[#408043] opacity-0 group-hover:opacity-100 transition-opacity font-bold">API ACTIVE</span>
               </div>
               
@@ -1700,7 +1757,8 @@
         "demo.wr.step3": "• تحقق مسؤول الامتثال البشري من التنبيهات وضغط على موافقة.",
         "demo.wr.step4": "• تم توقيع وتدوين التدقيق النهائي بشكل مشفر.",
         "demo.wr.btn": "محاكاة إجراء غرفة العمل"
-      };
+      }
+    };
 
     // Typewriter Animation Variables & Functions
     let typingInterval = null;
@@ -1913,6 +1971,14 @@
 
     // SPA ROUTER
     function navigate(pageId) {
+      if (pageId !== 'home') {
+        if (typingInterval) {
+          clearInterval(typingInterval);
+          typingInterval = null;
+        }
+        currentTypingText = '';
+      }
+      
       const isSector = ['gov', 'bank', 'ins', 'tel', 'fin'].includes(pageId);
       
       document.querySelectorAll('.page-content').forEach(el => el.classList.add('hidden'));
