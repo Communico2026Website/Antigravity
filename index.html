@@ -164,70 +164,70 @@
 <body class="h-full flex flex-col font-dynamic-body text-[#495057] overflow-x-hidden">
 
   <!-- NAVIGATION HEADER -->
-  <header class="sticky top-0 z-50 bg-[#FCFCFD]/80 backdrop-blur-md border-b border-slateCustom-100">
+  <header class="sticky top-0 z-50 bg-[#FCFCFD]/85 backdrop-blur-md border-b border-slateCustom-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
-      <!-- Responsive Logo -->
+      <!-- Responsive Logo (Increased Legibility Size) -->
       <a href="#" onclick="navigate('home'); return false;" class="flex items-center gap-2">
-        <img src="communico-logo.png" alt="Communico" class="h-6 hidden md:block">
-        <img src="co-logo.png" alt="Communico" class="h-7 md:hidden">
+        <img src="communico-logo.png" alt="Communico" class="h-10 hidden md:block">
+        <img src="co-logo.png" alt="Communico" class="h-10 md:hidden">
       </a>
 
       <!-- Desktop Nav Links -->
       <nav class="hidden md:flex items-center gap-8">
-        <a href="#" onclick="navigate('home'); return false;" data-t="nav.home" class="text-sm font-medium hover:text-[#408043] transition-colors py-2 text-slateCustom-900">Home</a>
+        <a href="#" onclick="navigate('home'); return false;" data-t="nav.home" class="text-base font-semibold hover:text-[#408043] transition-colors py-2.5 text-slateCustom-900">Home</a>
         
         <!-- Products Dropdown Trigger -->
         <div class="relative group">
-          <button class="flex items-center gap-1.5 text-sm font-medium hover:text-[#408043] transition-colors py-2 text-slateCustom-900">
+          <button class="flex items-center gap-1.5 text-base font-semibold hover:text-[#408043] transition-colors py-2.5 text-slateCustom-900">
             <span data-t="nav.products">Products</span>
-            <svg class="w-3.5 h-3.5 transform group-hover:rotate-180 transition-transform text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7"></path></svg>
+            <svg class="w-5 h-5 transform group-hover:rotate-180 transition-transform text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
           </button>
           <!-- Dropdown Menu -->
-          <div class="absolute top-full left-0 w-72 bg-white border border-slateCustom-100 shadow-xl py-3 mt-2 rounded-xl hidden group-hover:block z-50">
-            <a href="#" onclick="navigate('workflow-automation'); return false;" class="flex items-start gap-3 px-4 py-2.5 hover:bg-brand-bg transition-colors">
-              <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center text-[#408043] shrink-0">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 7.89M9 11l3 3L22 4"></path></svg>
+          <div class="absolute top-full left-0 w-80 bg-white border border-slateCustom-100 shadow-xl py-3 mt-2 rounded-xl hidden group-hover:block z-50">
+            <a href="#" onclick="navigate('workflow-automation'); return false;" class="flex items-start gap-4 px-4 py-3 hover:bg-brand-bg transition-colors rounded-lg">
+              <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center text-[#408043] shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 7.89M9 11l3 3L22 4"></path></svg>
               </div>
               <div>
-                <div data-t="prod.workflow.title" class="text-xs font-bold text-slateCustom-900">AI Workflow Automation</div>
-                <div class="text-[10px] text-gray-400 font-normal">On-premise visual builder</div>
+                <div data-t="prod.workflow.title" class="text-sm font-bold text-slateCustom-900">AI Workflow Automation</div>
+                <div class="text-xs text-gray-500 font-normal mt-0.5">On-premise visual builder</div>
               </div>
             </a>
-            <a href="#" onclick="navigate('ai-agents'); return false;" class="flex items-start gap-3 px-4 py-2.5 hover:bg-brand-bg transition-colors">
-              <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center text-[#408043] shrink-0">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            <a href="#" onclick="navigate('ai-agents'); return false;" class="flex items-start gap-4 px-4 py-3 hover:bg-brand-bg transition-colors rounded-lg">
+              <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center text-[#408043] shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
               </div>
               <div>
-                <div data-t="prod.agents.title" class="text-xs font-bold text-slateCustom-900">AI Agents</div>
-                <div class="text-[10px] text-gray-400 font-normal">Autonomous planning & coordination</div>
+                <div data-t="prod.agents.title" class="text-sm font-bold text-slateCustom-900">AI Agents</div>
+                <div class="text-xs text-gray-500 font-normal mt-0.5">Autonomous planning & coordination</div>
               </div>
             </a>
-            <a href="#" onclick="navigate('assistant-agent'); return false;" class="flex items-start gap-3 px-4 py-2.5 hover:bg-brand-bg transition-colors">
-              <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center text-[#408043] shrink-0">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+            <a href="#" onclick="navigate('assistant-agent'); return false;" class="flex items-start gap-4 px-4 py-3 hover:bg-brand-bg transition-colors rounded-lg">
+              <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center text-[#408043] shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
               </div>
               <div>
-                <div data-t="prod.assistant.title" class="text-xs font-bold text-slateCustom-900">Assistant Agent (Voice & Chat)</div>
-                <div class="text-[10px] text-gray-400 font-normal">Arabic dialect-fluent customer care</div>
+                <div data-t="prod.assistant.title" class="text-sm font-bold text-slateCustom-900">Assistant Agent (Voice & Chat)</div>
+                <div class="text-xs text-gray-500 font-normal mt-0.5">Arabic dialect customer care</div>
               </div>
             </a>
-            <a href="#" onclick="navigate('enterprise-search'); return false;" class="flex items-start gap-3 px-4 py-2.5 hover:bg-brand-bg transition-colors">
-              <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center text-[#408043] shrink-0">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <a href="#" onclick="navigate('enterprise-search'); return false;" class="flex items-start gap-4 px-4 py-3 hover:bg-brand-bg transition-colors rounded-lg">
+              <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center text-[#408043] shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
               </div>
               <div>
-                <div data-t="prod.search.title" class="text-xs font-bold text-slateCustom-900">AI Enterprise Search</div>
-                <div class="text-[10px] text-gray-400 font-normal">Grounded permission-aware answers</div>
+                <div data-t="prod.search.title" class="text-sm font-bold text-slateCustom-900">AI Enterprise Search</div>
+                <div class="text-xs text-gray-500 font-normal mt-0.5">Grounded permission-aware answers</div>
               </div>
             </a>
-            <a href="#" onclick="navigate('workroom'); return false;" class="flex items-start gap-3 px-4 py-2.5 hover:bg-brand-bg transition-colors">
-              <div class="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center text-[#408043] shrink-0">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            <a href="#" onclick="navigate('workroom'); return false;" class="flex items-start gap-4 px-4 py-3 hover:bg-brand-bg transition-colors rounded-lg">
+              <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center text-[#408043] shrink-0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
               </div>
               <div>
-                <div data-t="prod.workroom.title" class="text-xs font-bold text-slateCustom-900">AI Workroom</div>
-                <div class="text-[10px] text-gray-400 font-normal">Multi-agent collaboration workspaces</div>
+                <div data-t="prod.workroom.title" class="text-sm font-bold text-slateCustom-900">AI Workroom</div>
+                <div class="text-xs text-gray-500 font-normal mt-0.5">Multi-agent collaboration workspaces</div>
               </div>
             </a>
           </div>
@@ -235,37 +235,37 @@
 
         <!-- Sectors Dropdown Trigger -->
         <div class="relative group">
-          <button class="flex items-center gap-1.5 text-sm font-medium hover:text-[#408043] transition-colors py-2 text-slateCustom-900">
+          <button class="flex items-center gap-1.5 text-base font-semibold hover:text-[#408043] transition-colors py-2.5 text-slateCustom-900">
             <span data-t="nav.sectors">Sectors</span>
-            <svg class="w-3.5 h-3.5 transform group-hover:rotate-180 transition-transform text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M19 9l-7 7-7-7"></path></svg>
+            <svg class="w-5 h-5 transform group-hover:rotate-180 transition-transform text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
           </button>
-          <div class="absolute top-full left-0 w-56 bg-white border border-slateCustom-100 shadow-xl py-2 mt-2 rounded-xl hidden group-hover:block z-50">
-            <a href="#" onclick="navigate('gov'); return false;" data-t="sector.gov.title" class="block px-4 py-2.5 text-xs font-semibold hover:bg-brand-bg hover:text-[#408043]">Government</a>
-            <a href="#" onclick="navigate('bank'); return false;" data-t="sector.bank.title" class="block px-4 py-2.5 text-xs font-semibold hover:bg-brand-bg hover:text-[#408043]">Banking</a>
-            <a href="#" onclick="navigate('ins'); return false;" data-t="sector.ins.title" class="block px-4 py-2.5 text-xs font-semibold hover:bg-brand-bg hover:text-[#408043]">Insurance</a>
-            <a href="#" onclick="navigate('tel'); return false;" data-t="sector.tel.title" class="block px-4 py-2.5 text-xs font-semibold hover:bg-brand-bg hover:text-[#408043]">Telecom</a>
-            <a href="#" onclick="navigate('fin'); return false;" data-t="sector.fin.title" class="block px-4 py-2.5 text-xs font-semibold hover:bg-brand-bg hover:text-[#408043]">Fintech</a>
+          <div class="absolute top-full left-0 w-60 bg-white border border-slateCustom-100 shadow-xl py-2 mt-2 rounded-xl hidden group-hover:block z-50">
+            <a href="#" onclick="navigate('gov'); return false;" data-t="sector.gov.title" class="block px-5 py-2.5 text-sm font-bold hover:bg-brand-bg hover:text-[#408043]">Government</a>
+            <a href="#" onclick="navigate('bank'); return false;" data-t="sector.bank.title" class="block px-5 py-2.5 text-sm font-bold hover:bg-brand-bg hover:text-[#408043]">Banking</a>
+            <a href="#" onclick="navigate('ins'); return false;" data-t="sector.ins.title" class="block px-5 py-2.5 text-sm font-bold hover:bg-brand-bg hover:text-[#408043]">Insurance</a>
+            <a href="#" onclick="navigate('tel'); return false;" data-t="sector.tel.title" class="block px-5 py-2.5 text-sm font-bold hover:bg-brand-bg hover:text-[#408043]">Telecom</a>
+            <a href="#" onclick="navigate('fin'); return false;" data-t="sector.fin.title" class="block px-5 py-2.5 text-sm font-bold hover:bg-brand-bg hover:text-[#408043]">Fintech</a>
           </div>
         </div>
 
-        <a href="#" onclick="navigate('governance-integrations'); return false;" data-t="nav.governance" class="text-sm font-medium hover:text-[#408043] transition-colors py-2 text-slateCustom-900">Governance & Integrations</a>
+        <a href="#" onclick="navigate('governance-integrations'); return false;" data-t="nav.governance" class="text-base font-semibold hover:text-[#408043] transition-colors py-2.5 text-slateCustom-900">Governance & Integrations</a>
       </nav>
 
-      <!-- Right Buttons (Language + Demo CTA + Mobile Toggle) -->
+      <!-- Right Buttons (Accessible sizes) -->
       <div class="flex items-center gap-4">
         <!-- Language Switcher Button -->
-        <button id="langToggleBtn" onclick="toggleLanguage()" class="border border-slateCustom-200 bg-white px-4 py-2 text-xs font-bold text-slateCustom-900 hover:bg-brand-bg hover:border-[#408043] hover:text-[#408043] transition-all rounded-lg shadow-sm">
+        <button id="langToggleBtn" onclick="toggleLanguage()" class="border border-slateCustom-200 bg-white px-6 py-3 text-sm font-bold text-slateCustom-900 hover:bg-brand-bg hover:border-[#408043] hover:text-[#408043] transition-all rounded-lg shadow-sm">
           العربية
         </button>
         
         <!-- CTA -->
-        <a href="#" onclick="alertDemoRequest(); return false;" data-t="nav.demo" class="hidden sm:inline-block bg-[#408043] text-white px-5 py-2.5 text-xs font-bold rounded-lg hover:bg-[#2E5E30] transition-all shadow-premium hover:shadow-[#408043]/10">
+        <a href="#" onclick="alertDemoRequest(); return false;" data-t="nav.demo" class="hidden sm:inline-block bg-[#408043] text-white px-7 py-3 text-sm font-bold rounded-lg hover:bg-[#2E5E30] transition-all shadow-premium hover:shadow-[#408043]/10">
           Book Demo
         </a>
 
         <!-- Mobile Menu Trigger -->
-        <button onclick="toggleMobileMenu()" class="md:hidden p-2 border border-slateCustom-200 hover:bg-brand-bg hover:text-[#408043] rounded-lg">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        <button onclick="toggleMobileMenu()" class="md:hidden p-3 border border-slateCustom-200 hover:bg-brand-bg hover:text-[#408043] rounded-lg">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
         </button>
       </div>
 
@@ -273,28 +273,28 @@
 
     <!-- Mobile Navigation Drawer -->
     <div id="mobileMenu" class="hidden md:hidden border-t border-slateCustom-100 bg-white px-6 py-6 space-y-4 shadow-xl">
-      <a href="#" onclick="navigate('home'); toggleMobileMenu(); return false;" data-t="nav.home" class="block text-sm font-semibold text-slateCustom-900 py-2 border-b border-slateCustom-100">Home</a>
+      <a href="#" onclick="navigate('home'); toggleMobileMenu(); return false;" data-t="nav.home" class="block text-base font-semibold text-slateCustom-900 py-2 border-b border-slateCustom-100">Home</a>
       
       <div class="space-y-1.5 py-2">
-        <div class="text-[10px] font-bold text-[#408043] uppercase tracking-wider px-1 mb-2" data-t="nav.products">Products</div>
-        <a href="#" onclick="navigate('workflow-automation'); toggleMobileMenu(); return false;" data-t="prod.workflow.title" class="block text-xs font-medium text-slateCustom-900 pl-4 py-1.5">AI Workflow Automation</a>
-        <a href="#" onclick="navigate('ai-agents'); toggleMobileMenu(); return false;" data-t="prod.agents.title" class="block text-xs font-medium text-slateCustom-900 pl-4 py-1.5">AI Agents</a>
-        <a href="#" onclick="navigate('assistant-agent'); toggleMobileMenu(); return false;" data-t="prod.assistant.title" class="block text-xs font-medium text-slateCustom-900 pl-4 py-1.5">Assistant Agent (Voice & Chat)</a>
-        <a href="#" onclick="navigate('enterprise-search'); toggleMobileMenu(); return false;" data-t="prod.search.title" class="block text-xs font-medium text-slateCustom-900 pl-4 py-1.5">AI Enterprise Search</a>
-        <a href="#" onclick="navigate('workroom'); toggleMobileMenu(); return false;" data-t="prod.workroom.title" class="block text-xs font-medium text-slateCustom-900 pl-4 py-1.5">AI Workroom</a>
+        <div class="text-xs font-bold text-[#408043] uppercase tracking-wider px-1 mb-2" data-t="nav.products">Products</div>
+        <a href="#" onclick="navigate('workflow-automation'); toggleMobileMenu(); return false;" data-t="prod.workflow.title" class="block text-sm font-semibold text-slateCustom-900 pl-4 py-1.5">AI Workflow Automation</a>
+        <a href="#" onclick="navigate('ai-agents'); toggleMobileMenu(); return false;" data-t="prod.agents.title" class="block text-sm font-semibold text-slateCustom-900 pl-4 py-1.5">AI Agents</a>
+        <a href="#" onclick="navigate('assistant-agent'); toggleMobileMenu(); return false;" data-t="prod.assistant.title" class="block text-sm font-semibold text-slateCustom-900 pl-4 py-1.5">Assistant Agent (Voice & Chat)</a>
+        <a href="#" onclick="navigate('enterprise-search'); toggleMobileMenu(); return false;" data-t="prod.search.title" class="block text-sm font-semibold text-slateCustom-900 pl-4 py-1.5">AI Enterprise Search</a>
+        <a href="#" onclick="navigate('workroom'); toggleMobileMenu(); return false;" data-t="prod.workroom.title" class="block text-sm font-semibold text-slateCustom-900 pl-4 py-1.5">AI Workroom</a>
       </div>
 
       <div class="space-y-1.5 py-2 border-t border-slateCustom-100">
-        <div class="text-[10px] font-bold text-[#408043] uppercase tracking-wider px-1 mb-2" data-t="nav.sectors">Sectors</div>
-        <a href="#" onclick="navigate('gov'); toggleMobileMenu(); return false;" data-t="sector.gov.title" class="block text-xs font-medium text-slateCustom-900 pl-4 py-1.5">Government</a>
-        <a href="#" onclick="navigate('bank'); toggleMobileMenu(); return false;" data-t="sector.bank.title" class="block text-xs font-medium text-slateCustom-900 pl-4 py-1.5">Banking</a>
-        <a href="#" onclick="navigate('ins'); toggleMobileMenu(); return false;" data-t="sector.ins.title" class="block text-xs font-medium text-slateCustom-900 pl-4 py-1.5">Insurance</a>
-        <a href="#" onclick="navigate('tel'); toggleMobileMenu(); return false;" data-t="sector.tel.title" class="block text-xs font-medium text-slateCustom-900 pl-4 py-1.5">Telecom</a>
-        <a href="#" onclick="navigate('fin'); toggleMobileMenu(); return false;" data-t="sector.fin.title" class="block text-xs font-medium text-slateCustom-900 pl-4 py-1.5">Fintech</a>
+        <div class="text-xs font-bold text-[#408043] uppercase tracking-wider px-1 mb-2" data-t="nav.sectors">Sectors</div>
+        <a href="#" onclick="navigate('gov'); toggleMobileMenu(); return false;" data-t="sector.gov.title" class="block text-sm font-semibold text-slateCustom-900 pl-4 py-1.5">Government</a>
+        <a href="#" onclick="navigate('bank'); toggleMobileMenu(); return false;" data-t="sector.bank.title" class="block text-sm font-semibold text-slateCustom-900 pl-4 py-1.5">Banking</a>
+        <a href="#" onclick="navigate('ins'); toggleMobileMenu(); return false;" data-t="sector.ins.title" class="block text-sm font-semibold text-slateCustom-900 pl-4 py-1.5">Insurance</a>
+        <a href="#" onclick="navigate('tel'); toggleMobileMenu(); return false;" data-t="sector.tel.title" class="block text-sm font-semibold text-slateCustom-900 pl-4 py-1.5">Telecom</a>
+        <a href="#" onclick="navigate('fin'); toggleMobileMenu(); return false;" data-t="sector.fin.title" class="block text-sm font-semibold text-slateCustom-900 pl-4 py-1.5">Fintech</a>
       </div>
 
-      <a href="#" onclick="navigate('governance-integrations'); toggleMobileMenu(); return false;" data-t="nav.governance" class="block text-sm font-semibold text-slateCustom-900 py-3 border-t border-slateCustom-100">Governance & Integrations</a>
-      <a href="#" onclick="alertDemoRequest(); toggleMobileMenu(); return false;" data-t="nav.demo" class="block w-full text-center bg-[#408043] text-white py-3 text-xs font-bold rounded-lg shadow-sm">Book Demo</a>
+      <a href="#" onclick="navigate('governance-integrations'); toggleMobileMenu(); return false;" data-t="nav.governance" class="block text-base font-semibold text-slateCustom-900 py-3 border-t border-slateCustom-100">Governance & Integrations</a>
+      <a href="#" onclick="alertDemoRequest(); toggleMobileMenu(); return false;" data-t="nav.demo" class="block w-full text-center bg-[#408043] text-white py-3.5 text-sm font-bold rounded-lg shadow-sm">Book Demo</a>
     </div>
   </header>
 
@@ -319,7 +319,7 @@
             Enterprise AI Agents, Controlled by Your Organization.
           </h1>
           
-          <p data-t="hero.subheadline" class="text-base sm:text-lg text-gray-500 max-w-3xl mx-auto font-light leading-relaxed">
+          <p data-t="hero.subheadline" class="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto font-normal leading-relaxed">
             Communico is an enterprise agentic AI platform for organizations that need to build, govern, deploy, and scale Arabic-first AI agents across workflows, channels, tools, systems, and knowledge sources — on-premise, in private cloud, hybrid, or air-gapped environments where required.
           </p>
           
@@ -339,30 +339,30 @@
             
             <!-- Sidebar Panel: Steps & Components -->
             <div class="col-span-3 border-r border-slateCustom-100 bg-slateCustom-50 p-4 space-y-4 hidden md:block select-none">
-              <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Steps Library</div>
+              <div class="text-xs font-bold text-gray-500 uppercase tracking-widest">Steps Library</div>
               
               <div class="space-y-2 text-xs">
-                <div class="flex items-center gap-2 p-2 border border-slateCustom-200 bg-white rounded-lg cursor-grab hover:border-[#408043] transition-colors">
+                <div class="flex items-center gap-2 p-2.5 border border-slateCustom-200 bg-white rounded-lg cursor-grab hover:border-[#408043] transition-colors">
                   <span class="p-1 rounded bg-green-50 text-[#408043]">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                   </span>
                   <span class="font-semibold text-slateCustom-900">Trigger Node</span>
                 </div>
-                <div class="flex items-center gap-2 p-2 border border-slateCustom-200 bg-white rounded-lg cursor-grab hover:border-[#408043] transition-colors">
+                <div class="flex items-center gap-2 p-2.5 border border-slateCustom-200 bg-white rounded-lg cursor-grab hover:border-[#408043] transition-colors">
                   <span class="p-1 rounded bg-green-50 text-[#408043]">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
                   </span>
                   <span class="font-semibold text-slateCustom-900">Arabic NLU</span>
                 </div>
-                <div class="flex items-center gap-2 p-2 border border-slateCustom-200 bg-white rounded-lg cursor-grab hover:border-[#408043] transition-colors">
+                <div class="flex items-center gap-2 p-2.5 border border-slateCustom-200 bg-white rounded-lg cursor-grab hover:border-[#408043] transition-colors">
                   <span class="p-1 rounded bg-green-50 text-[#408043]">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                   </span>
                   <span class="font-semibold text-slateCustom-900">Compliance check</span>
                 </div>
-                <div class="flex items-center gap-2 p-2 border border-slateCustom-200 bg-white rounded-lg cursor-grab hover:border-[#408043] transition-colors">
+                <div class="flex items-center gap-2 p-2.5 border border-slateCustom-200 bg-white rounded-lg cursor-grab hover:border-[#408043] transition-colors">
                   <span class="p-1 rounded bg-green-50 text-[#408043]">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
                   </span>
                   <span class="font-semibold text-slateCustom-900">SAP Integration</span>
                 </div>
@@ -385,32 +385,34 @@
               <div class="relative w-full h-full min-h-[260px]">
                 
                 <!-- Node 1: Start Trigger -->
-                <div class="absolute top-4 left-6 bg-white border border-[#408043] shadow-md p-3 rounded-xl w-36 select-none z-10 hover-glow">
+                <div class="absolute top-4 left-6 bg-white border border-[#408043] shadow-md p-3.5 rounded-xl w-40 select-none z-10 hover-glow">
                   <div class="flex items-center gap-1.5">
                     <span class="w-2 h-2 rounded-full bg-[#408043]"></span>
-                    <span class="text-[9px] uppercase font-bold text-[#408043]">Start Trigger</span>
+                    <span class="text-xs uppercase font-bold text-[#408043]">Start Trigger</span>
                   </div>
-                  <div class="text-[10px] font-bold text-slateCustom-900 mt-1">Customer Message</div>
+                  <div class="text-xs font-bold text-slateCustom-900 mt-1">Customer Message</div>
                 </div>
 
                 <!-- Node 2: Arabic NLU -->
-                <div class="absolute top-28 right-8 bg-white border border-slateCustom-200 shadow-md p-3 rounded-xl w-44 select-none z-10 hover-glow">
-                  <div class="flex items-center justify-between border-b border-slateCustom-100 pb-1 mb-1">
-                    <span class="text-[8px] uppercase font-bold text-gray-400">Arabic NLU</span>
-                    <span class="text-[7px] bg-green-50 text-[#408043] px-1 rounded">Active</span>
+                <div class="absolute top-28 right-8 bg-white border border-slateCustom-200 shadow-md p-3.5 rounded-xl w-48 select-none z-10 hover-glow">
+                  <div class="flex items-center justify-between border-b border-slateCustom-100 pb-1.5 mb-1.5">
+                    <span class="text-xs uppercase font-bold text-gray-500">Arabic NLU</span>
+                    <span class="text-xs bg-green-50 text-[#408043] px-2 py-0.5 rounded font-bold">Active</span>
                   </div>
-                  <div class="text-[9px] font-bold text-slateCustom-900">Detect Dialect & Context</div>
-                  <div class="text-[7px] text-gray-400 font-mono mt-1">&gt; confidence: 0.98</div>
+                  <div class="text-xs font-bold text-slateCustom-900">Detect Dialect & Context</div>
+                  <div class="text-xs text-gray-500 font-mono mt-1">&gt; confidence: 0.98</div>
                 </div>
 
                 <!-- Node 3: Compliance Sandbox checks -->
-                <div class="absolute bottom-4 left-10 bg-white border border-slateCustom-200 shadow-md p-3 rounded-xl w-48 select-none z-10 hover-glow">
-                  <div class="flex items-center gap-2 border-b border-slateCustom-100 pb-1 mb-1">
-                    <svg class="w-3.5 h-3.5 text-[#408043]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                    <span class="text-[8px] uppercase font-bold text-slateCustom-900">Sovereign Boundary</span>
+                <div class="absolute bottom-4 left-6 bg-white border border-slateCustom-200 shadow-md p-3.5 rounded-xl w-56 select-none z-10 hover-glow">
+                  <div class="flex items-center gap-2 border-b border-slateCustom-100 pb-1.5 mb-1.5">
+                    <svg class="w-5 h-5 text-[#408043]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <span class="text-xs uppercase font-bold text-slateCustom-900">Sovereign Boundary</span>
                   </div>
-                  <div class="text-[9px] font-semibold text-[#408043]">✓ NCA Cloud Policy check</div>
-                  <div class="text-[9px] font-semibold text-[#408043]">✓ SAMA Compliance validation</div>
+                  <div class="text-xs font-semibold text-[#408043] space-y-1">
+                    <div>✓ NCA Cloud Policy check</div>
+                    <div>✓ SAMA Compliance validation</div>
+                  </div>
                 </div>
 
               </div>
@@ -420,28 +422,28 @@
             <!-- Right Inspector panel -->
             <div class="col-span-3 bg-slateCustom-50 p-4 flex flex-col justify-between hidden md:flex select-none">
               <div class="space-y-4">
-                <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest border-b border-slateCustom-200 pb-2">Properties Inspector</div>
-                <div class="space-y-3 text-xs">
+                <div class="text-xs font-bold text-gray-500 uppercase tracking-widest border-b border-slateCustom-200 pb-2">Properties Inspector</div>
+                <div class="space-y-3.5 text-xs">
                   <div class="space-y-1">
-                    <div class="text-[8px] uppercase font-bold text-gray-400">Selected Node</div>
+                    <div class="text-xs uppercase font-bold text-gray-500">Selected Node</div>
                     <div class="font-bold text-slateCustom-900">Arabic-First LLM Router</div>
                   </div>
                   <div class="space-y-1">
-                    <div class="text-[8px] uppercase font-bold text-gray-400">Hosting Model</div>
-                    <div class="font-bold text-[#408043] flex items-center gap-1">
-                      <span class="w-1.5 h-1.5 rounded-full bg-[#408043]"></span>
+                    <div class="text-xs uppercase font-bold text-gray-500">Hosting Model</div>
+                    <div class="font-bold text-[#408043] flex items-center gap-1.5">
+                      <span class="w-2 h-2 rounded-full bg-[#408043]"></span>
                       ON-PREMISE (GCC)
                     </div>
                   </div>
                   <div class="space-y-1">
-                    <div class="text-[8px] uppercase font-bold text-gray-400">Air-Gapped Status</div>
+                    <div class="text-xs uppercase font-bold text-gray-500">Air-Gapped Status</div>
                     <div class="font-semibold text-slateCustom-800">ENFORCED BOUNDARY</div>
                   </div>
                 </div>
               </div>
 
               <!-- Simulator log -->
-              <div class="bg-slateCustom-900 text-[#56db56] p-3 rounded-lg font-mono text-[9px] space-y-1">
+              <div class="bg-slateCustom-900 text-[#56db56] p-3.5 rounded-lg font-mono text-xs space-y-1">
                 <div>&gt; NLU_ENGINE: OK</div>
                 <div>&gt; LOCALE: SAUDI_ARABIA</div>
                 <div class="animate-pulse">&gt; COMPLIANCE: 100% OK</div>
@@ -456,33 +458,33 @@
       <!-- TRUST BAR SECTION -->
       <div class="border-y border-slateCustom-100 bg-white py-10 overflow-hidden select-none">
         <div class="max-w-7xl mx-auto px-4 mb-4 text-center">
-          <span data-t="ui.trust_headline" class="text-xs font-bold uppercase tracking-widest text-gray-400">
+          <span data-t="ui.trust_headline" class="text-sm font-bold uppercase tracking-widest text-gray-500">
             Trusted by GCC Organizations
           </span>
         </div>
-        <div class="relative w-full overflow-hidden flex items-center h-14">
+        <div class="relative w-full overflow-hidden flex items-center h-16">
           <div id="marqueeTrack" class="animate-marquee-ltr flex gap-20 items-center">
-            <img src="logo1.png" alt="Aramco" class="h-9 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
-            <img src="logo2.png" alt="Princess Nourah" class="h-10 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
-            <div class="text-gray-400 font-bold text-xs uppercase tracking-widest flex items-center gap-2 border border-slateCustom-200 px-4 py-1.5 rounded-full bg-slateCustom-50">
+            <img src="logo1.png" alt="Aramco" class="h-11 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+            <img src="logo2.png" alt="Princess Nourah" class="h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+            <div class="text-gray-500 font-bold text-sm uppercase tracking-widest flex items-center gap-2 border border-slateCustom-200 px-4 py-1.5 rounded-full bg-slateCustom-50">
               <span class="w-2.5 h-2.5 rounded-full bg-[#408043]"></span> NEOM
             </div>
-            <div class="text-gray-400 font-bold text-xs uppercase tracking-widest flex items-center gap-2 border border-slateCustom-200 px-4 py-1.5 rounded-full bg-slateCustom-50">
+            <div class="text-gray-500 font-bold text-sm uppercase tracking-widest flex items-center gap-2 border border-slateCustom-200 px-4 py-1.5 rounded-full bg-slateCustom-50">
               <span class="w-2.5 h-2.5 rounded-full bg-[#408043]"></span> Saudi Electricity
             </div>
-            <div class="text-[#408043] font-bold text-[10px] tracking-wider uppercase border border-[#408043]/25 px-4 py-1.5 rounded-full bg-green-50">
+            <div class="text-[#408043] font-bold text-xs tracking-wider uppercase border border-[#408043]/25 px-4 py-1.5 rounded-full bg-green-50">
               SAMA REGULATED BANK
             </div>
             
-            <img src="logo1.png" alt="Aramco" class="h-9 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
-            <img src="logo2.png" alt="Princess Nourah" class="h-10 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
-            <div class="text-gray-400 font-bold text-xs uppercase tracking-widest flex items-center gap-2 border border-slateCustom-200 px-4 py-1.5 rounded-full bg-slateCustom-50">
+            <img src="logo1.png" alt="Aramco" class="h-11 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+            <img src="logo2.png" alt="Princess Nourah" class="h-12 object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
+            <div class="text-gray-500 font-bold text-sm uppercase tracking-widest flex items-center gap-2 border border-slateCustom-200 px-4 py-1.5 rounded-full bg-slateCustom-50">
               <span class="w-2.5 h-2.5 rounded-full bg-[#408043]"></span> NEOM
             </div>
-            <div class="text-gray-400 font-bold text-xs uppercase tracking-widest flex items-center gap-2 border border-slateCustom-200 px-4 py-1.5 rounded-full bg-slateCustom-50">
+            <div class="text-gray-500 font-bold text-sm uppercase tracking-widest flex items-center gap-2 border border-slateCustom-200 px-4 py-1.5 rounded-full bg-slateCustom-50">
               <span class="w-2.5 h-2.5 rounded-full bg-[#408043]"></span> Saudi Electricity
             </div>
-            <div class="text-[#408043] font-bold text-[10px] tracking-wider uppercase border border-[#408043]/25 px-4 py-1.5 rounded-full bg-green-50">
+            <div class="text-[#408043] font-bold text-xs tracking-wider uppercase border border-[#408043]/25 px-4 py-1.5 rounded-full bg-green-50">
               SAMA REGULATED BANK
             </div>
           </div>
@@ -499,22 +501,22 @@
             </h2>
           </div>
           <div class="lg:col-span-7 space-y-6">
-            <p data-t="problem.body" class="text-gray-500 leading-relaxed font-light text-base sm:text-lg">
+            <p data-t="problem.body" class="text-gray-600 leading-relaxed font-normal text-base sm:text-lg">
               Enterprises across the GCC need AI, but they cannot treat it as a generic cloud tool. Sensitive data, regulated workflows, internal systems, and Arabic customer interactions require a different operating model. AI must run where the organization can control it. Agents must operate within defined boundaries. Tool access must be permissioned. Sensitive outputs must be reviewable. And Arabic cannot be treated as a secondary language. The challenge is not only how to build AI agents. The real challenge is how to build, govern, connect, review, and scale them safely.
             </p>
             <div class="border border-slateCustom-100 bg-white p-6 rounded-2xl shadow-premium">
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center sm:text-left">
                 <div class="space-y-1">
                   <div class="text-2xl font-bold font-dynamic-heading text-slateCustom-900">100%</div>
-                  <div class="text-[10px] uppercase font-bold text-gray-400">Data Sovereignty</div>
+                  <div class="text-xs font-bold text-gray-500">Data Sovereignty</div>
                 </div>
                 <div class="space-y-1 border-t sm:border-t-0 sm:border-x border-slateCustom-100 pt-4 sm:pt-0 sm:px-6">
                   <div class="text-2xl font-bold font-dynamic-heading text-slateCustom-900">Arabic-First</div>
-                  <div class="text-[10px] uppercase font-bold text-gray-400">Local Dialect Models</div>
+                  <div class="text-xs font-bold text-gray-500">Local Dialect Models</div>
                 </div>
                 <div class="space-y-1 pt-4 sm:pt-0 sm:pl-6">
                   <div class="text-2xl font-bold font-dynamic-heading text-slateCustom-900">Fully Audited</div>
-                  <div class="text-[10px] uppercase font-bold text-gray-400">Compliance Logs</div>
+                  <div class="text-xs font-bold text-gray-500">Compliance Logs</div>
                 </div>
               </div>
             </div>
@@ -531,7 +533,7 @@
           <h2 data-t="platform.headline" class="text-3xl font-extrabold font-dynamic-heading text-slateCustom-900">
             One enterprise foundation for governed AI agent operations.
           </h2>
-          <p data-t="platform.body" class="text-sm sm:text-base text-gray-500 leading-relaxed">
+          <p data-t="platform.body" class="text-sm sm:text-base text-gray-600 leading-relaxed">
             Communico brings agent building, workflow automation, enterprise search, human review, tool connections, and controlled deployment into one enterprise platform.
           </p>
         </div>
@@ -543,17 +545,17 @@
           <div onclick="navigate('workflow-automation')" class="bg-white border border-slateCustom-100 shadow-premium rounded-2xl md:col-span-2 flex flex-col justify-between overflow-hidden cursor-pointer group p-8 hover-glow transition-all">
             <div class="space-y-3 mb-8">
               <div class="flex items-center justify-between">
-                <span class="text-[10px] font-mono text-[#408043] uppercase tracking-widest font-bold">Visual Studio</span>
+                <span class="text-xs font-mono text-[#408043] uppercase tracking-widest font-bold">Visual Studio</span>
               </div>
               <h3 data-t="prod.workflow.title" class="text-xl font-bold font-dynamic-heading text-slateCustom-900">AI Workflow Automation</h3>
-              <p data-t="prod.workflow.advantage" class="text-xs text-gray-400 leading-relaxed max-w-xl">
+              <p data-t="prod.workflow.advantage" class="text-sm text-gray-500 leading-relaxed max-w-xl">
                 A visual automation studio that runs inside your walls. Communico's drag-and-drop builder lets you connect systems, route work, and embed AI logic into any process.
               </p>
             </div>
             
             <div class="border border-slateCustom-100 bg-slateCustom-50 p-4 h-48 flex items-center justify-center relative rounded-xl overflow-hidden">
               <div class="flex items-center gap-4 relative z-10 w-full max-w-md">
-                <div class="flex-grow flex flex-col items-center justify-center p-3 border border-slateCustom-200 bg-white text-[10px] font-bold text-slateCustom-900 rounded-lg">
+                <div class="flex-grow flex flex-col items-center justify-center p-3 border border-slateCustom-200 bg-white text-xs font-bold text-slateCustom-900 rounded-lg">
                   <span data-t="demo.wf.start">Inquiry Received</span>
                 </div>
                 <div class="w-12 h-6 relative flex items-center justify-center">
@@ -561,7 +563,7 @@
                     <line x1="0" y1="8" x2="48" y2="8" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="4,4" class="flow-line"></line>
                   </svg>
                 </div>
-                <div class="flex-grow flex flex-col items-center justify-center p-3 border border-[#408043]/30 bg-green-50 text-[10px] font-bold text-slateCustom-900 rounded-lg">
+                <div class="flex-grow flex flex-col items-center justify-center p-3 border border-[#408043]/30 bg-green-50 text-xs font-bold text-slateCustom-900 rounded-lg">
                   <span data-t="demo.wf.step2">Arabic AI Agent Check</span>
                 </div>
                 <div class="w-12 h-6 relative flex items-center justify-center">
@@ -569,7 +571,7 @@
                     <line x1="0" y1="8" x2="48" y2="8" stroke="#408043" stroke-width="1.5" stroke-dasharray="4,4" class="flow-line"></line>
                   </svg>
                 </div>
-                <div class="flex-grow flex flex-col items-center justify-center p-3 border border-slateCustom-200 bg-white text-[10px] font-bold text-slateCustom-900 rounded-lg">
+                <div class="flex-grow flex flex-col items-center justify-center p-3 border border-slateCustom-200 bg-white text-xs font-bold text-slateCustom-900 rounded-lg">
                   <span data-t="demo.wf.end">Update CRM</span>
                 </div>
               </div>
@@ -582,17 +584,17 @@
           <div onclick="navigate('ai-agents')" class="bg-white border border-slateCustom-100 shadow-premium rounded-2xl flex flex-col justify-between overflow-hidden cursor-pointer group p-8 hover-glow transition-all">
             <div class="space-y-3 mb-6">
               <div class="flex items-center justify-between">
-                <span class="text-[10px] font-mono text-[#408043] uppercase tracking-widest font-bold">Autonomy</span>
+                <span class="text-xs font-mono text-[#408043] uppercase tracking-widest font-bold">Autonomy</span>
               </div>
               <h3 data-t="prod.agents.title" class="text-xl font-bold font-dynamic-heading text-slateCustom-900">AI Agents</h3>
-              <p data-t="prod.agents.advantage" class="text-xs text-gray-400 leading-relaxed">
+              <p data-t="prod.agents.advantage" class="text-sm text-gray-500 leading-relaxed">
                 Agents that plan their own path to the goal. Orchestrators delegate to Workers to handle specific tasks, all operating within defined boundaries.
               </p>
             </div>
 
             <div class="border border-slateCustom-100 bg-slateCustom-50 p-4 h-48 flex flex-col items-center justify-center relative rounded-xl">
               <div class="space-y-4 w-full">
-                <div class="mx-auto w-32 py-2 border border-slateCustom-200 bg-white text-[8px] font-bold text-center tracking-wider rounded-lg">
+                <div class="mx-auto w-32 py-2 border border-slateCustom-200 bg-white text-xs font-bold text-center tracking-wider rounded-lg">
                   ORCHESTRATOR
                 </div>
                 <div class="h-6 w-full flex justify-center">
@@ -604,10 +606,10 @@
                   </svg>
                 </div>
                 <div class="flex justify-between gap-4">
-                  <div class="flex-1 py-2 border border-[#408043]/30 bg-green-50 text-[7px] font-bold text-center uppercase tracking-tight rounded-lg">
+                  <div class="flex-1 py-2.5 border border-[#408043]/30 bg-green-50 text-xs font-bold text-center uppercase tracking-tight rounded-lg">
                     Arabic Writer
                   </div>
-                  <div class="flex-1 py-2 border border-slateCustom-200 bg-white text-[7px] font-bold text-center uppercase tracking-tight rounded-lg">
+                  <div class="flex-1 py-2.5 border border-slateCustom-200 bg-white text-xs font-bold text-center uppercase tracking-tight rounded-lg">
                     SAMA Checker
                   </div>
                 </div>
@@ -619,25 +621,25 @@
           <div onclick="navigate('assistant-agent')" class="bg-white border border-slateCustom-100 shadow-premium rounded-2xl flex flex-col justify-between overflow-hidden cursor-pointer group p-8 hover-glow transition-all">
             <div class="space-y-3 mb-6">
               <div class="flex items-center justify-between">
-                <span class="text-[10px] font-mono text-[#408043] uppercase tracking-widest font-bold">Bilingual Dialects</span>
+                <span class="text-xs font-mono text-[#408043] uppercase tracking-widest font-bold">Bilingual Dialects</span>
               </div>
               <h3 data-t="prod.assistant.title" class="text-xl font-bold font-dynamic-heading text-slateCustom-900">Assistant Agent (Voice & Chat)</h3>
-              <p data-t="prod.assistant.advantage" class="text-xs text-gray-400 leading-relaxed">
+              <p data-t="prod.assistant.advantage" class="text-sm text-gray-500 leading-relaxed">
                 An agent that handles calls and chats autonomously—fluent in Arabic dialects, 24/7, and fully integrated with your CRM.
               </p>
             </div>
 
             <div class="border border-slateCustom-100 bg-slateCustom-50 p-4 h-48 flex flex-col justify-end gap-2 relative rounded-xl overflow-hidden">
-              <div class="bg-white border border-slateCustom-100 p-2.5 text-[8px] max-w-[85%] self-end rounded-lg shadow-sm">
+              <div class="bg-white border border-slateCustom-100 p-3 text-xs max-w-[85%] self-end rounded-lg shadow-sm">
                 How can we process SAMA compliance rules in Arabic?
               </div>
-              <div class="bg-green-50 border border-[#408043]/15 p-2.5 text-[8px] max-w-[85%] self-start text-right rounded-lg shadow-sm" dir="rtl">
+              <div class="bg-green-50 border border-[#408043]/15 p-3 text-xs max-w-[85%] self-start text-right rounded-lg shadow-sm" dir="rtl">
                 يمكنني صياغة الردود وضمان امتثالها لضوابط البنك المركزي السعودي تلقائياً.
               </div>
               <div class="flex items-center gap-1 self-start pl-2">
-                <span class="w-1.5 h-1.5 bg-[#408043] rounded-full typing-dot"></span>
-                <span class="w-1.5 h-1.5 bg-[#408043] rounded-full typing-dot"></span>
-                <span class="w-1.5 h-1.5 bg-[#408043] rounded-full typing-dot"></span>
+                <span class="w-2 h-2 bg-[#408043] rounded-full typing-dot"></span>
+                <span class="w-2 h-2 bg-[#408043] rounded-full typing-dot"></span>
+                <span class="w-2 h-2 bg-[#408043] rounded-full typing-dot"></span>
               </div>
             </div>
           </div>
@@ -646,23 +648,23 @@
           <div onclick="navigate('enterprise-search')" class="bg-white border border-slateCustom-100 shadow-premium rounded-2xl flex flex-col justify-between overflow-hidden cursor-pointer group p-8 hover-glow transition-all">
             <div class="space-y-3 mb-6">
               <div class="flex items-center justify-between">
-                <span class="text-[10px] font-mono text-[#408043] uppercase tracking-widest font-bold">Semantic Search</span>
+                <span class="text-xs font-mono text-[#408043] uppercase tracking-widest font-bold">Semantic Search</span>
               </div>
               <h3 data-t="prod.search.title" class="text-xl font-bold font-dynamic-heading text-slateCustom-900">AI Enterprise Search</h3>
-              <p data-t="prod.search.advantage" class="text-xs text-gray-400 leading-relaxed">
+              <p data-t="prod.search.advantage" class="text-sm text-gray-500 leading-relaxed">
                 Ask a question, get an answer with its source. Semantic search that turns scattered enterprise knowledge into grounded, permission-aware answers.
               </p>
             </div>
 
-            <div class="border border-slateCustom-100 bg-slateCustom-50 p-4 h-48 flex flex-col gap-2.5 relative rounded-xl overflow-hidden text-[8px]">
-              <div class="bg-white border border-slateCustom-200 p-2 flex items-center justify-between rounded-lg shadow-sm">
-                <span class="text-gray-400">Search internal audit portal...</span>
-                <svg class="w-3.5 h-3.5 text-[#408043]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <div class="border border-slateCustom-100 bg-slateCustom-50 p-4 h-48 flex flex-col gap-2.5 relative rounded-xl overflow-hidden text-xs">
+              <div class="bg-white border border-slateCustom-200 p-2.5 flex items-center justify-between rounded-lg shadow-sm text-gray-600">
+                <span>Search internal audit portal...</span>
+                <svg class="w-5 h-5 text-[#408043]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
               </div>
               <div class="bg-white border border-slateCustom-100 p-3 space-y-1.5 rounded-lg shadow-sm">
                 <div class="text-[#408043] font-bold">1 Answer Found [Grounded]</div>
-                <p class="text-[7px] text-slateCustom-800 leading-tight">Data retention is limited to 7 years in SA. [Source: PDPL-Sec4.pdf]</p>
-                <div class="text-[6px] text-gray-400">Clearance: Security Cleared ✓</div>
+                <p class="text-xs text-slateCustom-800 leading-tight">Data retention is limited to 7 years in SA. [Source: PDPL-Sec4.pdf]</p>
+                <div class="text-[10px] text-gray-500 font-semibold">Clearance: Security Cleared ✓</div>
               </div>
             </div>
           </div>
@@ -671,25 +673,25 @@
           <div onclick="navigate('workroom')" class="bg-white border border-slateCustom-100 shadow-premium rounded-2xl flex flex-col justify-between overflow-hidden cursor-pointer group p-8 hover-glow transition-all">
             <div class="space-y-3 mb-6">
               <div class="flex items-center justify-between">
-                <span class="text-[10px] font-mono text-[#408043] uppercase tracking-widest font-bold">Human-in-the-Loop</span>
+                <span class="text-xs font-mono text-[#408043] uppercase tracking-widest font-bold">Human-in-the-Loop</span>
               </div>
               <h3 data-t="prod.workroom.title" class="text-xl font-bold font-dynamic-heading text-slateCustom-900">AI Workroom</h3>
-              <p data-t="prod.workroom.advantage" class="text-xs text-gray-400 leading-relaxed">
+              <p data-t="prod.workroom.advantage" class="text-sm text-gray-500 leading-relaxed">
                 A governed workspace where specialized AI agents collaborate under human oversight to complete complex processes, start to finish, with a full audit trail.
               </p>
             </div>
 
-            <div class="border border-slateCustom-100 bg-slateCustom-50 p-4 h-48 flex flex-col gap-2 relative rounded-xl overflow-hidden text-[7px]">
+            <div class="border border-slateCustom-100 bg-slateCustom-50 p-4 h-48 flex flex-col gap-2 relative rounded-xl overflow-hidden text-xs">
               <div class="flex items-center justify-between border-b border-slateCustom-100 pb-2">
                 <span class="font-bold text-slateCustom-900 uppercase tracking-tight">Q2 AUDIT WORKSPACE</span>
-                <span class="px-2 py-0.5 bg-yellow-50 text-yellow-800 font-bold rounded-full text-[6px]">PENDING APPROVAL</span>
+                <span class="px-2 py-0.5 bg-yellow-50 text-yellow-800 font-bold rounded-full text-[10px]">PENDING APPROVAL</span>
               </div>
-              <div class="space-y-1 bg-white p-2.5 border border-slateCustom-100 rounded-lg shadow-sm">
+              <div class="space-y-1 bg-white p-2.5 border border-slateCustom-100 rounded-lg shadow-sm text-gray-600 text-xs">
                 <div>• AI_ANALYSIS_AGENT: SCANNING SUCCESSFUL</div>
                 <div>• COMPLIANCE_RULE_CHECK: NO ALERTS</div>
                 <div class="text-[#408043] font-bold">• HUMAN_ACTION: Awaiting approval...</div>
               </div>
-              <div class="w-full bg-[#408043] text-white text-center py-1.5 font-bold rounded-lg hover:bg-[#2E5E30] transition-colors cursor-pointer text-[8px]">
+              <div class="w-full bg-[#408043] text-white text-center py-2 font-bold rounded-lg hover:bg-[#2E5E30] transition-colors cursor-pointer text-xs">
                 APPROVE WORKFLOW
               </div>
             </div>
@@ -699,7 +701,7 @@
 
       </div>
 
-      <!-- NEW SECTION: CONVERSATIONAL ECOSYSTEM (INTEGRATION LOGOS ANIMATION) -->
+      <!-- ECOSYSTEM INTEGRATIONS SECTION -->
       <div class="bg-white border-b border-slateCustom-100 py-20 md:py-28 overflow-hidden select-none">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           
@@ -709,7 +711,7 @@
             <h2 data-t="home.ecosystem.title" class="text-3xl font-extrabold font-dynamic-heading text-slateCustom-900 leading-tight">
               Create your conversational ecosystem with multiple integration option
             </h2>
-            <p data-t="home.ecosystem.subtitle" class="text-sm text-gray-500 max-w-2xl mx-auto font-light leading-relaxed">
+            <p data-t="home.ecosystem.subtitle" class="text-sm text-gray-600 max-w-2xl mx-auto font-normal leading-relaxed">
               Connect Communico AI agents directly to your enterprise tools, databases, and LLM platforms to automate complex workflows natively.
             </p>
           </div>
@@ -720,40 +722,40 @@
               
               <!-- Google -->
               <div class="flex flex-col items-center justify-center p-6 bg-slateCustom-50 border border-slateCustom-100 rounded-2xl w-40 h-24 shadow-premium hover:shadow-md hover:border-[#408043]/30 hover:scale-105 transition-all duration-300 group relative cursor-pointer">
-                <img src="integration-logo1.png" alt="Google" class="h-8 object-contain">
-                <span class="absolute bottom-2 text-[8px] font-mono text-[#408043] opacity-0 group-hover:opacity-100 transition-opacity">API ACTIVE</span>
+                <img src="integration-logo1.png" alt="Google" class="h-10 object-contain">
+                <span class="absolute bottom-2 text-xs font-mono text-[#408043] opacity-0 group-hover:opacity-100 transition-opacity font-bold">API ACTIVE</span>
               </div>
               
               <!-- IBM -->
               <div class="flex flex-col items-center justify-center p-6 bg-slateCustom-50 border border-slateCustom-100 rounded-2xl w-40 h-24 shadow-premium hover:shadow-md hover:border-[#408043]/30 hover:scale-105 transition-all duration-300 group relative cursor-pointer">
-                <img src="integration-logo2.png" alt="IBM" class="h-7 object-contain">
-                <span class="absolute bottom-2 text-[8px] font-mono text-[#408043] opacity-0 group-hover:opacity-100 transition-opacity">API ACTIVE</span>
+                <img src="integration-logo2.png" alt="IBM" class="h-9 object-contain">
+                <span class="absolute bottom-2 text-xs font-mono text-[#408043] opacity-0 group-hover:opacity-100 transition-opacity font-bold">API ACTIVE</span>
               </div>
               
               <!-- SAP -->
               <div class="flex flex-col items-center justify-center p-6 bg-slateCustom-50 border border-slateCustom-100 rounded-2xl w-40 h-24 shadow-premium hover:shadow-md hover:border-[#408043]/30 hover:scale-105 transition-all duration-300 group relative cursor-pointer">
-                <svg class="h-7 text-[#008FD3] object-contain" viewBox="0 0 100 50" fill="currentColor">
+                <svg class="h-9 text-[#008FD3] object-contain" viewBox="0 0 100 50" fill="currentColor">
                   <path d="M10,10 H90 V40 H10 Z" fill="#008FD3"></path>
                   <text x="50" y="32" font-family="'Inter', sans-serif" font-weight="900" font-size="20" fill="white" text-anchor="middle">SAP</text>
                 </svg>
-                <span class="absolute bottom-2 text-[8px] font-mono text-[#408043] opacity-0 group-hover:opacity-100 transition-opacity">API ACTIVE</span>
+                <span class="absolute bottom-2 text-xs font-mono text-[#408043] opacity-0 group-hover:opacity-100 transition-opacity font-bold">API ACTIVE</span>
               </div>
               
               <!-- Salesforce -->
               <div class="flex flex-col items-center justify-center p-6 bg-slateCustom-50 border border-slateCustom-100 rounded-2xl w-40 h-24 shadow-premium hover:shadow-md hover:border-[#408043]/30 hover:scale-105 transition-all duration-300 group relative cursor-pointer">
-                <svg class="h-8 text-[#00A1E0]" fill="currentColor" viewBox="0 0 24 24"><path d="M19.14 10.42a5.75 5.75 0 0 0-10.87-2A5.36 5.36 0 0 0 5 13.88a5.16 5.16 0 0 0 5.23 5.08h8.86A4.92 4.92 0 0 0 24 14.08a4.83 4.83 0 0 0-4.86-3.66z"></path></svg>
-                <span class="absolute bottom-2 text-[8px] font-mono text-[#408043] opacity-0 group-hover:opacity-100 transition-opacity">API ACTIVE</span>
+                <svg class="h-10 text-[#00A1E0]" fill="currentColor" viewBox="0 0 24 24"><path d="M19.14 10.42a5.75 5.75 0 0 0-10.87-2A5.36 5.36 0 0 0 5 13.88a5.16 5.16 0 0 0 5.23 5.08h8.86A4.92 4.92 0 0 0 24 14.08a4.83 4.83 0 0 0-4.86-3.66z"></path></svg>
+                <span class="absolute bottom-2 text-xs font-mono text-[#408043] opacity-0 group-hover:opacity-100 transition-opacity font-bold">API ACTIVE</span>
               </div>
               
               <!-- Microsoft -->
               <div class="flex flex-col items-center justify-center p-6 bg-slateCustom-50 border border-slateCustom-100 rounded-2xl w-40 h-24 shadow-premium hover:shadow-md hover:border-[#408043]/30 hover:scale-105 transition-all duration-300 group relative cursor-pointer">
-                <div class="grid grid-cols-2 gap-0.5 w-6 h-6">
-                  <div class="bg-[#F25022] w-2.5 h-2.5"></div>
-                  <div class="bg-[#7FBA00] w-2.5 h-2.5"></div>
-                  <div class="bg-[#00A4EF] w-2.5 h-2.5"></div>
-                  <div class="bg-[#FFB900] w-2.5 h-2.5"></div>
+                <div class="grid grid-cols-2 gap-1 w-8 h-8">
+                  <div class="bg-[#F25022] w-3.5 h-3.5"></div>
+                  <div class="bg-[#7FBA00] w-3.5 h-3.5"></div>
+                  <div class="bg-[#00A4EF] w-3.5 h-3.5"></div>
+                  <div class="bg-[#FFB900] w-3.5 h-3.5"></div>
                 </div>
-                <span class="absolute bottom-2 text-[8px] font-mono text-[#408043] opacity-0 group-hover:opacity-100 transition-opacity">API ACTIVE</span>
+                <span class="absolute bottom-2 text-xs font-mono text-[#408043] opacity-0 group-hover:opacity-100 transition-opacity font-bold">API ACTIVE</span>
               </div>
 
             </div>
@@ -770,7 +772,7 @@
         
         <!-- Header -->
         <div class="border-b border-slateCustom-100 pb-8 space-y-4">
-          <a href="#" onclick="navigate('home'); return false;" class="text-xs font-bold text-[#408043] flex items-center gap-1 hover:underline">
+          <a href="#" onclick="navigate('home'); return false;" class="text-sm font-bold text-[#408043] flex items-center gap-1.5 hover:underline py-1.5">
             ← <span data-t="ui.back_home">Back to Home</span>
           </a>
           <h1 data-t="prod.workflow.title" class="text-3xl sm:text-4xl font-extrabold font-dynamic-heading text-slateCustom-900">AI Workflow Automation</h1>
@@ -781,13 +783,13 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div class="bg-white border border-slateCustom-100 shadow-premium p-6 rounded-2xl space-y-3">
             <span class="text-xs font-bold uppercase tracking-wider text-red-600" data-t="prod.workflow.problem_label">The Problem</span>
-            <p data-t="prod.workflow.problem" class="text-sm text-gray-500 leading-relaxed font-light">
+            <p data-t="prod.workflow.problem" class="text-sm text-gray-600 leading-relaxed font-normal">
               Your operations rely on manual tasks spanning disconnected legacy systems. Every day, your teams waste hours moving data by hand between silos.
             </p>
           </div>
           <div class="bg-white border border-slateCustom-100 shadow-premium p-6 border-l-4 border-l-[#408043] rounded-2xl space-y-3">
             <span class="text-xs font-bold uppercase tracking-wider text-[#408043]" data-t="prod.workflow.advantage_label">The Communico Advantage</span>
-            <p data-t="prod.workflow.advantage" class="text-sm text-gray-500 leading-relaxed font-light">
+            <p data-t="prod.workflow.advantage" class="text-sm text-gray-600 leading-relaxed font-normal">
               A visual automation studio that runs inside your walls. Communico's drag-and-drop builder lets you connect systems, route work, and embed AI logic into any process.
             </p>
           </div>
@@ -808,9 +810,9 @@
               <div class="flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
                 <!-- Node 1 -->
                 <div id="wfNode1" class="w-full sm:w-40 p-4 border border-slateCustom-200 bg-white text-center rounded-xl transition-all shadow-sm">
-                  <div class="text-[9px] uppercase font-bold text-gray-400">Step 1</div>
-                  <div class="text-xs font-bold text-slateCustom-900 mt-1" data-t="demo.wf.start">Inquiry Received</div>
-                  <div class="text-[9px] text-[#408043] mt-1.5 font-mono hidden" id="wfNode1Status">Active</div>
+                  <div class="text-xs uppercase font-bold text-gray-500">Step 1</div>
+                  <div class="text-sm font-bold text-slateCustom-900 mt-1" data-t="demo.wf.start">Inquiry Received</div>
+                  <div class="text-xs text-[#408043] mt-1.5 font-mono hidden" id="wfNode1Status">Active</div>
                 </div>
                 
                 <svg class="hidden sm:block w-12 h-6 overflow-visible">
@@ -819,9 +821,9 @@
 
                 <!-- Node 2 -->
                 <div id="wfNode2" class="w-full sm:w-40 p-4 border border-slateCustom-200 bg-white text-center rounded-xl transition-all shadow-sm">
-                  <div class="text-[9px] uppercase font-bold text-gray-400">Step 2</div>
-                  <div class="text-xs font-bold text-slateCustom-900 mt-1" data-t="demo.wf.step2">Arabic AI Agent Check</div>
-                  <div class="text-[9px] text-[#408043] mt-1.5 font-mono hidden" id="wfNode2Status">Active</div>
+                  <div class="text-xs uppercase font-bold text-gray-500">Step 2</div>
+                  <div class="text-sm font-bold text-slateCustom-900 mt-1" data-t="demo.wf.step2">Arabic AI Agent Check</div>
+                  <div class="text-xs text-[#408043] mt-1.5 font-mono hidden" id="wfNode2Status">Active</div>
                 </div>
 
                 <svg class="hidden sm:block w-12 h-6 overflow-visible">
@@ -830,9 +832,9 @@
 
                 <!-- Node 3 -->
                 <div id="wfNode3" class="w-full sm:w-40 p-4 border border-slateCustom-200 bg-white text-center rounded-xl transition-all shadow-sm">
-                  <div class="text-[9px] uppercase font-bold text-gray-400">Step 3</div>
-                  <div class="text-xs font-bold text-slateCustom-900 mt-1" data-t="demo.wf.end">Update CRM</div>
-                  <div class="text-[9px] text-[#408043] mt-1.5 font-mono hidden" id="wfNode3Status">Active</div>
+                  <div class="text-xs uppercase font-bold text-gray-500">Step 3</div>
+                  <div class="text-sm font-bold text-slateCustom-900 mt-1" data-t="demo.wf.end">Update CRM</div>
+                  <div class="text-xs text-[#408043] mt-1.5 font-mono hidden" id="wfNode3Status">Active</div>
                 </div>
               </div>
             </div>
@@ -853,7 +855,7 @@
         
         <!-- Header -->
         <div class="border-b border-slateCustom-100 pb-8 space-y-4">
-          <a href="#" onclick="navigate('home'); return false;" class="text-xs font-bold text-[#408043] flex items-center gap-1 hover:underline">
+          <a href="#" onclick="navigate('home'); return false;" class="text-sm font-bold text-[#408043] flex items-center gap-1.5 hover:underline py-1.5">
             ← <span data-t="ui.back_home">Back to Home</span>
           </a>
           <h1 data-t="prod.agents.title" class="text-3xl sm:text-4xl font-extrabold font-dynamic-heading text-slateCustom-900">AI Agents</h1>
@@ -864,13 +866,13 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div class="bg-white border border-slateCustom-100 shadow-premium p-6 rounded-2xl space-y-3">
             <span class="text-xs font-bold uppercase tracking-wider text-red-600" data-t="prod.workflow.problem_label">The Problem</span>
-            <p data-t="prod.agents.problem" class="text-sm text-gray-500 leading-relaxed font-light">
+            <p data-t="prod.agents.problem" class="text-sm text-gray-600 leading-relaxed font-normal">
               Real enterprise work doesn't follow a fixed script. Analysis and multi-step decisions require more than rigid automation—they require intelligence.
             </p>
           </div>
           <div class="bg-white border border-slateCustom-100 shadow-premium p-6 border-l-4 border-l-[#408043] rounded-2xl space-y-3">
             <span class="text-xs font-bold uppercase tracking-wider text-[#408043]" data-t="prod.workflow.advantage_label">The Communico Advantage</span>
-            <p data-t="prod.agents.advantage" class="text-sm text-gray-500 leading-relaxed font-light">
+            <p data-t="prod.agents.advantage" class="text-sm text-gray-600 leading-relaxed font-normal">
               Agents that plan their own path to the goal. Orchestrators delegate to Workers to handle specific tasks, all operating within defined boundaries.
             </p>
           </div>
@@ -895,8 +897,8 @@
                 
                 <!-- Orchestrator node -->
                 <div id="agNodeOrch" class="w-44 mx-auto p-3.5 border border-slateCustom-200 bg-white text-center rounded-xl shadow-sm transition-all">
-                  <div class="text-[9px] uppercase font-bold text-gray-400" data-t="demo.ag.orchestrate">Orchestrator Agent</div>
-                  <div class="text-[10px] text-[#408043] font-mono hidden mt-1" id="agOrchStatus">Planning...</div>
+                  <div class="text-xs uppercase font-bold text-gray-500" data-t="demo.ag.orchestrate">Orchestrator Agent</div>
+                  <div class="text-xs text-[#408043] font-mono hidden mt-1" id="agOrchStatus">Planning...</div>
                 </div>
 
                 <div class="h-6 w-full flex justify-center">
@@ -910,10 +912,10 @@
 
                 <!-- Worker Nodes -->
                 <div class="flex justify-between gap-6">
-                  <div id="agNodeW1" class="flex-1 p-3 border border-slateCustom-200 bg-white text-center text-[10px] rounded-xl shadow-sm transition-all">
+                  <div id="agNodeW1" class="flex-1 p-3 border border-slateCustom-200 bg-white text-center text-xs rounded-xl shadow-sm transition-all">
                     <div class="font-bold text-slateCustom-900" data-t="demo.ag.w1">Worker Agent 1: Compliance Analyzer</div>
                   </div>
-                  <div id="agNodeW2" class="flex-1 p-3 border border-slateCustom-200 bg-white text-center text-[10px] rounded-xl shadow-sm transition-all">
+                  <div id="agNodeW2" class="flex-1 p-3 border border-slateCustom-200 bg-white text-center text-xs rounded-xl shadow-sm transition-all">
                     <div class="font-bold text-slateCustom-900" data-t="demo.ag.w2">Worker Agent 2: Arabic Content Drafter</div>
                   </div>
                 </div>
@@ -936,7 +938,7 @@
         
         <!-- Header -->
         <div class="border-b border-slateCustom-100 pb-8 space-y-4">
-          <a href="#" onclick="navigate('home'); return false;" class="text-xs font-bold text-[#408043] flex items-center gap-1 hover:underline">
+          <a href="#" onclick="navigate('home'); return false;" class="text-sm font-bold text-[#408043] flex items-center gap-1.5 hover:underline py-1.5">
             ← <span data-t="ui.back_home">Back to Home</span>
           </a>
           <h1 data-t="prod.assistant.title" class="text-3xl sm:text-4xl font-extrabold font-dynamic-heading text-slateCustom-900">Assistant Agent (Voice & Chat)</h1>
@@ -947,13 +949,13 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div class="bg-white border border-slateCustom-100 shadow-premium p-6 rounded-2xl space-y-3">
             <span class="text-xs font-bold uppercase tracking-wider text-red-600" data-t="prod.workflow.problem_label">The Problem</span>
-            <p data-t="prod.assistant.problem" class="text-sm text-gray-500 leading-relaxed font-light">
+            <p data-t="prod.assistant.problem" class="text-sm text-gray-600 leading-relaxed font-normal">
               Your contact center is squeezed. Rising call volumes and automated voice solutions that stumble exactly where it matters most: on Arabic.
             </p>
           </div>
           <div class="bg-white border border-slateCustom-100 shadow-premium p-6 border-l-4 border-l-[#408043] rounded-2xl space-y-3">
             <span class="text-xs font-bold uppercase tracking-wider text-[#408043]" data-t="prod.workflow.advantage_label">The Communico Advantage</span>
-            <p data-t="prod.assistant.advantage" class="text-sm text-gray-500 leading-relaxed font-light">
+            <p data-t="prod.assistant.advantage" class="text-sm text-gray-600 leading-relaxed font-normal">
               An agent that handles calls and chats autonomously—fluent in Arabic dialects, 24/7, and fully integrated with your CRM.
             </p>
           </div>
@@ -970,15 +972,15 @@
                 <span class="w-2.5 h-2.5 bg-[#408043] rounded-full animate-pulse"></span>
                 <span class="text-xs font-bold text-slateCustom-900 font-dynamic-heading" data-t="prod.assistant.title">Assistant Agent (Voice & Chat)</span>
               </div>
-              <span class="text-[10px] text-gray-400 font-mono">CRM Connected</span>
+              <span class="text-xs text-gray-500 font-semibold font-mono">CRM Connected</span>
             </div>
 
             <!-- Dialogue container -->
             <div id="chatMessages" class="flex-grow p-4 overflow-y-auto space-y-4 text-xs">
               <!-- Preset user msg -->
               <div class="flex flex-col items-end space-y-1">
-                <span class="text-[9px] text-gray-400">Customer (English)</span>
-                <div class="bg-white border border-slateCustom-100 p-3 max-w-[85%] rounded-xl shadow-sm" data-t="demo.chat.user_msg">
+                <span class="text-[10px] text-gray-500 font-semibold">Customer (English)</span>
+                <div class="bg-white border border-slateCustom-100 p-3 max-w-[85%] rounded-xl shadow-sm">
                   I want to open a commercial account under corporate regulations.
                 </div>
               </div>
@@ -1003,7 +1005,7 @@
         
         <!-- Header -->
         <div class="border-b border-slateCustom-100 pb-8 space-y-4">
-          <a href="#" onclick="navigate('home'); return false;" class="text-xs font-bold text-[#408043] flex items-center gap-1 hover:underline">
+          <a href="#" onclick="navigate('home'); return false;" class="text-sm font-bold text-[#408043] flex items-center gap-1.5 hover:underline py-1.5">
             ← <span data-t="ui.back_home">Back to Home</span>
           </a>
           <h1 data-t="prod.search.title" class="text-3xl sm:text-4xl font-extrabold font-dynamic-heading text-slateCustom-900">AI Enterprise Search</h1>
@@ -1014,13 +1016,13 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div class="bg-white border border-slateCustom-100 shadow-premium p-6 rounded-2xl space-y-3">
             <span class="text-xs font-bold uppercase tracking-wider text-red-600" data-t="prod.workflow.problem_label">The Problem</span>
-            <p data-t="prod.search.problem" class="text-sm text-gray-500 leading-relaxed font-light">
+            <p data-t="prod.search.problem" class="text-sm text-gray-600 leading-relaxed font-normal">
               Your organization's knowledge is trapped. The answer exists, but it is buried in documents, portals, and databases.
             </p>
           </div>
           <div class="bg-white border border-slateCustom-100 shadow-premium p-6 border-l-4 border-l-[#408043] rounded-2xl space-y-3">
             <span class="text-xs font-bold uppercase tracking-wider text-[#408043]" data-t="prod.workflow.advantage_label">The Communico Advantage</span>
-            <p data-t="prod.search.advantage" class="text-sm text-gray-500 leading-relaxed font-light">
+            <p data-t="prod.search.advantage" class="text-sm text-gray-600 leading-relaxed font-normal">
               Ask a question, get an answer with its source. Semantic search that turns scattered enterprise knowledge into grounded, permission-aware answers.
             </p>
           </div>
@@ -1044,8 +1046,8 @@
                 <span class="text-[#408043] font-bold">✓ Grounded Semantic Response</span>
                 <span class="text-[10px] px-2 py-0.5 bg-[#408043]/10 text-[#408043] border border-[#408043]/15 rounded-full font-bold">Permission: SECURE CLOUD</span>
               </div>
-              <p id="searchAnswerText" class="text-gray-700 leading-relaxed font-light"></p>
-              <div class="text-[9px] text-gray-400 font-mono">
+              <p id="searchAnswerText" class="text-gray-700 leading-relaxed font-normal"></p>
+              <div class="text-[10px] text-gray-500 font-mono">
                 Sources cited: NCA_Cloud_v2.pdf (Page 12), PDPL_2023.pdf (Sec 3.1)
               </div>
             </div>
@@ -1061,7 +1063,7 @@
         
         <!-- Header -->
         <div class="border-b border-slateCustom-100 pb-8 space-y-4">
-          <a href="#" onclick="navigate('home'); return false;" class="text-xs font-bold text-[#408043] flex items-center gap-1 hover:underline">
+          <a href="#" onclick="navigate('home'); return false;" class="text-sm font-bold text-[#408043] flex items-center gap-1.5 hover:underline py-1.5">
             ← <span data-t="ui.back_home">Back to Home</span>
           </a>
           <h1 data-t="prod.workroom.title" class="text-3xl sm:text-4xl font-extrabold font-dynamic-heading text-slateCustom-900">AI Workroom</h1>
@@ -1072,13 +1074,13 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div class="bg-white border border-slateCustom-100 shadow-premium p-6 rounded-2xl space-y-3">
             <span class="text-xs font-bold uppercase tracking-wider text-red-600" data-t="prod.workroom.problem_label">The Problem</span>
-            <p data-t="prod.workroom.problem" class="text-sm text-gray-500 leading-relaxed font-light">
+            <p data-t="prod.workroom.problem" class="text-sm text-gray-600 leading-relaxed font-normal">
               Some processes are too important for a single automation: Audit, compliance, and financial review require human accountability.
             </p>
           </div>
           <div class="bg-white border border-slateCustom-100 shadow-premium p-6 border-l-4 border-l-[#408043] rounded-2xl space-y-3">
             <span class="text-xs font-bold uppercase tracking-wider text-[#408043]" data-t="prod.workflow.advantage_label">The Communico Advantage</span>
-            <p data-t="prod.workroom.advantage" class="text-sm text-gray-500 leading-relaxed font-light">
+            <p data-t="prod.workroom.advantage" class="text-sm text-gray-600 leading-relaxed font-normal">
               A governed workspace where specialized AI agents collaborate under human oversight to complete complex processes, start to finish, with a full audit trail.
             </p>
           </div>
@@ -1099,11 +1101,11 @@
               <div class="font-bold text-slateCustom-900" data-t="demo.wr.card_title">Q2 Financial Compliance Verification</div>
               
               <!-- Audit Logs -->
-              <div class="space-y-2 font-mono text-[10px] border-t border-slateCustom-100 pt-3 text-gray-400">
+              <div class="space-y-2 font-mono text-[10px] border-t border-slateCustom-100 pt-3 text-gray-500">
                 <div class="text-[#408043] font-semibold" data-t="demo.wr.step1">✓ AI Agent scanned 142 ledger transactions for compliance.</div>
                 <div class="text-[#408043] font-semibold" data-t="demo.wr.step2">✓ Flagged 2 outliers for currency conversion review.</div>
-                <div id="wrStep3" class="hidden text-gray-400" data-t="demo.wr.step3">• Human Compliance Officer verified flags and clicked approve.</div>
-                <div id="wrStep4" class="hidden text-gray-400" data-t="demo.wr.step4">• Final audit cryptographically signed & logged.</div>
+                <div id="wrStep3" class="hidden text-gray-500 font-semibold" data-t="demo.wr.step3">• Human Compliance Officer verified flags and clicked approve.</div>
+                <div id="wrStep4" class="hidden text-gray-500 font-semibold" data-t="demo.wr.step4">• Final audit cryptographically signed & logged.</div>
               </div>
             </div>
 
@@ -1123,7 +1125,7 @@
         
         <!-- Header -->
         <div class="border-b border-slateCustom-100 pb-8 space-y-4">
-          <a href="#" onclick="navigate('home'); return false;" class="text-xs font-bold text-[#408043] flex items-center gap-1 hover:underline">
+          <a href="#" onclick="navigate('home'); return false;" class="text-sm font-bold text-[#408043] flex items-center gap-1.5 hover:underline py-1.5">
             ← <span data-t="ui.back_home">Back to Home</span>
           </a>
           <h1 id="sectorTitle" class="text-3xl sm:text-4xl font-extrabold font-dynamic-heading text-slateCustom-900">Sector</h1>
@@ -1134,7 +1136,7 @@
           <!-- Main Content Focus -->
           <div class="lg:col-span-7 bg-white border border-slateCustom-100 shadow-premium p-8 rounded-2xl space-y-6">
             <span class="text-xs font-bold uppercase tracking-wider text-[#408043]" data-t="ui.sectors_title">Sector Solutions</span>
-            <p id="sectorFocus" class="text-sm sm:text-base text-gray-500 leading-relaxed font-light"></p>
+            <p id="sectorFocus" class="text-sm sm:text-base text-gray-600 leading-relaxed font-normal"></p>
             
             <div class="border-t border-slateCustom-100 pt-6 space-y-4">
               <h4 class="text-xs font-bold uppercase tracking-widest text-slateCustom-900">Key Capabilities</h4>
@@ -1163,7 +1165,7 @@
           <div class="lg:col-span-5 bg-white border border-slateCustom-100 shadow-premium p-6 rounded-2xl space-y-4">
             <div class="flex items-center justify-between border-b border-slateCustom-100 pb-3">
               <span class="text-xs font-bold text-slateCustom-900 font-mono">REGULATORY MATRIX</span>
-              <span class="px-2 py-0.5 bg-green-50 text-[#408043] border border-[#408043]/15 rounded-full text-[9px] font-bold">COMPLIANT</span>
+              <span class="px-2 py-0.5 bg-green-50 text-[#408043] border border-[#408043]/15 rounded-full text-xs font-bold">COMPLIANT</span>
             </div>
             
             <div class="space-y-3 text-xs">
@@ -1177,15 +1179,15 @@
               </div>
               <div class="flex items-center justify-between p-2.5 bg-[#F9FAFB] border border-slateCustom-100 rounded-lg">
                 <span class="font-bold">Saudi Arabian Monetary (SAMA)</span>
-                <span id="samaCheck" class="text-gray-400 font-bold">N/A</span>
+                <span id="samaCheck" class="text-gray-500 font-bold">N/A</span>
               </div>
               <div class="flex items-center justify-between p-2.5 bg-[#F9FAFB] border border-slateCustom-100 rounded-lg">
                 <span class="font-bold">CST Scale Regulations</span>
-                <span id="cstCheck" class="text-gray-400 font-bold">N/A</span>
+                <span id="cstCheck" class="text-gray-500 font-bold">N/A</span>
               </div>
             </div>
 
-            <div class="bg-slateCustom-900 text-[#56db56] p-3 font-mono text-[9px] h-24 overflow-y-auto space-y-1 rounded-lg">
+            <div class="bg-slateCustom-900 text-[#56db56] p-3 font-mono text-xs h-24 overflow-y-auto space-y-1 rounded-lg">
               <div>&gt; Loading sector policy guidelines...</div>
               <div>&gt; Verification agent status: ACTIVE</div>
               <div>&gt; Checking sandbox parameters...</div>
@@ -1203,7 +1205,7 @@
         
         <!-- Header -->
         <div class="border-b border-slateCustom-100 pb-8 space-y-4">
-          <a href="#" onclick="navigate('home'); return false;" class="text-xs font-bold text-[#408043] flex items-center gap-1 hover:underline">
+          <a href="#" onclick="navigate('home'); return false;" class="text-sm font-bold text-[#408043] flex items-center gap-1.5 hover:underline py-1.5">
             ← <span data-t="ui.back_home">Back to Home</span>
           </a>
           <h1 data-t="nav.governance" class="text-3xl sm:text-4xl font-extrabold font-dynamic-heading text-slateCustom-900">Governance & Integrations</h1>
@@ -1215,29 +1217,29 @@
           
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
             <div class="bg-white border border-slateCustom-100 shadow-premium p-5 space-y-3 rounded-xl">
-              <div class="w-8 h-8 rounded-lg bg-green-50 text-[#408043] border border-[#408043]/15 flex items-center justify-center font-bold text-xs">1</div>
-              <h3 data-t="gov.principle1.name" class="font-bold text-xs text-slateCustom-900">Control by Design</h3>
-              <p data-t="gov.principle1.desc" class="text-[11px] text-gray-500 leading-relaxed font-light">You dictate the boundaries.</p>
+              <div class="w-8 h-8 rounded-lg bg-green-50 text-[#408043] border border-[#408043]/15 flex items-center justify-center font-bold text-sm">1</div>
+              <h3 data-t="gov.principle1.name" class="font-bold text-sm text-slateCustom-900">Control by Design</h3>
+              <p data-t="gov.principle1.desc" class="text-xs text-gray-500 leading-relaxed font-normal">You dictate the boundaries.</p>
             </div>
             <div class="bg-white border border-slateCustom-100 shadow-premium p-5 space-y-3 rounded-xl">
-              <div class="w-8 h-8 rounded-lg bg-green-50 text-[#408043] border border-[#408043]/15 flex items-center justify-center font-bold text-xs">2</div>
-              <h3 data-t="gov.principle2.name" class="font-bold text-xs text-slateCustom-900">Human Oversight</h3>
-              <p data-t="gov.principle2.desc" class="text-[11px] text-gray-500 leading-relaxed font-light">Review workflows for high-stakes decisions.</p>
+              <div class="w-8 h-8 rounded-lg bg-green-50 text-[#408043] border border-[#408043]/15 flex items-center justify-center font-bold text-sm">2</div>
+              <h3 data-t="gov.principle2.name" class="font-bold text-sm text-slateCustom-900">Human Oversight</h3>
+              <p data-t="gov.principle2.desc" class="text-xs text-gray-500 leading-relaxed font-normal">Review workflows for high-stakes decisions.</p>
             </div>
             <div class="bg-white border border-slateCustom-100 shadow-premium p-5 space-y-3 rounded-xl">
-              <div class="w-8 h-8 rounded-lg bg-green-50 text-[#408043] border border-[#408043]/15 flex items-center justify-center font-bold text-xs">3</div>
-              <h3 data-t="gov.principle3.name" class="font-bold text-xs text-slateCustom-900">Permissioned Access</h3>
-              <p data-t="gov.principle3.desc" class="text-[11px] text-gray-500 leading-relaxed font-light">Agents only touch what they are authorized to touch.</p>
+              <div class="w-8 h-8 rounded-lg bg-green-50 text-[#408043] border border-[#408043]/15 flex items-center justify-center font-bold text-sm">3</div>
+              <h3 data-t="gov.principle3.name" class="font-bold text-sm text-slateCustom-900">Permissioned Access</h3>
+              <p data-t="gov.principle3.desc" class="text-xs text-gray-500 leading-relaxed font-normal">Agents only touch what they are authorized to touch.</p>
             </div>
             <div class="bg-white border border-slateCustom-100 shadow-premium p-5 space-y-3 rounded-xl">
-              <div class="w-8 h-8 rounded-lg bg-green-50 text-[#408043] border border-[#408043]/15 flex items-center justify-center font-bold text-xs">4</div>
-              <h3 data-t="gov.principle4.name" class="font-bold text-xs text-slateCustom-900">Reviewable Outputs</h3>
-              <p data-t="gov.principle4.desc" class="text-[11px] text-gray-500 leading-relaxed font-light">AI suggestions can be edited, rejected, or approved.</p>
+              <div class="w-8 h-8 rounded-lg bg-green-50 text-[#408043] border border-[#408043]/15 flex items-center justify-center font-bold text-sm">4</div>
+              <h3 data-t="gov.principle4.name" class="font-bold text-sm text-slateCustom-900">Reviewable Outputs</h3>
+              <p data-t="gov.principle4.desc" class="text-xs text-gray-500 leading-relaxed font-normal">AI suggestions can be edited, rejected, or approved.</p>
             </div>
             <div class="bg-white border border-slateCustom-100 shadow-premium p-5 space-y-3 rounded-xl">
-              <div class="w-8 h-8 rounded-lg bg-green-50 text-[#408043] border border-[#408043]/15 flex items-center justify-center font-bold text-xs">5</div>
-              <h3 data-t="gov.principle5.name" class="font-bold text-xs text-slateCustom-900">Operational Auditability</h3>
-              <p data-t="gov.principle5.desc" class="text-[11px] text-gray-500 leading-relaxed font-light">Know exactly who (or what) did what, and when.</p>
+              <div class="w-8 h-8 rounded-lg bg-green-50 text-[#408043] border border-[#408043]/15 flex items-center justify-center font-bold text-sm">5</div>
+              <h3 data-t="gov.principle5.name" class="font-bold text-sm text-slateCustom-900">Operational Auditability</h3>
+              <p data-t="gov.principle5.desc" class="text-xs text-gray-500 leading-relaxed font-normal">Know exactly who (or what) did what, and when.</p>
             </div>
           </div>
         </div>
@@ -1249,7 +1251,7 @@
             <h2 data-t="integ.headline" class="text-2xl sm:text-3xl font-extrabold font-dynamic-heading text-slateCustom-900 leading-tight">
               Connect to the Systems You Already Run.
             </h2>
-            <p data-t="integ.body" class="text-sm sm:text-base text-gray-500 leading-relaxed font-light">
+            <p data-t="integ.body" class="text-sm sm:text-base text-gray-600 leading-relaxed font-normal">
               We don’t ask you to replace your stack. We connect to it. From SAP and Oracle to proprietary internal databases, Communico agents integrate securely within your network perimeter.
             </p>
           </div>
@@ -1264,21 +1266,21 @@
                   <span class="w-2 h-2 bg-[#408043] rounded-full"></span>
                   SAP Database
                 </div>
-                <span class="font-mono text-[9px] text-[#408043]">CONNECTED (SSL/IPSEC)</span>
+                <span class="font-mono text-[10px] text-[#408043] font-semibold">CONNECTED (SSL/IPSEC)</span>
               </div>
               <div class="flex items-center justify-between p-3 border border-slateCustom-200 bg-slateCustom-50 text-xs rounded-lg">
                 <div class="flex items-center gap-2 font-bold text-slateCustom-900">
                   <span class="w-2 h-2 bg-[#408043] rounded-full"></span>
                   Oracle CRM
                 </div>
-                <span class="font-mono text-[9px] text-[#408043]">CONNECTED (LOCAL LAN)</span>
+                <span class="font-mono text-[10px] text-[#408043] font-semibold">CONNECTED (LOCAL LAN)</span>
               </div>
               <div class="flex items-center justify-between p-3 border border-slateCustom-200 bg-slateCustom-50 text-xs rounded-lg">
                 <div class="flex items-center gap-2 font-bold text-slateCustom-900">
                   <span class="w-2 h-2 bg-[#408043] rounded-full"></span>
                   Proprietary Document Directory
                 </div>
-                <span class="font-mono text-[9px] text-[#408043]">CONNECTED (AIR-GAPPED STORAGE)</span>
+                <span class="font-mono text-[10px] text-[#408043] font-semibold">CONNECTED (AIR-GAPPED STORAGE)</span>
               </div>
             </div>
           </div>
@@ -1296,11 +1298,11 @@
       <!-- App Info -->
       <div class="space-y-4">
         <!-- Logo wordmark inverted to white -->
-        <img src="communico-logo.png" alt="Communico" class="h-5 brightness-0 invert">
-        <p class="text-xs text-white/80 leading-relaxed font-light">
+        <img src="communico-logo.png" alt="Communico" class="h-9 brightness-0 invert">
+        <p class="text-xs text-white/80 leading-relaxed font-normal">
           Sovereign, Arabic-first AI agents and workflows for modern GCC enterprises.
         </p>
-        <p class="text-[10px] text-white/40">Riyadh, Kingdom of Saudi Arabia</p>
+        <p class="text-xs text-white/70">Riyadh, Kingdom of Saudi Arabia</p>
       </div>
 
       <!-- Products links -->
@@ -1331,12 +1333,12 @@
       <div class="space-y-4 border-t border-white/10 md:border-t-0 pt-6 md:pt-0">
         <h4 class="text-xs font-bold text-white uppercase tracking-wider">Regulatory Compliance</h4>
         <div class="flex flex-wrap gap-2.5 pt-1">
-          <span class="px-2.5 py-1 border border-white/20 bg-white/5 text-[8px] font-bold text-white rounded-full">NCA Cloud ALIGNED</span>
-          <span class="px-2.5 py-1 border border-white/20 bg-white/5 text-[8px] font-bold text-white rounded-full">PDPL COMPLIANT</span>
-          <span class="px-2.5 py-1 border border-white/20 bg-white/5 text-[8px] font-bold text-white rounded-full">SAMA READY</span>
-          <span class="px-2.5 py-1 border border-white/20 bg-white/5 text-[8px] font-bold text-white rounded-full">Vision 2030 Aligned</span>
+          <span class="px-2.5 py-1 border border-white/20 bg-white/5 text-xs font-bold text-white rounded-full">NCA Cloud ALIGNED</span>
+          <span class="px-2.5 py-1 border border-white/20 bg-white/5 text-xs font-bold text-white rounded-full">PDPL COMPLIANT</span>
+          <span class="px-2.5 py-1 border border-white/20 bg-white/5 text-xs font-bold text-white rounded-full">SAMA READY</span>
+          <span class="px-2.5 py-1 border border-white/20 bg-white/5 text-xs font-bold text-white rounded-full">Vision 2030 Aligned</span>
         </div>
-        <p class="text-[9px] text-white/40 pt-2">&copy; 2026 Communico AI. All rights reserved.</p>
+        <p class="text-xs text-white/70 pt-2">&copy; 2026 Communico AI. All rights reserved.</p>
       </div>
 
     </div>
@@ -1844,8 +1846,8 @@
 
       // Reset
       nOrch.className = "w-44 mx-auto p-3.5 border border-slateCustom-200 bg-white text-center rounded-xl shadow-sm transition-all";
-      nW1.className = "flex-1 p-3 border border-slateCustom-200 bg-white text-center text-[10px] rounded-xl shadow-sm transition-all";
-      nW2.className = "flex-1 p-3 border border-slateCustom-200 bg-white text-center text-[10px] rounded-xl shadow-sm transition-all";
+      nW1.className = "flex-1 p-3 border border-slateCustom-200 bg-white text-center text-xs rounded-xl shadow-sm transition-all";
+      nW2.className = "flex-1 p-3 border border-slateCustom-200 bg-white text-center text-xs rounded-xl shadow-sm transition-all";
       document.getElementById('agOrchStatus').classList.add('hidden');
       
       const resetLine = (el) => { if (el) el.setAttribute('stroke', '#E2E8F0'); };
@@ -1864,7 +1866,7 @@
 
       // Delegate to Worker 1
       setTimeout(() => {
-        nW1.className = "flex-1 p-3 border-2 border-[#408043] bg-green-50 text-center text-[10px] rounded-xl shadow-md transition-all";
+        nW1.className = "flex-1 p-3 border-2 border-[#408043] bg-green-50 text-center text-xs rounded-xl shadow-md transition-all";
         if (lC) lC.setAttribute('stroke', '#408043');
         if (lH) lH.setAttribute('stroke', '#408043');
         if (lL) lL.setAttribute('stroke', '#408043');
@@ -1873,7 +1875,7 @@
 
       // Delegate to Worker 2
       setTimeout(() => {
-        nW2.className = "flex-1 p-3 border-2 border-[#408043] bg-green-50 text-center text-[10px] rounded-xl shadow-md transition-all";
+        nW2.className = "flex-1 p-3 border-2 border-[#408043] bg-green-50 text-center text-xs rounded-xl shadow-md transition-all";
         if (lR) lR.setAttribute('stroke', '#408043');
         consoleEl.innerHTML += `<div class="text-[#56db56]">&gt; [Worker 2] Compiling report using Arabic NLP engine. Dialect aligned.</div>`;
       }, 4000);
@@ -1909,11 +1911,11 @@
         const respEl = document.createElement('div');
         respEl.className = 'flex flex-col items-start space-y-1';
         respEl.innerHTML = `
-          <span class="text-[9px] text-gray-400">Assistant (Arabic Core)</span>
+          <span class="text-[10px] text-gray-500 font-semibold">Assistant (Arabic Core)</span>
           <div class="bg-green-50 border border-[#408043]/15 p-3 max-w-[85%] rounded-xl text-right shadow-sm" dir="rtl">
             ${translations[currentLang]['demo.chat.agent_msg']}
           </div>
-          <span class="text-[8px] text-gray-400 italic">${translations[currentLang]['demo.chat.agent_msg_trans']}</span>
+          <span class="text-[10px] text-gray-500 font-medium italic">${translations[currentLang]['demo.chat.agent_msg_trans']}</span>
         `;
         messagesContainer.appendChild(respEl);
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
@@ -1966,7 +1968,7 @@
       setTimeout(() => {
         step4.className = 'text-[#408043] font-semibold';
         badge.innerText = translations[currentLang]['demo.wr.badge_approved'];
-        badge.className = 'px-2.5 py-0.5 bg-green-50 text-[#408043] border border-[#408043]/15 text-[10px] font-bold rounded-full';
+        badge.className = 'px-2.5 py-0.5 bg-green-50 text-[#408043] border border-[#408043]/15 text-xs font-bold rounded-full';
         btn.disabled = false;
       }, 2000);
     }
